@@ -25,11 +25,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # local env files
-<<<<<<< HEAD
-=======
 /.env
 .env
->>>>>>> 191c52d (initial commit)
 .env.local
 .env.development.local
 .env.test.local

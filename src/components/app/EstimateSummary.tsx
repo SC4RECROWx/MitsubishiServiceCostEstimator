@@ -18,6 +18,8 @@ interface Props {
   partsData: Part[];
 }
 
+const PPN_RATE = 0.11; // 11%
+
 export default function EstimateSummary({
   vehicle,
   periodicService,
@@ -62,15 +64,18 @@ export default function EstimateSummary({
   }, [periodicService, additionalServices, accessories, partsData]);
 
   const totalCosts = useMemo(() => {
-    return selectedItems.reduce(
+    const totals = selectedItems.reduce(
       (acc, item) => {
         acc.parts += item.partsCost;
         acc.labor += item.laborCost;
-        acc.total += item.partsCost + item.laborCost;
+        acc.subtotal += item.partsCost + item.laborCost;
         return acc;
       },
-      { parts: 0, labor: 0, total: 0 }
+      { parts: 0, labor: 0, subtotal: 0 }
     );
+    const ppn = totals.subtotal * PPN_RATE;
+    const total = totals.subtotal + ppn;
+    return { ...totals, ppn, total };
   }, [selectedItems]);
 
   const handleDownloadPdf = () => {
@@ -118,7 +123,7 @@ export default function EstimateSummary({
         pdf.text(item.name, margin, cursorY);
         pdf.text(formatCurrency(item.partsCost + item.laborCost), pageWidth - margin, cursorY, { align: 'right' });
         cursorY += 7;
-        if (cursorY > 270) { // check if new page is needed
+        if (cursorY > 260) { // check if new page is needed
           pdf.addPage();
           cursorY = 20;
         }
@@ -135,12 +140,13 @@ export default function EstimateSummary({
 
       pdf.setFontSize(12);
       pdf.setFont("helvetica", "normal");
-      pdf.text("Total Biaya Suku Cadang & Aksesoris", margin, cursorY);
-      textRight(formatCurrency(totalCosts.parts), cursorY);
+      
+      pdf.text("Subtotal", margin, cursorY);
+      textRight(formatCurrency(totalCosts.subtotal), cursorY);
       cursorY += 7;
 
-      pdf.text("Total Biaya Jasa", margin, cursorY);
-      textRight(formatCurrency(totalCosts.labor), cursorY);
+      pdf.text(`PPN (${PPN_RATE * 100}%)`, margin, cursorY);
+      textRight(formatCurrency(totalCosts.ppn), cursorY);
       cursorY += 10;
 
       // Grand Total
@@ -223,14 +229,27 @@ ${selectedItems.map(item => `- ${item.name}`).join('\n')}
             {selectedItems.length > 0 && <Separator />}
 
             <div className="space-y-2 text-sm">
-            <div className="flex justify-between">
-                <span>Total Biaya Suku Cadang & Aksesoris</span>
-                <span className="font-medium">{formatCurrency(totalCosts.parts)}</span>
+              <div className="flex justify-between">
+                  <span>Total Suku Cadang & Aksesoris</span>
+                  <span className="font-medium">{formatCurrency(totalCosts.parts)}</span>
+              </div>
+              <div className="flex justify-between">
+                  <span>Total Jasa</span>
+                  <span className="font-medium">{formatCurrency(totalCosts.labor)}</span>
+              </div>
             </div>
-            <div className="flex justify-between">
-                <span>Total Biaya Jasa</span>
-                <span className="font-medium">{formatCurrency(totalCosts.labor)}</span>
-            </div>
+
+            <Separator />
+
+            <div className="space-y-2 text-sm">
+              <div className="flex justify-between">
+                <span>Subtotal</span>
+                <span className="font-medium">{formatCurrency(totalCosts.subtotal)}</span>
+              </div>
+              <div className="flex justify-between">
+                <span>PPN (11%)</span>
+                <span className="font-medium">{formatCurrency(totalCosts.ppn)}</span>
+              </div>
             </div>
             <Separator />
             <div className="flex justify-between font-bold text-lg">

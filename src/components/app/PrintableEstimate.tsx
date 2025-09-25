@@ -21,6 +21,8 @@ interface Props {
   partsData: Part[];
 }
 
+const PPN_RATE = 0.11; // 11%
+
 // This component is a simplified, non-interactive version for printing/PDF generation.
 export default function PrintableEstimate({
   vehicle,
@@ -64,15 +66,18 @@ export default function PrintableEstimate({
   }, [periodicService, additionalServices, accessories, partsData]);
 
   const totalCosts = useMemo(() => {
-    return selectedItems.reduce(
+    const totals = selectedItems.reduce(
       (acc, item) => {
         acc.parts += item.partsCost;
         acc.labor += item.laborCost;
-        acc.total += item.partsCost + item.laborCost;
+        acc.subtotal += item.partsCost + item.laborCost;
         return acc;
       },
-      { parts: 0, labor: 0, total: 0 }
+      { parts: 0, labor: 0, subtotal: 0 }
     );
+    const ppn = totals.subtotal * PPN_RATE;
+    const total = totals.subtotal + ppn;
+    return { ...totals, ppn, total };
   }, [selectedItems]);
 
   return (
@@ -107,12 +112,21 @@ export default function PrintableEstimate({
             <Separator className="my-4"/>
              <div className="space-y-2 text-base">
                 <div className="flex justify-between">
-                    <span>Total Biaya Suku Cadang & Aksesoris</span>
+                    <span>Total Suku Cadang & Aksesoris</span>
                     <span className="font-semibold">{formatCurrency(totalCosts.parts)}</span>
                 </div>
                 <div className="flex justify-between">
-                    <span>Total Biaya Jasa</span>
+                    <span>Total Jasa</span>
                     <span className="font-semibold">{formatCurrency(totalCosts.labor)}</span>
+                </div>
+                <Separator className="my-2"/>
+                <div className="flex justify-between">
+                    <span>Subtotal</span>
+                    <span className="font-semibold">{formatCurrency(totalCosts.subtotal)}</span>
+                </div>
+                <div className="flex justify-between">
+                    <span>PPN (11%)</span>
+                    <span className="font-semibold">{formatCurrency(totalCosts.ppn)}</span>
                 </div>
                 <Separator className="my-2"/>
                 <div className="flex justify-between font-bold text-xl">

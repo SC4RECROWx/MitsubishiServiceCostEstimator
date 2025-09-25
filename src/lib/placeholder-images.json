@@ -1,0 +1,52 @@
+{
+  "placeholderImages": [
+    {
+      "id": "xpander",
+      "description": "Mitsubishi Xpander",
+      "imageUrl": "https://picsum.photos/seed/xpander/600/400",
+      "imageHint": "white car"
+    },
+    {
+      "id": "pajero-sport",
+      "description": "Mitsubishi All New Pajero Sport",
+      "imageUrl": "https://picsum.photos/seed/pajero-sport/600/400",
+      "imageHint": "black suv"
+    },
+    {
+      "id": "pajero",
+      "description": "Mitsubishi Pajero Sport",
+      "imageUrl": "https://picsum.photos/seed/pajero-classic/600/400",
+      "imageHint": "silver suv"
+    },
+    {
+      "id": "xforce",
+      "description": "Mitsubishi Xforce",
+      "imageUrl": "https://picsum.photos/seed/xforce/600/400",
+      "imageHint": "orange suv"
+    },
+    {
+      "id": "outlander-sport",
+      "description": "Mitsubishi Outlander Sport",
+      "imageUrl": "https://picsum.photos/seed/outlander/600/400",
+      "imageHint": "red suv"
+    },
+    {
+      "id": "triton",
+      "description": "Mitsubishi Triton",
+      "imageUrl": "https://picsum.photos/seed/triton/600/400",
+      "imageHint": "silver pickup"
+    },
+    {
+      "id": "mirage",
+      "description": "Mitsubishi Mirage",
+      "imageUrl": "https://picsum.photos/seed/mirage/600/400",
+      "imageHint": "red hatchback"
+    },
+    {
+      "id": "l300",
+      "description": "Mitsubishi L300",
+      "imageUrl": "https://picsum.photos/seed/l300/600/400",
+      "imageHint": "black van"
+    }
+  ]
+}

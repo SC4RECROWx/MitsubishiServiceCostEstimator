@@ -7,7 +7,10 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "xpander",
     name: "Pahe 1: Ganti Oli",
     mileage: 0, // Not based on mileage anymore
-    jobs: [{ description: "Jasa Ganti Oli", cost: 80000 }],
+    jobs: [
+        { description: "Jasa Ganti Oli", cost: 80000 },
+        { description: "Jasa Pengecekan Umum", cost: 50000 }
+    ],
     parts: [{ partId: "xp-engine-oil", quantity: 1 }],
   },
   {
@@ -15,7 +18,10 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "xpander",
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
-    jobs: [{ description: "Jasa Ganti Oli & Filter Oli", cost: 97000 }],
+    jobs: [
+        { description: "Jasa Ganti Oli & Filter Oli", cost: 97000 },
+        { description: "Jasa Pengecekan Umum", cost: 50000 }
+    ],
     parts: [
       { partId: "xp-engine-oil", quantity: 1 },
       { partId: "xp-oil-filter", quantity: 1 },
@@ -27,7 +33,10 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "xpander",
     name: "Pahe 3: Ganti Oli + Filter Oli & AC",
     mileage: 0,
-    jobs: [{ description: "Jasa Ganti Oli, Filter Oli & AC", cost: 152000 }],
+    jobs: [
+        { description: "Jasa Ganti Oli, Filter Oli & AC", cost: 152000 },
+        { description: "Jasa Pengecekan Umum", cost: 50000 }
+    ],
     parts: [
       { partId: "xp-engine-oil", quantity: 1 },
       { partId: "xp-oil-filter", quantity: 1 },
@@ -43,6 +52,7 @@ export const periodicServices: PeriodicService[] = [
     jobs: [
         { description: "Jasa Ganti Oli, Filter Oli & AC", cost: 152000 },
         { description: "Engine Flush", cost: 150000 },
+        { description: "Jasa Pengecekan Umum", cost: 50000 }
     ],
     parts: [
       { partId: "xp-engine-oil", quantity: 1 },
@@ -57,7 +67,10 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "pajero-sport",
     name: "Pahe 1: Ganti Oli",
     mileage: 0,
-    jobs: [{ description: "Jasa Ganti Oli", cost: 108000 }],
+    jobs: [
+        { description: "Jasa Ganti Oli", cost: 108000 },
+        { description: "Jasa Pengecekan Umum", cost: 50000 }
+    ],
     parts: [{ partId: "ps-engine-oil", quantity: 1 }],
   },
   {
@@ -65,7 +78,10 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "pajero-sport",
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
-    jobs: [{ description: "Jasa Ganti Oli & Filter Oli", cost: 143000 }],
+    jobs: [
+        { description: "Jasa Ganti Oli & Filter Oli", cost: 143000 },
+        { description: "Jasa Pengecekan Umum", cost: 50000 }
+    ],
     parts: [
       { partId: "ps-engine-oil", quantity: 1 },
       { partId: "ps-oil-filter", quantity: 1 },
@@ -77,7 +93,10 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "pajero-sport",
     name: "Pahe 3: Ganti Oli + Filter Oli & AC",
     mileage: 0,
-    jobs: [{ description: "Jasa Ganti Oli, Filter Oli & AC", cost: 198000 }],
+    jobs: [
+        { description: "Jasa Ganti Oli, Filter Oli & AC", cost: 198000 },
+        { description: "Jasa Pengecekan Umum", cost: 50000 }
+    ],
     parts: [
       { partId: "ps-engine-oil", quantity: 1 },
       { partId: "ps-oil-filter", quantity: 1 },
@@ -93,6 +112,7 @@ export const periodicServices: PeriodicService[] = [
     jobs: [
         { description: "Jasa Ganti Oli, Filter Oli & AC", cost: 198000 },
         { description: "Engine Flush", cost: 200000 },
+        { description: "Jasa Pengecekan Umum", cost: 50000 }
     ],
     parts: [
       { partId: "ps-engine-oil", quantity: 1 },
@@ -107,7 +127,10 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "xforce",
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
-    jobs: [{ description: "Jasa Ganti Oli & Filter Oli", cost: 97000 }],
+    jobs: [
+        { description: "Jasa Ganti Oli & Filter Oli", cost: 97000 },
+        { description: "Jasa Pengecekan Umum", cost: 50000 }
+    ],
     parts: [
       { partId: "xf-engine-oil", quantity: 1 },
       { partId: "xf-oil-filter", quantity: 1 },
@@ -120,7 +143,10 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "outlander-sport",
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
-    jobs: [{ description: "Jasa Ganti Oli & Filter Oli", cost: 110000 }],
+    jobs: [
+        { description: "Jasa Ganti Oli & Filter Oli", cost: 110000 },
+        { description: "Jasa Pengecekan Umum", cost: 50000 }
+    ],
     parts: [
       { partId: "os-engine-oil", quantity: 1 },
       { partId: "os-oil-filter", quantity: 1 },
@@ -133,7 +159,10 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "mirage",
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
-    jobs: [{ description: "Jasa Ganti Oli & Filter Oli", cost: 75000 }],
+    jobs: [
+        { description: "Jasa Ganti Oli & Filter Oli", cost: 75000 },
+        { description: "Jasa Pengecekan Umum", cost: 50000 }
+    ],
     parts: [
       { partId: "mr-engine-oil", quantity: 1 },
       { partId: "mr-oil-filter", quantity: 1 },
@@ -146,7 +175,10 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "l300",
     name: "Pahe 1: Ganti Oli",
     mileage: 0,
-    jobs: [{ description: "Jasa Ganti Oli", cost: 70000 }],
+    jobs: [
+        { description: "Jasa Ganti Oli", cost: 70000 },
+        { description: "Jasa Pengecekan Umum", cost: 50000 }
+    ],
     parts: [
       { partId: "l300-engine-oil", quantity: 1 },
     ],
@@ -156,7 +188,10 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "l300",
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
-    jobs: [{ description: "Jasa Ganti Oli & Filter Oli", cost: 85000 }],
+    jobs: [
+        { description: "Jasa Ganti Oli & Filter Oli", cost: 85000 },
+        { description: "Jasa Pengecekan Umum", cost: 50000 }
+    ],
     parts: [
       { partId: "l300-engine-oil", quantity: 1 },
       { partId: "l300-oil-filter", quantity: 1 },
@@ -168,7 +203,10 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "l300",
     name: "Pahe 3: Lengkap (Oli, Filter Oli, Filter Solar)",
     mileage: 0,
-    jobs: [{ description: "Jasa Ganti Oli, Filter Oli & Filter Solar", cost: 125000 }],
+    jobs: [
+        { description: "Jasa Ganti Oli, Filter Oli & Filter Solar", cost: 125000 },
+        { description: "Jasa Pengecekan Umum", cost: 50000 }
+    ],
     parts: [
       { partId: "l300-engine-oil", quantity: 1 },
       { partId: "l300-oil-filter", quantity: 1 },

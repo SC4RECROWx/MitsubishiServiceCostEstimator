@@ -26,13 +26,8 @@ Untuk menjalankan aplikasi ini di lingkungan pengembangan lokal Anda, ikuti lang
 
 1.  **Clone Repositori**
     ```bash
-<<<<<<< HEAD
-    git clone [URL-repositori-Anda]
-    cd [nama-folder-repositori]
-=======
     git clone [https://github.com/SC4RECROWx/MitsubishiServiceCostEstimator.git]
     cd [MitsubishiServiceCostEstimator]
->>>>>>> 191c52d (initial commit)
     ```
 
 2.  **Install Dependensi**

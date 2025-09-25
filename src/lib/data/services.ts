@@ -254,3 +254,106 @@ export const tyreServices: AdditionalService[] = [
     parts: [],
   },
 ];
+
+const smallCars = ["mirage", "xpander", "xforce"];
+const largeCars = ["triton", "outlander-sport", "pajero-sport", "pajero", "delica"]; // Assuming Delica might be added later
+
+export const acAndEngineServices: AdditionalService[] = [
+  {
+    id: "ac-fresh-ringan-sb",
+    name: "AC FRESH RINGAN (SINGLE BLOWER)",
+    applicableModels: [...smallCars, ...largeCars],
+    job: { description: "Jasa AC Fresh Ringan Single Blower", cost: 0 }, // Cost is set dynamically
+    parts: [],
+  },
+  {
+    id: "ac-fresh-ringan-db",
+    name: "AC FRESH RINGAN (DOUBLE BLOWER)",
+    applicableModels: [...smallCars, ...largeCars],
+    job: { description: "Jasa AC Fresh Ringan Double Blower", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "ac-clean",
+    name: "AC CLEAN",
+    applicableModels: [...smallCars, ...largeCars],
+    job: { description: "Jasa AC Clean", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "ac-care",
+    name: "AC CARE",
+    applicableModels: [...smallCars, ...largeCars],
+    job: { description: "Jasa AC Care", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "ac-fresh-sb",
+    name: "AC FRESH (SINGLE BLOWER)",
+    applicableModels: [...smallCars, ...largeCars],
+    job: { description: "Jasa AC Fresh Single Blower", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "ac-fresh-db",
+    name: "AC FRESH (DOUBLE BLOWER)",
+    applicableModels: [...smallCars, ...largeCars],
+    job: { description: "Jasa AC Fresh Double Blower", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "ac-fogging",
+    name: "AIR SANITIZER/FOGGING",
+    applicableModels: [...smallCars, ...largeCars],
+    job: { description: "Jasa Air Sanitizer/Fogging", cost: 102000 },
+    parts: [],
+  },
+  {
+    id: "ac-oli-kompresor-single",
+    name: "OLI KOMPRESOR - SINGLE (JASA FREON & OLI)",
+    applicableModels: [...smallCars, ...largeCars],
+    job: { description: "Jasa & Oli Kompresor Single Blower", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "ac-oli-kompresor-double",
+    name: "OLI KOMPRESOR - DOUBLE (JASA FREON & OLI)",
+    applicableModels: [...smallCars, ...largeCars],
+    job: { description: "Jasa & Oli Kompresor Double Blower", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "ac-flat-rate",
+    name: "FLATRATE SERVICE /JAM",
+    applicableModels: [...smallCars, ...largeCars],
+    job: { description: "Jasa Flatrate per Jam", cost: 302000 },
+    parts: [],
+  },
+  {
+    id: "ac-engine-clean",
+    name: "ENGINE CLEAN",
+    applicableModels: [...smallCars, ...largeCars],
+    job: { description: "Jasa Engine Clean", cost: 0 },
+    parts: [],
+  },
+];
+
+export function getAcServicePrice(serviceId: string, vehicleModelId: string): number {
+  const isSmallCar = smallCars.includes(vehicleModelId);
+  
+  switch (serviceId) {
+    case "ac-fresh-ringan-sb": return isSmallCar ? 555000 : 605000;
+    case "ac-fresh-ringan-db": return isSmallCar ? 605000 : 660000;
+    case "ac-clean": return isSmallCar ? 271395 : 309690;
+    case "ac-care": return isSmallCar ? 170304 : 252000;
+    case "ac-fresh-sb": return isSmallCar ? 1011000 : 1212000;
+    case "ac-fresh-db": return isSmallCar ? 1415000 : 1718000;
+    case "ac-oli-kompresor-single": return isSmallCar ? 302000 : 353000;
+    case "ac-oli-kompresor-double": return isSmallCar ? 353000 : 403000;
+    case "ac-engine-clean": return isSmallCar ? 222000 : 252000;
+    // Default cases for fixed prices
+    case "ac-fogging": return 102000;
+    case "ac-flat-rate": return 302000;
+    default: return 0;
+  }
+}

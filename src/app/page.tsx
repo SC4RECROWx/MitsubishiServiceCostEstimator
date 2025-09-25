@@ -14,6 +14,8 @@ import {
   periodicServices as allPeriodicServices,
   additionalServices as allAdditionalServices,
   tyreServices as allTyreServices,
+  acAndEngineServices as allAcAndEngineServices,
+  getAcServicePrice,
 } from "@/lib/data/services";
 import { accessories as allAccessories } from "@/lib/data/accessories";
 import { parts as allParts } from "@/lib/data/parts";
@@ -34,17 +36,19 @@ export default function Home() {
   const [periodicServices] = useState<PeriodicService[]>(allPeriodicServices);
   const [additionalServices] = useState<AdditionalService[]>(allAdditionalServices);
   const [tyreServices] = useState<AdditionalService[]>(allTyreServices);
+  const [acAndEngineServices] = useState<AdditionalService[]>(allAcAndEngineServices);
   const [accessories] = useState<Accessory[]>(allAccessories);
 
   const [selectedVehicle, setSelectedVehicle] = useState<SelectedVehicle | null>(null);
   const [selectedPeriodicService, setSelectedPeriodicService] = useState<PeriodicService | null>(null);
   const [selectedAdditionalServices, setSelectedAdditionalServices] = useState<AdditionalService[]>([]);
   const [selectedTyreServices, setSelectedTyreServices] = useState<AdditionalService[]>([]);
+  const [selectedAcServices, setSelectedAcServices] = useState<AdditionalService[]>([]);
   const [selectedAccessories, setSelectedAccessories] = useState<Accessory[]>([]);
 
   const filteredServices = useMemo(() => {
     if (!selectedVehicle) {
-      return { periodic: [], additional: [], accessories: [], tyre: [] };
+      return { periodic: [], additional: [], accessories: [], tyre: [], ac: [] };
     }
     const periodic = periodicServices.filter(
       (s) => s.vehicleModelId === selectedVehicle.model
@@ -55,16 +59,23 @@ export default function Home() {
     const tyre = tyreServices.filter((s) =>
       s.applicableModels.includes(selectedVehicle.model)
     );
+    const ac = acAndEngineServices.filter((s) =>
+      s.applicableModels.includes(selectedVehicle.model)
+    ).map(service => ({
+      ...service,
+      job: { ...service.job, cost: getAcServicePrice(service.id, selectedVehicle.model) }
+    }));
     const vehicleAccessories = accessories.filter((a) =>
       a.applicableModels.includes(selectedVehicle.model)
     );
-    return { periodic, additional, accessories: vehicleAccessories, tyre };
-  }, [selectedVehicle, periodicServices, additionalServices, accessories, tyreServices]);
+    return { periodic, additional, accessories: vehicleAccessories, tyre, ac };
+  }, [selectedVehicle, periodicServices, additionalServices, accessories, tyreServices, acAndEngineServices]);
 
   useEffect(() => {
     setSelectedPeriodicService(null);
     setSelectedAdditionalServices([]);
     setSelectedTyreServices([]);
+    setSelectedAcServices([]);
     setSelectedAccessories([]);
   }, [selectedVehicle]);
 
@@ -72,6 +83,12 @@ export default function Home() {
     if (!selectedVehicle) return null;
     return PlaceHolderImages.find((img) => img.id === selectedVehicle.model);
   }, [selectedVehicle]);
+
+  const allSelectedServices = [
+    ...selectedAdditionalServices,
+    ...selectedTyreServices,
+    ...selectedAcServices,
+  ];
 
   return (
     <div className="flex min-h-screen w-full flex-col">
@@ -128,15 +145,18 @@ export default function Home() {
                       periodicServices={filteredServices.periodic}
                       additionalServices={filteredServices.additional}
                       tyreServices={filteredServices.tyre}
+                      acAndEngineServices={filteredServices.ac}
                       accessories={filteredServices.accessories}
                       partsData={parts}
                       onPeriodicChange={setSelectedPeriodicService}
                       onAdditionalChange={setSelectedAdditionalServices}
                       onTyreChange={setSelectedTyreServices}
+                      onAcChange={setSelectedAcServices}
                       onAccessoryChange={setSelectedAccessories}
                       selectedPeriodicService={selectedPeriodicService}
                       selectedAdditionalServices={selectedAdditionalServices}
                       selectedTyreServices={selectedTyreServices}
+                      selectedAcServices={selectedAcServices}
                       selectedAccessories={selectedAccessories}
                     />
                   </CardContent>
@@ -149,7 +169,7 @@ export default function Home() {
             <EstimateSummary
               vehicle={selectedVehicle}
               periodicService={selectedPeriodicService}
-              additionalServices={[...selectedAdditionalServices, ...selectedTyreServices]}
+              additionalServices={allSelectedServices}
               accessories={selectedAccessories}
               partsData={parts}
             />
@@ -157,12 +177,11 @@ export default function Home() {
         </div>
       </main>
       
-      {/* This div is no longer used for canvas rendering, but kept for potential future use or can be removed. */}
       <div id="printable-summary" className="print-container print-hidden">
         <PrintableEstimate
             vehicle={selectedVehicle}
             periodicService={selectedPeriodicService}
-            additionalServices={[...selectedAdditionalServices, ...selectedTyreServices]}
+            additionalServices={allSelectedServices}
             accessories={selectedAccessories}
             partsData={parts}
         />

@@ -29,15 +29,18 @@ interface Props {
   periodicServices: PeriodicService[];
   additionalServices: AdditionalService[];
   tyreServices: AdditionalService[];
+  acAndEngineServices: AdditionalService[];
   accessories: Accessory[];
   partsData: Part[];
   onPeriodicChange: (service: PeriodicService | null) => void;
   onAdditionalChange: (services: AdditionalService[]) => void;
   onTyreChange: (services: AdditionalService[]) => void;
+  onAcChange: (services: AdditionalService[]) => void;
   onAccessoryChange: (accessories: Accessory[]) => void;
   selectedPeriodicService: PeriodicService | null;
   selectedAdditionalServices: AdditionalService[];
   selectedTyreServices: AdditionalService[];
+  selectedAcServices: AdditionalService[];
   selectedAccessories: Accessory[];
 }
 
@@ -45,15 +48,18 @@ export default function ServiceSelection({
   periodicServices,
   additionalServices,
   tyreServices,
+  acAndEngineServices,
   accessories,
   partsData,
   onPeriodicChange,
   onAdditionalChange,
   onTyreChange,
+  onAcChange,
   onAccessoryChange,
   selectedPeriodicService,
   selectedAdditionalServices,
   selectedTyreServices,
+  selectedAcServices,
   selectedAccessories,
 }: Props) {
   const handlePeriodicChange = (serviceId: string) => {
@@ -61,32 +67,22 @@ export default function ServiceSelection({
     onPeriodicChange(service);
   };
 
-  const handleAdditionalChange = (service: AdditionalService) => {
-    const isSelected = selectedAdditionalServices.some((s) => s.id === service.id);
+  const createHandleChange = (
+    selectedItems: any[],
+    setSelectedItems: (items: any[]) => void
+  ) => (item: any) => {
+    const isSelected = selectedItems.some((s) => s.id === item.id);
     if (isSelected) {
-      onAdditionalChange(selectedAdditionalServices.filter((s) => s.id !== service.id));
+      setSelectedItems(selectedItems.filter((s) => s.id !== item.id));
     } else {
-      onAdditionalChange([...selectedAdditionalServices, service]);
-    }
-  };
-  
-  const handleTyreChange = (service: AdditionalService) => {
-    const isSelected = selectedTyreServices.some((s) => s.id === service.id);
-    if (isSelected) {
-      onTyreChange(selectedTyreServices.filter((s) => s.id !== service.id));
-    } else {
-      onTyreChange([...selectedTyreServices, service]);
+      setSelectedItems([...selectedItems, item]);
     }
   };
 
-  const handleAccessoryChange = (accessory: Accessory) => {
-    const isSelected = selectedAccessories.some((s) => s.id === accessory.id);
-    if (isSelected) {
-      onAccessoryChange(selectedAccessories.filter((s) => s.id !== accessory.id));
-    } else {
-      onAccessoryChange([...selectedAccessories, accessory]);
-    }
-  };
+  const handleAdditionalChange = createHandleChange(selectedAdditionalServices, onAdditionalChange);
+  const handleTyreChange = createHandleChange(selectedTyreServices, onTyreChange);
+  const handleAcChange = createHandleChange(selectedAcServices, onAcChange);
+  const handleAccessoryChange = createHandleChange(selectedAccessories, onAccessoryChange);
 
   const getPartDetails = (partId: string) => {
     return partsData.find((p) => p.id === partId);
@@ -170,8 +166,28 @@ export default function ServiceSelection({
     );
   };
 
+  const renderServiceCheckbox = (
+    service: AdditionalService,
+    isChecked: boolean,
+    onCheckedChange: () => void
+  ) => (
+    <div className="flex items-center space-x-3 p-4">
+      <Checkbox
+        id={service.id}
+        checked={isChecked}
+        onCheckedChange={onCheckedChange}
+      />
+      <Label htmlFor={service.id} className="flex-1 font-normal cursor-pointer text-base">
+        <div className="flex justify-between items-center">
+            <span>{service.name}</span>
+            <span className="text-primary font-medium">{formatCurrency(service.job.cost)}</span>
+        </div>
+      </Label>
+    </div>
+  );
+
   return (
-    <Accordion type="multiple" defaultValue={["item-1", "item-2", "item-3", "item-4"]} className="w-full">
+    <Accordion type="multiple" defaultValue={["item-1", "item-2", "item-3", "item-4", "item-5"]} className="w-full">
       <AccordionItem value="item-1">
         <AccordionTrigger className="text-lg font-medium">Paket Servis Berkala</AccordionTrigger>
         <AccordionContent>
@@ -221,6 +237,20 @@ export default function ServiceSelection({
                     </AccordionContent>
                 </AccordionItem>
               </Accordion>
+          ))}
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-5">
+        <AccordionTrigger className="text-lg font-medium">Perawatan AC & Mesin</AccordionTrigger>
+        <AccordionContent className="grid gap-4">
+          {acAndEngineServices.map((service) => (
+            <div key={service.id} className="rounded-md border">
+              {renderServiceCheckbox(
+                service,
+                selectedAcServices.some((s) => s.id === service.id),
+                () => handleAcChange(service)
+              )}
+            </div>
           ))}
         </AccordionContent>
       </AccordionItem>

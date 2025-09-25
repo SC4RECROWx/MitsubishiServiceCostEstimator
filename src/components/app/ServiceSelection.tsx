@@ -166,26 +166,6 @@ export default function ServiceSelection({
     );
   };
 
-  const renderServiceCheckbox = (
-    service: AdditionalService,
-    isChecked: boolean,
-    onCheckedChange: () => void
-  ) => (
-    <div className="flex items-center space-x-3 p-4">
-      <Checkbox
-        id={service.id}
-        checked={isChecked}
-        onCheckedChange={onCheckedChange}
-      />
-      <Label htmlFor={service.id} className="flex-1 font-normal cursor-pointer text-base">
-        <div className="flex justify-between items-center">
-            <span>{service.name}</span>
-            <span className="text-primary font-medium">{formatCurrency(service.job.cost)}</span>
-        </div>
-      </Label>
-    </div>
-  );
-
   return (
     <Accordion type="multiple" defaultValue={["item-1", "item-2", "item-3", "item-4", "item-5"]} className="w-full">
       <AccordionItem value="item-1">
@@ -244,13 +224,24 @@ export default function ServiceSelection({
         <AccordionTrigger className="text-lg font-medium">Perawatan AC & Mesin</AccordionTrigger>
         <AccordionContent className="grid gap-4">
           {acAndEngineServices.map((service) => (
-            <div key={service.id} className="rounded-md border">
-              {renderServiceCheckbox(
-                service,
-                selectedAcServices.some((s) => s.id === service.id),
-                () => handleAcChange(service)
-              )}
-            </div>
+             <Accordion type="single" collapsible key={service.id} className="rounded-md border">
+                <AccordionItem value={service.id}>
+                    <div className="flex items-center space-x-3 p-4">
+                        <Checkbox
+                            id={service.id}
+                            checked={selectedAcServices.some((s) => s.id === service.id)}
+                            onCheckedChange={() => handleAcChange(service)}
+                        />
+                        <Label htmlFor={service.id} className="flex-1 font-normal cursor-pointer text-base">
+                            {service.name}
+                        </Label>
+                        <AccordionTrigger className="py-0 px-2 [&[data-state=open]>svg]:text-primary" />
+                    </div>
+                    <AccordionContent className="px-4 pb-4">
+                        {renderServiceDetails(service)}
+                    </AccordionContent>
+                </AccordionItem>
+              </Accordion>
           ))}
         </AccordionContent>
       </AccordionItem>

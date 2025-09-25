@@ -2,15 +2,17 @@ import type { Part } from "@/lib/types";
 
 export const parts: Part[] = [
   // Xpander Parts
-  { id: "xp-oil-filter", name: "Filter Oli - Xpander", partNumber: "1230A182", price: 45000 },
-  { id: "xp-engine-oil", name: "Oli Mesin 0W-20 (4L)", partNumber: "MZ320981", price: 420000 },
-  { id: "xp-drain-plug-gasket", name: "Gasket Baut Oli", partNumber: "MD050317", price: 8000 },
+  { id: "xp-oil-filter", name: "Saringan Oli - Xpander", partNumber: "1230A237", price: 68500 },
+  { id: "xp-engine-oil-1l", name: "Oli Mesin 0W-20 (1L)", partNumber: "MZ320981-1L", price: 129000 },
+  { id: "xp-drain-plug-gasket", name: "Ring Baut Oli", partNumber: "MD050317-NEW", price: 15000 },
   { id: "xp-air-filter", name: "Filter Udara - Xpander", partNumber: "1500A608", price: 150000 },
-  { id: "xp-ac-filter", name: "Filter AC - Xpander", partNumber: "7850A002", price: 120000 },
+  { id: "xp-ac-filter", name: "Saringan AC - Xpander", partNumber: "7850A002", price: 160000 },
   { id: "xp-spark-plug", name: "Busi Iridium (per pcs)", partNumber: "1822A088", price: 180000 },
   { id: "xp-brake-pad-front", name: "Kampas Rem Depan - Xpander", partNumber: "4605B595", price: 550000 },
   { id: "xp-brake-shoe-rear", name: "Kampas Rem Belakang (Sepatu Rem) - Xpander", partNumber: "4800A121", price: 480000 },
   { id: "xp-battery", name: "Aki Mobil (Battery) - Xpander", partNumber: "MF-44B19L", price: 750000 },
+  { id: "xp-engine-flush", name: "Engine Flush", partNumber: "MZ100723", price: 140000 },
+
 
   // Pajero Sport Parts
   { id: "ps-oil-filter", name: "Filter Oli - Pajero Sport", partNumber: "1230A186", price: 95000 },
@@ -24,9 +26,9 @@ export const parts: Part[] = [
   { id: "ps-battery", name: "Aki Mobil (Battery) - Pajero Sport", partNumber: "MF-80D26L", price: 1250000 },
 
   // Xforce Parts
-  { id: "xf-oil-filter", name: "Filter Oli - Xforce", partNumber: "1230A182", price: 45000 }, // Same as Xpander
-  { id: "xf-engine-oil", name: "Oli Mesin 0W-20 (4L)", partNumber: "MZ320981", price: 420000 }, // Same as Xpander
-  { id: "xf-ac-filter", name: "Filter AC - Xforce", partNumber: "7850A002", price: 120000 }, // Same as Xpander
+  { id: "xf-oil-filter", name: "Filter Oli - Xforce", partNumber: "1230A182", price: 45000 },
+  { id: "xf-engine-oil", name: "Oli Mesin 0W-20 (4L)", partNumber: "MZ320981", price: 420000 },
+  { id: "xf-ac-filter", name: "Filter AC - Xforce", partNumber: "7850A002", price: 120000 },
 
   // Outlander Sport Parts
   { id: "os-oil-filter", name: "Filter Oli - Outlander Sport", partNumber: "1230A152", price: 65000 },

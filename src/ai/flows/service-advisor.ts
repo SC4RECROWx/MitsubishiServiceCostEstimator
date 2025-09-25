@@ -80,17 +80,27 @@ Analyze the user's complaint and match it to one of the following services based
     - Description: Penggantian aki mobil.
     - Keywords: "mobil tidak mau start", "aki soak", "ganti aki", "sulit starter", "kelistrikan mati", "accu", "susah nyala"
 
-4.  **Spooring & Balancing**
-    - Description: Meluruskan posisi roda dan menyeimbangkan putarannya.
-    - Keywords: "setir getar", "mobil lari ke satu sisi", "spooring", "balancing", "setir miring", "ban makan sebelah", "mobil terasa limbung"
+4.  **Spooring**
+    - Description: Meluruskan posisi keempat roda sesuai spesifikasi.
+    - Keywords: "setir miring", "mobil lari ke satu sisi", "ban makan sebelah", "mobil terasa limbung", "spooring"
+
+5.  **Balancing Roda**
+    - Description: Menyeimbangkan putaran roda agar tidak bergetar.
+    - Keywords: "setir getar", "roda getar", "balancing"
+
+6.  **Kuras Nitrogen**
+    - Description: Mengisi ulang ban dengan angin nitrogen.
+    - Keywords: "isi nitrogen", "kuras nitrogen", "angin ban", "tekanan ban"
 
 ---
 
 **Your Task:**
 1.  **Analyze and Match:** Carefully read the "Customer's Complaint". Match it to the service (Packages or Additional Jobs) with the most relevant keywords.
 2.  **Recommendation Logic:**
-    - If the complaint specifically mentions "rem" without specifying front or back (e.g., "rem bunyi", "cek rem"), recommend "Ganti Kampas Rem Depan" as it's the more common wear item.
-    - If the complaint clearly matches an "Additional Job", recommend that specific job.
+    - If the complaint mentions "rem" without specifying front or back (e.g., "rem bunyi", "cek rem"), recommend "Ganti Kampas Rem Depan" as it's the more common wear item.
+    - If the complaint mentions "getar" (vibration), recommend "Balancing Roda" as the primary solution.
+    - If the complaint mentions both "setir miring" and "getar", you can suggest "Spooring" and "Balancing Roda". For the output, combine them into one recommendation: "Spooring & Balancing".
+    - If the complaint clearly matches an "Additional Job", recommend that specific job. For Balancing, if the vehicle is a Pajero Sport or Triton, recommend "Balancing Roda (R17 & Offroad)". Otherwise, recommend "Balancing Roda (R13-R16)".
     - If the complaint clearly matches a "Service Package", recommend that package.
     - If the complaint is general or mentions routine maintenance (e.g., "servis rutin", "cek mobil"), recommend "Pahe 2: Ganti Oli + Filter Oli (Paket Umum)" as it's the most essential service.
     - If the complaint is very vague and doesn't match anything (e.g., "mobil saya aneh", "tidak enak dipakai"), recommend "Pahe 2: Ganti Oli + Filter Oli (Paket Umum)" as a safe starting point for a check-up.
@@ -109,6 +119,18 @@ const serviceAdvisorFlow = ai.defineFlow(
     if (!output) {
       throw new Error('AI service did not return a valid response.');
     }
+    
+    // Post-processing to select the correct balancing service
+    if (output.recommendedService.toLowerCase().includes('balancing')) {
+        const vehicleModel = input.vehicleModel.toLowerCase();
+        if (vehicleModel.includes('pajero') || vehicleModel.includes('triton')) {
+            output.recommendedService = "Balancing Roda (R17 & Offroad)";
+        } else {
+            output.recommendedService = "Balancing Roda (R13-R16)";
+        }
+    }
+
+
     return output;
   }
 );

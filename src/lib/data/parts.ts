@@ -45,5 +45,5 @@ export const parts: Part[] = [
   { id: "l300-fuel-filter", name: "Filter Solar - L300", partNumber: "MB220900", price: 60000 },
 
   // Common Parts
-  { id: "common-balancing-weight", name: "Timah Balancing", partNumber: "BLC-001", price: 25000 },
+  { id: "common-balancing-weight", name: "Timah Balancing (per roda)", partNumber: "BLC-001", price: 0 },
 ];

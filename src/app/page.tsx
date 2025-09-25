@@ -13,6 +13,7 @@ import { vehicles as allVehicles } from "@/lib/data/vehicles";
 import {
   periodicServices as allPeriodicServices,
   additionalServices as allAdditionalServices,
+  tyreServices as allTyreServices,
 } from "@/lib/data/services";
 import { accessories as allAccessories } from "@/lib/data/accessories";
 import { parts as allParts } from "@/lib/data/parts";
@@ -32,16 +33,18 @@ export default function Home() {
   const [parts] = useState<Part[]>(allParts);
   const [periodicServices] = useState<PeriodicService[]>(allPeriodicServices);
   const [additionalServices] = useState<AdditionalService[]>(allAdditionalServices);
+  const [tyreServices] = useState<AdditionalService[]>(allTyreServices);
   const [accessories] = useState<Accessory[]>(allAccessories);
 
   const [selectedVehicle, setSelectedVehicle] = useState<SelectedVehicle | null>(null);
   const [selectedPeriodicService, setSelectedPeriodicService] = useState<PeriodicService | null>(null);
   const [selectedAdditionalServices, setSelectedAdditionalServices] = useState<AdditionalService[]>([]);
+  const [selectedTyreServices, setSelectedTyreServices] = useState<AdditionalService[]>([]);
   const [selectedAccessories, setSelectedAccessories] = useState<Accessory[]>([]);
 
   const filteredServices = useMemo(() => {
     if (!selectedVehicle) {
-      return { periodic: [], additional: [], accessories: [] };
+      return { periodic: [], additional: [], accessories: [], tyre: [] };
     }
     const periodic = periodicServices.filter(
       (s) => s.vehicleModelId === selectedVehicle.model
@@ -49,15 +52,19 @@ export default function Home() {
     const additional = additionalServices.filter((s) =>
       s.applicableModels.includes(selectedVehicle.model)
     );
+    const tyre = tyreServices.filter((s) =>
+      s.applicableModels.includes(selectedVehicle.model)
+    );
     const vehicleAccessories = accessories.filter((a) =>
       a.applicableModels.includes(selectedVehicle.model)
     );
-    return { periodic, additional, accessories: vehicleAccessories };
-  }, [selectedVehicle, periodicServices, additionalServices, accessories]);
+    return { periodic, additional, accessories: vehicleAccessories, tyre };
+  }, [selectedVehicle, periodicServices, additionalServices, accessories, tyreServices]);
 
   useEffect(() => {
     setSelectedPeriodicService(null);
     setSelectedAdditionalServices([]);
+    setSelectedTyreServices([]);
     setSelectedAccessories([]);
   }, [selectedVehicle]);
 
@@ -120,13 +127,16 @@ export default function Home() {
                     <ServiceSelection
                       periodicServices={filteredServices.periodic}
                       additionalServices={filteredServices.additional}
+                      tyreServices={filteredServices.tyre}
                       accessories={filteredServices.accessories}
                       partsData={parts}
                       onPeriodicChange={setSelectedPeriodicService}
                       onAdditionalChange={setSelectedAdditionalServices}
+                      onTyreChange={setSelectedTyreServices}
                       onAccessoryChange={setSelectedAccessories}
                       selectedPeriodicService={selectedPeriodicService}
                       selectedAdditionalServices={selectedAdditionalServices}
+                      selectedTyreServices={selectedTyreServices}
                       selectedAccessories={selectedAccessories}
                     />
                   </CardContent>
@@ -139,7 +149,7 @@ export default function Home() {
             <EstimateSummary
               vehicle={selectedVehicle}
               periodicService={selectedPeriodicService}
-              additionalServices={selectedAdditionalServices}
+              additionalServices={[...selectedAdditionalServices, ...selectedTyreServices]}
               accessories={selectedAccessories}
               partsData={parts}
             />
@@ -152,7 +162,7 @@ export default function Home() {
         <PrintableEstimate
             vehicle={selectedVehicle}
             periodicService={selectedPeriodicService}
-            additionalServices={selectedAdditionalServices}
+            additionalServices={[...selectedAdditionalServices, ...selectedTyreServices]}
             accessories={selectedAccessories}
             partsData={parts}
         />

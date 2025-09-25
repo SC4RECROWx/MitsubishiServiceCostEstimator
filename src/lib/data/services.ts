@@ -222,6 +222,9 @@ export const additionalServices: AdditionalService[] = [
     job: { description: "Jasa Ganti Aki", cost: 100000 },
     parts: [{ partId: "ps-battery", quantity: 1 }],
   },
+];
+
+export const tyreServices: AdditionalService[] = [
   {
     id: "add-spooring",
     name: "Spooring",

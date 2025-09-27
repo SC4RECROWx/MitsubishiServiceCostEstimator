@@ -45,7 +45,7 @@ export default function ServiceAdvisor({ vehicle }: Props) {
     if (result.success && result.data) {
       setRecommendation(result.data);
     } else {
-      setError(result.error || "An unknown error occurred.");
+      setError(result.error || "Terjadi kesalahan yang tidak diketahui. Coba periksa API Key Anda atau coba lagi nanti.");
     }
     setIsLoading(false);
   };
@@ -75,7 +75,7 @@ export default function ServiceAdvisor({ vehicle }: Props) {
           </div>
           {error && (
             <Alert variant="destructive">
-              <AlertTitle>Error</AlertTitle>
+              <AlertTitle>Gagal Mendapatkan Rekomendasi</AlertTitle>
               <AlertDescription>{error}</AlertDescription>
             </Alert>
           )}

@@ -8,6 +8,6 @@ export async function getServiceRecommendation(input: ServiceAdvisorInput) {
     return { success: true, data: result };
   } catch (error) {
     console.error("Error getting service recommendation:", error);
-    return { success: false, error: "Failed to get recommendation from AI service." };
+    return { success: false, error: "AI Service Advisor error. Coba periksa API Key Anda atau coba lagi nanti." };
   }
 }

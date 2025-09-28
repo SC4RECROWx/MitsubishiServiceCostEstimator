@@ -8,8 +8,7 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
-import type { ServiceAdvisorInput, ServiceAdvisorOutput } from '@/lib/types';
-import { ServiceAdvisorInputSchema, ServiceAdvisorOutputSchema } from '@/lib/types';
+import { ServiceAdvisorInputSchema, ServiceAdvisorOutputSchema, type ServiceAdvisorInput, type ServiceAdvisorOutput } from '@/lib/types';
 
 
 export async function serviceAdvisor(input: ServiceAdvisorInput): Promise<ServiceAdvisorOutput> {

@@ -45,7 +45,7 @@ export default function ServiceAdvisor({ vehicle }: Props) {
     if (result.success && result.data) {
       setRecommendation(result.data);
     } else {
-      setError(result.error || "Terjadi kesalahan yang tidak diketahui. Coba periksa API Key Anda atau coba lagi nanti.");
+      setError(result.error || "AI Service Advisor error. Coba periksa API Key Anda atau coba lagi nanti.");
     }
     setIsLoading(false);
   };

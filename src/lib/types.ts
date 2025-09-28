@@ -75,6 +75,6 @@ export type ServiceAdvisorInput = z.infer<typeof ServiceAdvisorInputSchema>;
 
 export const ServiceAdvisorOutputSchema = z.object({
   recommendedService: z.string().describe('The recommended service package or job name, exactly as written in the available services list.'),
-  serviceDetails: z.string().describe('A detailed description of the recommended service, including items and parts. This is a user-facing explanation.'),
+  serviceDetails: z.string().describe('A friendly, user-facing explanation of why this service was recommended based on their complaint.'),
 });
 export type ServiceAdvisorOutput = z.infer<typeof ServiceAdvisorOutputSchema>;

@@ -9,11 +9,9 @@ import type {ServiceAdvisorInput, ServiceAdvisorOutput} from '@/lib/types';
  * @param input - The vehicle details and user's description.
  * @returns A promise that resolves to the AI's recommendation.
  */
-export async function getAiRecommendation(
-  input: ServiceAdvisorInput
-): Promise<ServiceAdvisorOutput> {
-  // The try/catch is removed to let the original error propagate to the client component.
-  // This provides more specific error messages on the UI.
+export async function getAiRecommendation(input: ServiceAdvisorInput): Promise<ServiceAdvisorOutput> {
+  // We remove the try/catch block to allow the original error to propagate to the client component.
+  // This provides more specific and useful error messages on the UI if something goes wrong.
   const recommendation = await serviceAdvisor(input);
   return recommendation;
 }

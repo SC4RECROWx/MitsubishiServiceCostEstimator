@@ -30,7 +30,7 @@ export default function ServiceAdvisor({
       setResult(null);
       return;
     }
-    
+
     setIsLoading(true);
     setResult(null);
     setError(null);
@@ -50,7 +50,8 @@ export default function ServiceAdvisor({
       }
     } catch (e) {
       console.error('Failed to get recommendation:', e);
-      const errorMessage = e instanceof Error ? e.message : 'Terjadi kesalahan tidak dikenal.';
+      // Capture the actual error message from the server
+      const errorMessage = e instanceof Error ? e.message : String(e);
       setError(`Terjadi kesalahan saat berkomunikasi dengan AI Service Advisor. Silakan coba lagi nanti. Error: ${errorMessage}`);
     } finally {
       setIsLoading(false);
@@ -79,17 +80,17 @@ export default function ServiceAdvisor({
         <Button onClick={handleGetRecommendation} disabled={isLoading} className="w-full">
           {isLoading ? (
             <>
-              <Loader2 className="animate-spin" /> Menganalisis...
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Menganalisis...
             </>
           ) : (
             <>
-              <Sparkles /> Dapatkan Rekomendasi
+              <Sparkles className="mr-2 h-4 w-4" /> Dapatkan Rekomendasi
             </>
           )}
         </Button>
         {error && (
           <Alert variant="destructive">
-            <AlertTitle>Info</AlertTitle>
+            <AlertTitle>Error</AlertTitle>
             <AlertDescription>{error}</AlertDescription>
           </Alert>
         )}

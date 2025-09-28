@@ -2,14 +2,12 @@
 
 /**
  * @fileOverview AI-powered service advisor for Mitsubishi vehicles.
- *
  * This file contains the Genkit flow that analyzes user input and recommends a vehicle service.
  */
 
 import {ai} from '@/ai/genkit';
-import type {ServiceAdvisorInput, ServiceAdvisorOutput} from '@/lib/types';
 import {ServiceAdvisorInputSchema, ServiceAdvisorOutputSchema} from '@/lib/types';
-
+import type {ServiceAdvisorInput, ServiceAdvisorOutput} from '@/lib/types';
 
 export async function serviceAdvisor(input: ServiceAdvisorInput): Promise<ServiceAdvisorOutput> {
   return serviceAdvisorFlow(input);
@@ -17,8 +15,8 @@ export async function serviceAdvisor(input: ServiceAdvisorInput): Promise<Servic
 
 const advisorPrompt = ai.definePrompt({
   name: 'serviceAdvisorPrompt',
-  input: { schema: ServiceAdvisorInputSchema },
-  output: { schema: ServiceAdvisorOutputSchema },
+  input: {schema: ServiceAdvisorInputSchema},
+  output: {schema: ServiceAdvisorOutputSchema},
   model: 'gemini-pro',
   prompt: `You are an expert and friendly Mitsubishi service advisor in Indonesia. Your goal is to analyze a customer's complaint and recommend the most appropriate service from the list below.
 
@@ -99,24 +97,24 @@ const serviceAdvisorFlow = ai.defineFlow(
     outputSchema: ServiceAdvisorOutputSchema,
   },
   async (input) => {
-    const { output } = await advisorPrompt(input);
+    const {output} = await advisorPrompt(input);
     if (!output) {
       throw new Error('AI service did not return a valid response.');
     }
-    
+
     // Post-processing to select the correct balancing service if AI recommends the generic term
     if (output.recommendedService.toLowerCase().includes('balancing')) {
-        // If the AI recommended Spooring & Balancing, keep it
-        if (output.recommendedService.toLowerCase().includes('spooring')) {
-            // No change needed, the name is combined
+      // If the AI recommended Spooring & Balancing, keep it
+      if (output.recommendedService.toLowerCase().includes('spooring')) {
+        // No change needed, the name is combined
+      } else {
+        const vehicleModel = input.vehicleModel.toLowerCase();
+        if (vehicleModel.includes('pajero') || vehicleModel.includes('triton')) {
+          output.recommendedService = 'Balancing Roda (R17 & Offroad)';
         } else {
-            const vehicleModel = input.vehicleModel.toLowerCase();
-            if (vehicleModel.includes('pajero') || vehicleModel.includes('triton')) {
-                output.recommendedService = "Balancing Roda (R17 & Offroad)";
-            } else {
-                output.recommendedService = "Balancing Roda (R13-R16)";
-            }
+          output.recommendedService = 'Balancing Roda (R13-R16)';
         }
+      }
     }
 
     return output;

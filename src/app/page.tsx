@@ -213,7 +213,7 @@ export default function Home() {
 
             {selectedVehicle && (
               <>
-                <ServiceAdvisor 
+                <ServiceAdvisor
                   selectedVehicle={selectedVehicle}
                   onRecommendation={handleAiRecommendation}
                   getRecommendationAction={getAiRecommendation}

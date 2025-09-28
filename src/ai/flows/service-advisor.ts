@@ -18,6 +18,7 @@ const advisorPrompt = ai.definePrompt({
   name: 'serviceAdvisorPrompt',
   input: {schema: ServiceAdvisorInputSchema},
   output: {schema: ServiceAdvisorOutputSchema},
+  // Correctly specify the model using the googleAI helper.
   model: googleAI.model('gemini-pro'),
   prompt: `You are an expert and friendly Mitsubishi service advisor in Indonesia. Your goal is to analyze a customer's complaint and recommend the most appropriate service from the list below.
 

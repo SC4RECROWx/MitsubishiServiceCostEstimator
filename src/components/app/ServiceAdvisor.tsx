@@ -75,65 +75,18 @@ export default function ServiceAdvisor({ vehicle, onRecommendation, getSuggestio
           AI Service Advisor
         </CardTitle>
         <CardDescription>
-          Bingung mau servis apa? Jelaskan keluhan Anda di bawah ini, dan biarkan AI kami memberikan rekomendasi.
+            Fitur AI Service Advisor saat ini sedang mengalami gangguan dan belum bisa memberikan rekomendasi. Silakan pilih servis secara manual dari daftar di bawah.
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-            <FormField
-              control={form.control}
-              name="complaint"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Keluhan atau Kondisi Kendaraan</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="Contoh: AC mobil tidak dingin, atau sudah waktunya servis rutin 20.000 KM."
-                      disabled={isLoading}
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type="submit" disabled={isLoading} className="w-full">
-              {isLoading ? 'Menganalisis...' : 'Dapatkan Rekomendasi'}
-            </Button>
-          </form>
-        </Form>
-      </CardContent>
-      <CardFooter className="flex-col items-start gap-4">
-        {isLoading && (
-            <div className="w-full space-y-3">
-                <Skeleton className="h-6 w-3/4" />
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-5/6" />
-                <Skeleton className="h-10 w-1/2" />
-            </div>
-        )}
-        {error && (
           <Alert variant="destructive">
             <AlertCircle className="h-4 w-4" />
-            <AlertTitle>Error</AlertTitle>
-            <AlertDescription>{error}</AlertDescription>
-          </Alert>
-        )}
-        {recommendation && (
-          <Alert variant="default" className="bg-primary/10 border-primary/30">
-             <WandSparkles className="h-4 w-4 text-primary" />
-            <AlertTitle className="font-bold text-primary">Rekomendasi AI</AlertTitle>
-            <AlertDescription className="space-y-3">
-              <p>{recommendation.details}</p>
-              <Button onClick={handleApplyRecommendation} size="sm">
-                <Check className="mr-2 h-4 w-4" />
-                Pilih Servis: {recommendation.serviceName}
-              </Button>
+            <AlertTitle>Fitur Belum Tersedia</AlertTitle>
+            <AlertDescription>
+                AI service advisor masih error dan belum bisa memberikan rekomendasi service. Kami mohon maaf atas ketidaknyamanannya.
             </AlertDescription>
           </Alert>
-        )}
-      </CardFooter>
+      </CardContent>
     </Card>
   );
 }

@@ -4,20 +4,20 @@
  *
  * - serviceAdvisor - A function that recommends services based on user complaints.
  */
-import {ai} from '@/ai/genkit';
+import {genkit} from 'genkit';
 import {
   ServiceAdvisorInput,
   ServiceAdvisorInputSchema,
   ServiceAdvisorOutput,
   ServiceAdvisorOutputSchema,
 } from '@/lib/types';
+import {ai} from '@/ai/genkit';
 
 // Define the AI prompt for the service advisor.
 const advisorPrompt = ai.definePrompt({
   name: 'serviceAdvisorPrompt',
   input: {schema: ServiceAdvisorInputSchema},
   output: {schema: ServiceAdvisorOutputSchema},
-  model: 'gemini-pro',
   prompt: `Anda adalah Service Advisor ahli untuk bengkel Mitsubishi.
 Tugas Anda adalah menganalisis keluhan pelanggan dan merekomendasikan paket servis atau pekerjaan yang paling relevan dari daftar yang tersedia.
 
@@ -50,7 +50,7 @@ const serviceAdvisorFlow = ai.defineFlow(
   },
   async (input: ServiceAdvisorInput) => {
     // Generate content based on the prompt and input.
-    const {output} = await advisorPrompt(input);
+    const {output} = await advisorPrompt(input, {model: 'gemini-pro'});
     return output!;
   }
 );

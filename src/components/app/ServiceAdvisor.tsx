@@ -64,6 +64,8 @@ export default function ServiceAdvisor({ vehicle, onRecommendation, getSuggestio
   const handleApplyRecommendation = () => {
     if (recommendation) {
         onRecommendation(recommendation.serviceName);
+        setRecommendation(null); // Clear recommendation after applying
+        form.reset(); // Reset form
     }
   };
 
@@ -75,18 +77,71 @@ export default function ServiceAdvisor({ vehicle, onRecommendation, getSuggestio
           AI Service Advisor
         </CardTitle>
         <CardDescription>
-            Fitur AI Service Advisor saat ini sedang mengalami gangguan dan belum bisa memberikan rekomendasi. Silakan pilih servis secara manual dari daftar di bawah.
+          Bingung mau servis apa? Jelaskan keluhan Anda di bawah ini, dan biarkan AI kami memberikan rekomendasi.
         </CardDescription>
       </CardHeader>
       <CardContent>
+        <Form {...form}>
+          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+            <FormField
+              control={form.control}
+              name="complaint"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Keluhan atau Kondisi Kendaraan</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder="Contoh: 'AC tidak dingin dan ada bunyi aneh dari mesin saat mobil berjalan pelan.'"
+                      className="resize-none"
+                      {...field}
+                      disabled={isLoading}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button type="submit" disabled={isLoading} className="w-full">
+              {isLoading ? 'Menganalisis...' : 'Dapatkan Rekomendasi'}
+            </Button>
+          </form>
+        </Form>
+      </CardContent>
+
+      {isLoading && (
+        <CardFooter className="flex-col items-start gap-y-2">
+           <Skeleton className="h-4 w-1/3" />
+           <Skeleton className="h-4 w-full" />
+           <Skeleton className="h-4 w-4/5" />
+        </CardFooter>
+      )}
+
+      {error && (
+        <CardFooter>
           <Alert variant="destructive">
             <AlertCircle className="h-4 w-4" />
-            <AlertTitle>Fitur Belum Tersedia</AlertTitle>
+            <AlertTitle>Error</AlertTitle>
             <AlertDescription>
-                AI service advisor masih error dan belum bisa memberikan rekomendasi service. Kami mohon maaf atas ketidaknyamanannya.
+              {error}
             </AlertDescription>
           </Alert>
-      </CardContent>
+        </CardFooter>
+      )}
+
+      {recommendation && !isLoading && (
+        <CardFooter className="flex-col items-start gap-4">
+          <Alert variant="default" className="border-primary/50">
+            <WandSparkles className="h-4 w-4" />
+            <AlertTitle className="font-semibold">Rekomendasi Servis: {recommendation.serviceName}</AlertTitle>
+            <AlertDescription>
+              {recommendation.details}
+            </AlertDescription>
+          </Alert>
+          <Button onClick={handleApplyRecommendation} className="w-full">
+            <Check className="mr-2 h-4 w-4" /> Terapkan Rekomendasi
+          </Button>
+        </CardFooter>
+      )}
     </Card>
   );
 }

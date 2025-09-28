@@ -28,7 +28,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import PrintableEstimate from "@/components/app/PrintableEstimate";
-import ServiceAdvisor from "@/components/app/ServiceAdvisor";
 
 export default function Home() {
   const [vehicles] = useState<Vehicle[]>(allVehicles);
@@ -134,7 +133,6 @@ export default function Home() {
 
             {selectedVehicle && (
               <>
-                <ServiceAdvisor vehicle={selectedVehicle} />
                 <Card>
                   <CardHeader>
                     <CardTitle>2. Pilih Jenis Servis & Aksesoris</CardTitle>

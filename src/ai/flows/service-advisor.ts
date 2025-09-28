@@ -29,7 +29,7 @@ const serviceAdvisorPrompt = ai.definePrompt({
   name: 'serviceAdvisorPrompt',
   input: {schema: ServiceAdvisorInputSchema},
   output: {schema: ServiceAdvisorOutputSchema},
-  model: googleAI.model('gemini-pro'),
+  model: googleAI.model('gemini-1.5-flash'), // Using a stable and widely available model
   prompt: `Anda adalah AI Service Advisor untuk bengkel resmi Mitsubishi. Tugas Anda adalah memberikan rekomendasi servis kepada pelanggan berdasarkan keluhan mereka.
 
 Informasi Kendaraan Pelanggan:
@@ -46,6 +46,26 @@ Tugas Anda:
 1.  Analisis keluhan pelanggan.
 2.  Pilih SATU nama servis yang PALING SESUAI dari daftar di atas. Tuliskan nama servis tersebut **PERSIS** seperti yang ada di daftar ke dalam field 'recommendedService'.
 3.  Berikan penjelasan yang singkat, ramah, dan mudah dimengerti kepada pelanggan mengapa Anda merekomendasikan servis tersebut. Masukkan penjelasan ini ke dalam field 'serviceDetails'. Jelaskan juga secara singkat apa saja yang dikerjakan dalam servis tersebut jika relevan.`,
+  config: {
+    safetySettings: [
+        {
+            category: 'HARM_CATEGORY_DANGEROUS_CONTENT',
+            threshold: 'BLOCK_NONE',
+        },
+        {
+            category: 'HARM_CATEGORY_HATE_SPEECH',
+            threshold: 'BLOCK_NONE',
+        },
+        {
+            category: 'HARM_CATEGORY_HARASSMENT',
+            threshold: 'BLOCK_NONE',
+        },
+        {
+            category: 'HARM_CATEGORY_SEXUALLY_EXPLICIT',
+            threshold: 'BLOCK_NONE',
+        }
+    ]
+  }
 });
 
 // Define the Genkit flow

@@ -1,3 +1,5 @@
+import {z} from 'genkit';
+
 export interface Vehicle {
   id: string;
   name: string;
@@ -61,3 +63,17 @@ export interface SelectedItem {
   partsCost: number;
   laborCost: number;
 }
+
+export const ServiceAdvisorInputSchema = z.object({
+  vehicleModel: z.string().describe('The model of the Mitsubishi vehicle (e.g., Xpander, Pajero Sport).'),
+  vehicleYear: z.number().describe('The year of the vehicle (e.g., 2023).'),
+  vehicleTrim: z.string().describe('The trim level of the vehicle (e.g., Exceed, Ultimate, Dakar).'),
+  userDescription: z.string().describe('A brief description of the issue or desired service from the user.'),
+});
+export type ServiceAdvisorInput = z.infer<typeof ServiceAdvisorInputSchema>;
+
+export const ServiceAdvisorOutputSchema = z.object({
+  recommendedService: z.string().describe('The recommended service package or job.'),
+  serviceDetails: z.string().describe('A detailed description of the recommended service, including items and parts.'),
+});
+export type ServiceAdvisorOutput = z.infer<typeof ServiceAdvisorOutputSchema>;

@@ -4,26 +4,13 @@
  * @fileOverview AI-powered service advisor for Mitsubishi vehicles.
  *
  * - serviceAdvisor - A function that suggests the appropriate service package based on vehicle details and user description.
- * - ServiceAdvisorInput - The input type for the serviceAdvisor function.
- * - ServiceAdvisorOutput - The return type for the serviceAdvisor function.
  */
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
+import type { ServiceAdvisorInput, ServiceAdvisorOutput } from '@/lib/types';
+import { ServiceAdvisorInputSchema, ServiceAdvisorOutputSchema } from '@/lib/types';
 
-const ServiceAdvisorInputSchema = z.object({
-  vehicleModel: z.string().describe('The model of the Mitsubishi vehicle (e.g., Xpander, Pajero Sport).'),
-  vehicleYear: z.number().describe('The year of the vehicle (e.g., 2023).'),
-  vehicleTrim: z.string().describe('The trim level of the vehicle (e.g., Exceed, Ultimate, Dakar).'),
-  userDescription: z.string().describe('A brief description of the issue or desired service from the user.'),
-});
-export type ServiceAdvisorInput = z.infer<typeof ServiceAdvisorInputSchema>;
-
-const ServiceAdvisorOutputSchema = z.object({
-  recommendedService: z.string().describe('The recommended service package or job.'),
-  serviceDetails: z.string().describe('A detailed description of the recommended service, including items and parts.'),
-});
-export type ServiceAdvisorOutput = z.infer<typeof ServiceAdvisorOutputSchema>;
 
 export async function serviceAdvisor(input: ServiceAdvisorInput): Promise<ServiceAdvisorOutput> {
   return serviceAdvisorFlow(input);

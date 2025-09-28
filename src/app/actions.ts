@@ -1,6 +1,7 @@
 'use server';
 
-import { serviceAdvisor, ServiceAdvisorInput, ServiceAdvisorOutput } from "@/ai/flows/service-advisor";
+import { serviceAdvisor } from "@/ai/flows/service-advisor";
+import type { ServiceAdvisorInput, ServiceAdvisorOutput } from "@/lib/types";
 
 /**
  * A server action to get service recommendations from the AI service.

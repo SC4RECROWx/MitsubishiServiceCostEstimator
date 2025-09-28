@@ -89,7 +89,6 @@ export default function ServiceAdvisor({
         </Button>
         {error && (
           <Alert variant="destructive">
-            <Sparkles className="h-4 w-4" />
             <AlertTitle>Info</AlertTitle>
             <AlertDescription>{error}</AlertDescription>
           </Alert>

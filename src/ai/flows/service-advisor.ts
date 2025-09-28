@@ -29,7 +29,7 @@ const serviceAdvisorPrompt = ai.definePrompt({
   name: 'serviceAdvisorPrompt',
   input: {schema: ServiceAdvisorInputSchema},
   output: {schema: ServiceAdvisorOutputSchema},
-  model: googleAI.model('gemini-1.5-flash'),
+  model: googleAI.model('gemini-1.5-flash-latest'),
   prompt: `Anda adalah AI Service Advisor untuk bengkel resmi Mitsubishi. Tugas Anda adalah memberikan rekomendasi servis kepada pelanggan berdasarkan keluhan mereka.
 
 Informasi Kendaraan Pelanggan:

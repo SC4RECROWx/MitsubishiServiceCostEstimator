@@ -3,7 +3,6 @@
  */
 import {genkit} from 'genkit';
 import {googleAI} from '@genkit-ai/googleai';
-import {defineDotprompt} from 'genkit/dotprompt';
 
 // Initialize Genkit with the Google AI plugin.
 // This makes Google's Gemini models available for use.

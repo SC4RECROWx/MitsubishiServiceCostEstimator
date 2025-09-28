@@ -17,7 +17,7 @@ const advisorPrompt = ai.definePrompt({
   name: 'serviceAdvisorPrompt',
   input: {schema: ServiceAdvisorInputSchema},
   output: {schema: ServiceAdvisorOutputSchema},
-  model: 'gemini-2.0-flash',
+  model: 'gemini-1.5-flash',
   prompt: `You are an expert and friendly Mitsubishi service advisor in Indonesia. Your goal is to analyze a customer's complaint and recommend the most appropriate service from the list below.
 
 Vehicle Information:

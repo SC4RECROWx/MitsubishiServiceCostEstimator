@@ -14,9 +14,9 @@ export async function getServiceSuggestion(
   try {
     const recommendation = await suggestService(input);
     return recommendation;
-  } catch (error) {
+  } catch (error: any) {
     console.error('Error in getServiceSuggestion action:', error);
-    // Re-throw a generic error to the client to avoid leaking implementation details
-    throw new Error('An error occurred while communicating with the AI Service Advisor. Please try again later.');
+    // Re-throw the original error message to the client for debugging.
+    throw new Error(error.message || 'An unknown server error occurred.');
   }
 }

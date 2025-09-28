@@ -5,6 +5,9 @@ import { serviceAdvisor, type ServiceAdvisorInput } from "@/ai/flows/service-adv
 export async function getServiceRecommendation(input: ServiceAdvisorInput) {
   try {
     const result = await serviceAdvisor(input);
+    if (!result) {
+        throw new Error("AI service returned an empty response.");
+    }
     return { success: true, data: result };
   } catch (error) {
     console.error("Error getting service recommendation:", error);

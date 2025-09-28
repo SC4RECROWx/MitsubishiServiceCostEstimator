@@ -6,7 +6,6 @@
  */
 
 import {ai} from '@/ai/genkit';
-import {googleAI} from '@genkit-ai/googleai';
 import {ServiceAdvisorInputSchema, ServiceAdvisorOutputSchema} from '@/lib/types';
 import type {ServiceAdvisorInput, ServiceAdvisorOutput} from '@/lib/types';
 
@@ -18,7 +17,7 @@ const advisorPrompt = ai.definePrompt({
   name: 'serviceAdvisorPrompt',
   input: {schema: ServiceAdvisorInputSchema},
   output: {schema: ServiceAdvisorOutputSchema},
-  model: googleAI.model('gemini-1.5-flash-latest'),
+  model: 'googleai/gemini-1.5-flash-latest',
   prompt: `You are an expert and friendly Mitsubishi service advisor in Indonesia. Your goal is to analyze a customer's complaint and recommend the most appropriate service from the list below.
 
 Vehicle Information:

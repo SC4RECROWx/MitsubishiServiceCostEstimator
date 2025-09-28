@@ -24,7 +24,6 @@ import Header from "@/components/app/Header";
 import VehicleSelectionForm from "@/components/app/VehicleSelectionForm";
 import ServiceSelection from "@/components/app/ServiceSelection";
 import EstimateSummary from "@/components/app/EstimateSummary";
-import ServiceAdvisor from "@/components/app/ServiceAdvisor";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -99,7 +98,7 @@ export default function Home() {
             Selamat Datang di Tanya Jawab Bengkel
           </h1>
           <p className="text-muted-foreground">
-            Pilih kendaraan Anda untuk memulai estimasi biaya servis atau tanyakan pada AI Advisor kami.
+            Pilih kendaraan Anda untuk memulai estimasi biaya servis.
           </p>
           <p className="text-lg italic text-foreground/80">
             Jangan malu... Jangan ragu... Jangan bimbang...
@@ -134,8 +133,6 @@ export default function Home() {
 
             {selectedVehicle && (
               <>
-                <ServiceAdvisor vehicle={selectedVehicle} />
-
                 <Card>
                   <CardHeader>
                     <CardTitle>2. Pilih Jenis Servis & Aksesoris</CardTitle>

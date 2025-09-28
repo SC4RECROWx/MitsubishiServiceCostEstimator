@@ -19,15 +19,18 @@ import {
 } from "@/lib/data/services";
 import { accessories as allAccessories } from "@/lib/data/accessories";
 import { parts as allParts } from "@/lib/data/parts";
+import { getAiRecommendation } from "@/app/actions";
 
 import Header from "@/components/app/Header";
 import VehicleSelectionForm from "@/components/app/VehicleSelectionForm";
 import ServiceSelection from "@/components/app/ServiceSelection";
 import EstimateSummary from "@/components/app/EstimateSummary";
+import ServiceAdvisor from "@/components/app/ServiceAdvisor";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import PrintableEstimate from "@/components/app/PrintableEstimate";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Home() {
   const [vehicles] = useState<Vehicle[]>(allVehicles);
@@ -37,6 +40,7 @@ export default function Home() {
   const [tyreServices] = useState<AdditionalService[]>(allTyreServices);
   const [acAndEngineServices] = useState<AdditionalService[]>(allAcAndEngineServices);
   const [accessories] = useState<Accessory[]>(allAccessories);
+  const { toast } = useToast();
 
   const [selectedVehicle, setSelectedVehicle] = useState<SelectedVehicle | null>(null);
   const [selectedPeriodicService, setSelectedPeriodicService] = useState<PeriodicService | null>(null);
@@ -45,9 +49,9 @@ export default function Home() {
   const [selectedAcServices, setSelectedAcServices] = useState<AdditionalService[]>([]);
   const [selectedAccessories, setSelectedAccessories] = useState<Accessory[]>([]);
 
-  const filteredServices = useMemo(() => {
+  const { filteredServices, allAvailableServicesForAI } = useMemo(() => {
     if (!selectedVehicle) {
-      return { periodic: [], additional: [], accessories: [], tyre: [], ac: [] };
+      return { filteredServices: { periodic: [], additional: [], accessories: [], tyre: [], ac: [] }, allAvailableServicesForAI: [] };
     }
     const periodic = periodicServices.filter(
       (s) => s.vehicleModelId === selectedVehicle.model
@@ -67,7 +71,19 @@ export default function Home() {
     const vehicleAccessories = accessories.filter((a) =>
       a.applicableModels.includes(selectedVehicle.model)
     );
-    return { periodic, additional, accessories: vehicleAccessories, tyre, ac };
+    
+    const allForAI = [
+      ...periodic, 
+      ...additional, 
+      ...tyre, 
+      ...ac, 
+      ...vehicleAccessories
+    ].map(s => ({ id: s.id, name: s.name }));
+
+    return { 
+      filteredServices: { periodic, additional, accessories: vehicleAccessories, tyre, ac },
+      allAvailableServicesForAI: allForAI
+    };
   }, [selectedVehicle, periodicServices, additionalServices, accessories, tyreServices, acAndEngineServices]);
 
   useEffect(() => {
@@ -82,6 +98,57 @@ export default function Home() {
     if (!selectedVehicle) return null;
     return PlaceHolderImages.find((img) => img.id === selectedVehicle.model);
   }, [selectedVehicle]);
+
+  const handleAiRecommendation = (recommendedIds: string[]) => {
+    let recommendedPeriodic: PeriodicService | null = null;
+    const recommendedAdditional: AdditionalService[] = [];
+    const recommendedTyre: AdditionalService[] = [];
+    const recommendedAc: AdditionalService[] = [];
+    const recommendedAccessories: Accessory[] = [];
+
+    recommendedIds.forEach(id => {
+      const periodic = filteredServices.periodic.find(s => s.id === id);
+      if (periodic) {
+        recommendedPeriodic = periodic;
+        return;
+      }
+      const additional = filteredServices.additional.find(s => s.id === id);
+      if (additional) {
+        recommendedAdditional.push(additional);
+        return;
+      }
+      const tyre = filteredServices.tyre.find(s => s.id === id);
+      if (tyre) {
+        recommendedTyre.push(tyre);
+        return;
+      }
+      const ac = filteredServices.ac.find(s => s.id === id);
+      if (ac) {
+        recommendedAc.push(ac);
+        return;
+      }
+      const accessory = filteredServices.accessories.find(a => a.id === id);
+      if (accessory) {
+        recommendedAccessories.push(accessory);
+      }
+    });
+
+    // Set periodic service (only one can be selected)
+    if (recommendedPeriodic) {
+      setSelectedPeriodicService(recommendedPeriodic);
+    }
+
+    // Set other services, merging with any existing selections
+    setSelectedAdditionalServices(prev => [...new Set([...prev, ...recommendedAdditional])]);
+    setSelectedTyreServices(prev => [...new Set([...prev, ...recommendedTyre])]);
+    setSelectedAcServices(prev => [...new Set([...prev, ...recommendedAc])]);
+    setSelectedAccessories(prev => [...new Set([...prev, ...recommendedAccessories])]);
+    
+    toast({
+      title: "Rekomendasi Diterapkan",
+      description: "Servis yang direkomendasikan telah ditambahkan ke pilihan Anda.",
+    });
+  };
 
   const allSelectedServices = [
     ...selectedAdditionalServices,
@@ -133,6 +200,12 @@ export default function Home() {
 
             {selectedVehicle && (
               <>
+                <ServiceAdvisor 
+                  availableServices={allAvailableServicesForAI}
+                  onRecommendation={handleAiRecommendation}
+                  getRecommendationAction={getAiRecommendation}
+                />
+
                 <Card>
                   <CardHeader>
                     <CardTitle>2. Pilih Jenis Servis & Aksesoris</CardTitle>

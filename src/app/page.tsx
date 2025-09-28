@@ -19,13 +19,13 @@ import {
 } from "@/lib/data/services";
 import { accessories as allAccessories } from "@/lib/data/accessories";
 import { parts as allParts } from "@/lib/data/parts";
-// AI-related imports removed
+import { getServiceSuggestion } from "@/app/actions";
 
 import Header from "@/components/app/Header";
 import VehicleSelectionForm from "@/components/app/VehicleSelectionForm";
 import ServiceSelection from "@/components/app/ServiceSelection";
 import EstimateSummary from "@/components/app/EstimateSummary";
-// ServiceAdvisor component import removed
+import ServiceAdvisor from "@/components/app/ServiceAdvisor";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -75,8 +75,6 @@ export default function Home() {
     return { periodic, additional, accessories: vehicleAccessories, tyre, ac };
   }, [selectedVehicle, periodicServices, additionalServices, accessories, tyreServices, acAndEngineServices]);
   
-  // All related AI logic is removed from here
-
   useEffect(() => {
     setSelectedPeriodicService(null);
     setSelectedAdditionalServices([]);
@@ -90,7 +88,45 @@ export default function Home() {
     return PlaceHolderImages.find((img) => img.id === selectedVehicle.model);
   }, [selectedVehicle]);
 
-  // handleAiRecommendation function and related logic are removed
+  const handleAiRecommendation = (serviceName: string) => {
+    // Check in periodic services
+    const periodic = filteredServices.periodic.find(s => s.name === serviceName);
+    if (periodic) {
+      setSelectedPeriodicService(periodic);
+      toast({ title: "Rekomendasi Diterapkan", description: `Paket servis '${serviceName}' telah dipilih.` });
+      return;
+    }
+
+    // Check in additional services
+    const additional = filteredServices.additional.find(s => s.name === serviceName);
+    if (additional) {
+      setSelectedAdditionalServices(prev => [...prev, additional]);
+      toast({ title: "Rekomendasi Diterapkan", description: `Servis tambahan '${serviceName}' telah dipilih.` });
+      return;
+    }
+
+    // Check in tyre services
+    const tyre = filteredServices.tyre.find(s => s.name === serviceName);
+    if (tyre) {
+      setSelectedTyreServices(prev => [...prev, tyre]);
+      toast({ title: "Rekomendasi Diterapkan", description: `Perawatan ban '${serviceName}' telah dipilih.` });
+      return;
+    }
+
+    // Check in AC services
+    const ac = filteredServices.ac.find(s => s.name === serviceName);
+    if (ac) {
+      setSelectedAcServices(prev => [...prev, ac]);
+      toast({ title: "Rekomendasi Diterapkan", description: `Perawatan AC '${serviceName}' telah dipilih.` });
+      return;
+    }
+
+    toast({
+      variant: "destructive",
+      title: "Gagal Menerapkan Rekomendasi",
+      description: `Servis dengan nama "${serviceName}" tidak ditemukan untuk model kendaraan ini.`,
+    });
+  };
 
   const allSelectedServices = [
     ...selectedAdditionalServices,
@@ -142,7 +178,11 @@ export default function Home() {
 
             {selectedVehicle && (
               <>
-                {/* ServiceAdvisor component is removed from here */}
+                <ServiceAdvisor 
+                  vehicle={selectedVehicle}
+                  onRecommendation={handleAiRecommendation}
+                  getSuggestionAction={getServiceSuggestion}
+                />
 
                 <Card>
                   <CardHeader>

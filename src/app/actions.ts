@@ -12,16 +12,8 @@ import type {ServiceAdvisorInput, ServiceAdvisorOutput} from '@/lib/types';
 export async function getAiRecommendation(
   input: ServiceAdvisorInput
 ): Promise<ServiceAdvisorOutput> {
-  try {
-    const recommendation = await serviceAdvisor(input);
-    return recommendation;
-  } catch (error)
-  {
-    console.error('Error getting AI recommendation:', error);
-    // Return a structured error response that the client can handle
-    return {
-      recommendedService: '',
-      serviceDetails: `Terjadi kesalahan saat berkomunikasi dengan AI Service Advisor. Silakan coba lagi nanti. Error: ${error instanceof Error ? error.message : 'Unknown error'}`,
-    };
-  }
+  // The try/catch is removed to let the original error propagate to the client component.
+  // This provides more specific error messages on the UI.
+  const recommendation = await serviceAdvisor(input);
+  return recommendation;
 }

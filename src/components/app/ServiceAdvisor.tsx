@@ -22,18 +22,18 @@ export default function ServiceAdvisor({
   const [description, setDescription] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<ServiceAdvisorOutput | null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleGetRecommendation = async () => {
     if (!description.trim()) {
-      setResult({
-        recommendedService: '',
-        serviceDetails: 'Mohon masukkan keluhan atau kondisi kendaraan Anda.',
-      });
+      setError('Mohon masukkan keluhan atau kondisi kendaraan Anda.');
+      setResult(null);
       return;
     }
     
     setIsLoading(true);
     setResult(null);
+    setError(null);
 
     const input: ServiceAdvisorInput = {
       vehicleModel: selectedVehicle.modelName,
@@ -48,12 +48,10 @@ export default function ServiceAdvisor({
       if (recommendation.recommendedService) {
         onRecommendation(recommendation.recommendedService);
       }
-    } catch (error) {
-      console.error('Failed to get recommendation:', error);
-      setResult({
-        recommendedService: '',
-        serviceDetails: 'Gagal mendapatkan rekomendasi dari server. Silakan coba lagi.',
-      });
+    } catch (e) {
+      console.error('Failed to get recommendation:', e);
+      const errorMessage = e instanceof Error ? e.message : 'Terjadi kesalahan tidak dikenal.';
+      setError(`Terjadi kesalahan saat berkomunikasi dengan AI Service Advisor. Silakan coba lagi nanti. Error: ${errorMessage}`);
     } finally {
       setIsLoading(false);
     }
@@ -89,7 +87,14 @@ export default function ServiceAdvisor({
             </>
           )}
         </Button>
-        {result && (
+        {error && (
+          <Alert variant="destructive">
+            <Sparkles className="h-4 w-4" />
+            <AlertTitle>Info</AlertTitle>
+            <AlertDescription>{error}</AlertDescription>
+          </Alert>
+        )}
+        {result && !error && (
           <Alert variant={!result.recommendedService && !isLoading ? "destructive" : "default"}>
             <Sparkles className="h-4 w-4" />
             <AlertTitle>

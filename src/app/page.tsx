@@ -19,13 +19,13 @@ import {
 } from "@/lib/data/services";
 import { accessories as allAccessories } from "@/lib/data/accessories";
 import { parts as allParts } from "@/lib/data/parts";
-import { getAiRecommendation } from "@/app/actions";
+// AI-related imports removed
 
 import Header from "@/components/app/Header";
 import VehicleSelectionForm from "@/components/app/VehicleSelectionForm";
 import ServiceSelection from "@/components/app/ServiceSelection";
 import EstimateSummary from "@/components/app/EstimateSummary";
-import ServiceAdvisor from "@/components/app/ServiceAdvisor";
+// ServiceAdvisor component import removed
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -75,17 +75,7 @@ export default function Home() {
     return { periodic, additional, accessories: vehicleAccessories, tyre, ac };
   }, [selectedVehicle, periodicServices, additionalServices, accessories, tyreServices, acAndEngineServices]);
   
-  const allAvailableServices = useMemo(() => {
-      if (!selectedVehicle) return [];
-      return [
-        ...filteredServices.periodic,
-        ...filteredServices.additional,
-        ...filteredServices.tyre,
-        ...filteredServices.ac,
-        ...filteredServices.accessories,
-      ];
-  }, [filteredServices]);
-
+  // All related AI logic is removed from here
 
   useEffect(() => {
     setSelectedPeriodicService(null);
@@ -100,68 +90,7 @@ export default function Home() {
     return PlaceHolderImages.find((img) => img.id === selectedVehicle.model);
   }, [selectedVehicle]);
 
-  const handleAiRecommendation = (recommendedName: string) => {
-    if (!recommendedName) return;
-  
-    let serviceApplied = false;
-
-    const applyService = (service: any) => {
-        const periodic = filteredServices.periodic.find(s => s.name === service.name);
-        if (periodic) {
-          setSelectedPeriodicService(periodic);
-          return true;
-        }
-        const additional = filteredServices.additional.find(s => s.name === service.name);
-        if (additional) {
-          setSelectedAdditionalServices(prev => [...new Set([...prev, additional])]);
-          return true;
-        }
-        const tyre = filteredServices.tyre.find(s => s.name === service.name);
-        if (tyre) {
-          setSelectedTyreServices(prev => [...new Set([...prev, tyre])]);
-          return true;
-        }
-        const ac = filteredServices.ac.find(s => s.name === service.name);
-        if (ac) {
-          setSelectedAcServices(prev => [...new Set([...prev, ac])]);
-          return true;
-        }
-        const accessory = filteredServices.accessories.find(a => a.name === service.name);
-        if (accessory) {
-          setSelectedAccessories(prev => [...new Set([...prev, accessory])]);
-          return true;
-        }
-        return false;
-    }
-
-    if (recommendedName.includes('&')) {
-        const serviceNames = recommendedName.split('&').map(s => s.trim());
-        serviceNames.forEach(name => {
-            const service = allAvailableServices.find(s => s.name.startsWith(name));
-            if (service) {
-                if(applyService(service)) serviceApplied = true;
-            }
-        });
-    } else {
-        const service = allAvailableServices.find(s => s.name === recommendedName);
-        if (service) {
-            if(applyService(service)) serviceApplied = true;
-        }
-    }
-  
-    if (serviceApplied) {
-      toast({
-        title: "Rekomendasi Diterapkan",
-        description: "Servis yang direkomendasikan telah ditambahkan ke pilihan Anda.",
-      });
-    } else {
-       toast({
-        title: "Rekomendasi Tidak Ditemukan",
-        description: `Servis "${recommendedName}" tidak tersedia untuk model kendaraan ini.`,
-        variant: "destructive",
-      });
-    }
-  };
+  // handleAiRecommendation function and related logic are removed
 
   const allSelectedServices = [
     ...selectedAdditionalServices,
@@ -213,11 +142,7 @@ export default function Home() {
 
             {selectedVehicle && (
               <>
-                <ServiceAdvisor
-                  selectedVehicle={selectedVehicle}
-                  onRecommendation={handleAiRecommendation}
-                  getRecommendationAction={getAiRecommendation}
-                />
+                {/* ServiceAdvisor component is removed from here */}
 
                 <Card>
                   <CardHeader>

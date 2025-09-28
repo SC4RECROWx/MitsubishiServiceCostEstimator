@@ -49,9 +49,9 @@ export default function Home() {
   const [selectedAcServices, setSelectedAcServices] = useState<AdditionalService[]>([]);
   const [selectedAccessories, setSelectedAccessories] = useState<Accessory[]>([]);
 
-  const { filteredServices, allAvailableServicesForAI } = useMemo(() => {
+  const filteredServices = useMemo(() => {
     if (!selectedVehicle) {
-      return { filteredServices: { periodic: [], additional: [], accessories: [], tyre: [], ac: [] }, allAvailableServicesForAI: [] };
+      return { periodic: [], additional: [], accessories: [], tyre: [], ac: [] };
     }
     const periodic = periodicServices.filter(
       (s) => s.vehicleModelId === selectedVehicle.model
@@ -71,20 +71,21 @@ export default function Home() {
     const vehicleAccessories = accessories.filter((a) =>
       a.applicableModels.includes(selectedVehicle.model)
     );
-    
-    const allForAI = [
-      ...periodic, 
-      ...additional, 
-      ...tyre, 
-      ...ac, 
-      ...vehicleAccessories
-    ].map(s => ({ id: s.id, name: s.name }));
 
-    return { 
-      filteredServices: { periodic, additional, accessories: vehicleAccessories, tyre, ac },
-      allAvailableServicesForAI: allForAI
-    };
+    return { periodic, additional, accessories: vehicleAccessories, tyre, ac };
   }, [selectedVehicle, periodicServices, additionalServices, accessories, tyreServices, acAndEngineServices]);
+  
+  const allAvailableServices = useMemo(() => {
+      if (!selectedVehicle) return [];
+      return [
+        ...filteredServices.periodic,
+        ...filteredServices.additional,
+        ...filteredServices.tyre,
+        ...filteredServices.ac,
+        ...filteredServices.accessories,
+      ];
+  }, [filteredServices]);
+
 
   useEffect(() => {
     setSelectedPeriodicService(null);
@@ -99,55 +100,67 @@ export default function Home() {
     return PlaceHolderImages.find((img) => img.id === selectedVehicle.model);
   }, [selectedVehicle]);
 
-  const handleAiRecommendation = (recommendedIds: string[]) => {
-    let recommendedPeriodic: PeriodicService | null = null;
-    const recommendedAdditional: AdditionalService[] = [];
-    const recommendedTyre: AdditionalService[] = [];
-    const recommendedAc: AdditionalService[] = [];
-    const recommendedAccessories: Accessory[] = [];
+  const handleAiRecommendation = (recommendedName: string) => {
+    if (!recommendedName) return;
+  
+    let serviceApplied = false;
 
-    recommendedIds.forEach(id => {
-      const periodic = filteredServices.periodic.find(s => s.id === id);
-      if (periodic) {
-        recommendedPeriodic = periodic;
-        return;
-      }
-      const additional = filteredServices.additional.find(s => s.id === id);
-      if (additional) {
-        recommendedAdditional.push(additional);
-        return;
-      }
-      const tyre = filteredServices.tyre.find(s => s.id === id);
-      if (tyre) {
-        recommendedTyre.push(tyre);
-        return;
-      }
-      const ac = filteredServices.ac.find(s => s.id === id);
-      if (ac) {
-        recommendedAc.push(ac);
-        return;
-      }
-      const accessory = filteredServices.accessories.find(a => a.id === id);
-      if (accessory) {
-        recommendedAccessories.push(accessory);
-      }
-    });
-
-    // Set periodic service (only one can be selected)
-    if (recommendedPeriodic) {
-      setSelectedPeriodicService(recommendedPeriodic);
+    const applyService = (service: any) => {
+        const periodic = filteredServices.periodic.find(s => s.name === service.name);
+        if (periodic) {
+          setSelectedPeriodicService(periodic);
+          return true;
+        }
+        const additional = filteredServices.additional.find(s => s.name === service.name);
+        if (additional) {
+          setSelectedAdditionalServices(prev => [...new Set([...prev, additional])]);
+          return true;
+        }
+        const tyre = filteredServices.tyre.find(s => s.name === service.name);
+        if (tyre) {
+          setSelectedTyreServices(prev => [...new Set([...prev, tyre])]);
+          return true;
+        }
+        const ac = filteredServices.ac.find(s => s.name === service.name);
+        if (ac) {
+          setSelectedAcServices(prev => [...new Set([...prev, ac])]);
+          return true;
+        }
+        const accessory = filteredServices.accessories.find(a => a.name === service.name);
+        if (accessory) {
+          setSelectedAccessories(prev => [...new Set([...prev, accessory])]);
+          return true;
+        }
+        return false;
     }
 
-    // Set other services, merging with any existing selections
-    setSelectedAdditionalServices(prev => [...new Set([...prev, ...recommendedAdditional])]);
-    setSelectedTyreServices(prev => [...new Set([...prev, ...recommendedTyre])]);
-    setSelectedAcServices(prev => [...new Set([...prev, ...recommendedAc])]);
-    setSelectedAccessories(prev => [...new Set([...prev, ...recommendedAccessories])]);
-    
-    toast({
-      title: "Rekomendasi Diterapkan",
-      description: "Servis yang direkomendasikan telah ditambahkan ke pilihan Anda.",
-    });
+    if (recommendedName.includes('&')) {
+        const serviceNames = recommendedName.split('&').map(s => s.trim());
+        serviceNames.forEach(name => {
+            const service = allAvailableServices.find(s => s.name.startsWith(name));
+            if (service) {
+                if(applyService(service)) serviceApplied = true;
+            }
+        });
+    } else {
+        const service = allAvailableServices.find(s => s.name === recommendedName);
+        if (service) {
+            if(applyService(service)) serviceApplied = true;
+        }
+    }
+  
+    if (serviceApplied) {
+      toast({
+        title: "Rekomendasi Diterapkan",
+        description: "Servis yang direkomendasikan telah ditambahkan ke pilihan Anda.",
+      });
+    } else {
+       toast({
+        title: "Rekomendasi Tidak Ditemukan",
+        description: `Servis "${recommendedName}" tidak tersedia untuk model kendaraan ini.`,
+        variant: "destructive",
+      });
+    }
   };
 
   const allSelectedServices = [
@@ -201,7 +214,7 @@ export default function Home() {
             {selectedVehicle && (
               <>
                 <ServiceAdvisor 
-                  availableServices={allAvailableServicesForAI}
+                  selectedVehicle={selectedVehicle}
                   onRecommendation={handleAiRecommendation}
                   getRecommendationAction={getAiRecommendation}
                 />

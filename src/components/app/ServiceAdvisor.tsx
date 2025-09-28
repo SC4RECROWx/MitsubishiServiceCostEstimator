@@ -6,28 +6,28 @@ import {Textarea} from '@/components/ui/textarea';
 import {Button} from '@/components/ui/button';
 import {Alert, AlertDescription, AlertTitle} from '@/components/ui/alert';
 import {Loader2, Sparkles, Wand2} from 'lucide-react';
-import type {ServiceAdvisorInput, ServiceAdvisorOutput} from '@/lib/types';
+import type {ServiceAdvisorInput, ServiceAdvisorOutput, SelectedVehicle} from '@/lib/types';
 
 interface ServiceAdvisorProps {
-  availableServices: Array<{id: string; name: string}>;
-  onRecommendation: (serviceIds: string[]) => void;
+  selectedVehicle: SelectedVehicle;
+  onRecommendation: (serviceName: string) => void;
   getRecommendationAction: (input: ServiceAdvisorInput) => Promise<ServiceAdvisorOutput>;
 }
 
 export default function ServiceAdvisor({
-  availableServices,
+  selectedVehicle,
   onRecommendation,
   getRecommendationAction,
 }: ServiceAdvisorProps) {
-  const [complaint, setComplaint] = useState('');
+  const [description, setDescription] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [result, setResult] = useState<ServiceAdvisorOutput | null>(null);
 
   const handleGetRecommendation = async () => {
-    if (!complaint.trim()) {
+    if (!description.trim()) {
       setResult({
-        recommendedServiceIds: [],
-        reasoning: 'Mohon masukkan keluhan atau kondisi kendaraan Anda.',
+        recommendedService: '',
+        serviceDetails: 'Mohon masukkan keluhan atau kondisi kendaraan Anda.',
       });
       return;
     }
@@ -36,21 +36,23 @@ export default function ServiceAdvisor({
     setResult(null);
 
     const input: ServiceAdvisorInput = {
-      userComplaint: complaint,
-      availableServices: availableServices,
+      vehicleModel: selectedVehicle.modelName,
+      vehicleYear: selectedVehicle.year,
+      vehicleTrim: selectedVehicle.trim,
+      userDescription: description,
     };
 
     try {
       const recommendation = await getRecommendationAction(input);
       setResult(recommendation);
-      if (recommendation.recommendedServiceIds.length > 0) {
-        onRecommendation(recommendation.recommendedServiceIds);
+      if (recommendation.recommendedService) {
+        onRecommendation(recommendation.recommendedService);
       }
     } catch (error) {
       console.error('Failed to get recommendation:', error);
       setResult({
-        recommendedServiceIds: [],
-        reasoning: 'Gagal mendapatkan rekomendasi dari server. Silakan coba lagi.',
+        recommendedService: '',
+        serviceDetails: 'Gagal mendapatkan rekomendasi dari server. Silakan coba lagi.',
       });
     } finally {
       setIsLoading(false);
@@ -71,8 +73,8 @@ export default function ServiceAdvisor({
       <CardContent className="space-y-4">
         <Textarea
           placeholder="Contoh: 'Rem saya berbunyi saat mengerem' atau 'AC mobil kurang dingin'"
-          value={complaint}
-          onChange={(e) => setComplaint(e.target.value)}
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
           rows={3}
           disabled={isLoading}
         />
@@ -88,12 +90,12 @@ export default function ServiceAdvisor({
           )}
         </Button>
         {result && (
-          <Alert variant={result.recommendedServiceIds.length === 0 && !isLoading ? "destructive" : "default"}>
+          <Alert variant={!result.recommendedService && !isLoading ? "destructive" : "default"}>
             <Sparkles className="h-4 w-4" />
             <AlertTitle>
-              {result.recommendedServiceIds.length > 0 ? 'Rekomendasi Untuk Anda' : 'Info'}
+              {result.recommendedService ? 'Rekomendasi Untuk Anda' : 'Info'}
             </AlertTitle>
-            <AlertDescription>{result.reasoning}</AlertDescription>
+            <AlertDescription>{result.serviceDetails}</AlertDescription>
           </Alert>
         )}
       </CardContent>

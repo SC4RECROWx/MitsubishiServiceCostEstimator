@@ -1,4 +1,4 @@
-import {z} from 'genkit';
+import {z} from 'zod';
 
 export interface Vehicle {
   id: string;
@@ -66,18 +66,15 @@ export interface SelectedItem {
 
 // AI Related types
 export const ServiceAdvisorInputSchema = z.object({
-  userComplaint: z.string().describe('Keluhan atau masalah yang dijelaskan oleh pengguna terkait kendaraannya.'),
-  availableServices: z.array(z.object({
-    id: z.string().describe('ID unik dari servis atau pekerjaan.'),
-    name: z.string().describe('Nama deskriptif dari servis atau pekerjaan.'),
-  })).describe('Daftar semua servis dan pekerjaan yang tersedia untuk model kendaraan yang dipilih.'),
+  vehicleModel: z.string().describe('The model of the Mitsubishi vehicle (e.g., Xpander, Pajero Sport).'),
+  vehicleYear: z.number().describe('The year of the vehicle (e.g., 2023).'),
+  vehicleTrim: z.string().describe('The trim level of the vehicle (e.g., Exceed, Ultimate, Dakar).'),
+  userDescription: z.string().describe('A brief description of the issue or desired service from the user.'),
 });
-
 export type ServiceAdvisorInput = z.infer<typeof ServiceAdvisorInputSchema>;
 
 export const ServiceAdvisorOutputSchema = z.object({
-  recommendedServiceIds: z.array(z.string()).describe('Daftar ID dari servis atau pekerjaan yang direkomendasikan.'),
-  reasoning: z.string().describe('Penjelasan singkat dalam Bahasa Indonesia mengapa servis tersebut direkomendasikan, berdasarkan keluhan pengguna.'),
+  recommendedService: z.string().describe('The recommended service package or job name, exactly as written in the available services list.'),
+  serviceDetails: z.string().describe('A detailed description of the recommended service, including items and parts. This is a user-facing explanation.'),
 });
-
 export type ServiceAdvisorOutput = z.infer<typeof ServiceAdvisorOutputSchema>;

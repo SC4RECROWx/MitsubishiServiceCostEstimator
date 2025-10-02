@@ -19,7 +19,6 @@ import {
 } from "@/lib/data/services";
 import { accessories as allAccessories } from "@/lib/data/accessories";
 import { parts as allParts } from "@/lib/data/parts";
-import { useToast } from "@/hooks/use-toast";
 
 import Header from "@/components/app/Header";
 import VehicleSelectionForm from "@/components/app/VehicleSelectionForm";
@@ -38,7 +37,6 @@ export default function Home() {
   const [tyreServices] = useState<AdditionalService[]>(allTyreServices);
   const [acAndEngineServices] = useState<AdditionalService[]>(allAcAndEngineServices);
   const [accessories] = useState<Accessory[]>(allAccessories);
-  const { toast } = useToast();
 
   const [selectedVehicle, setSelectedVehicle] = useState<SelectedVehicle | null>(null);
   const [selectedPeriodicService, setSelectedPeriodicService] = useState<PeriodicService | null>(null);

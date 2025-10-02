@@ -49,7 +49,7 @@ export const periodicServices: PeriodicService[] = [
   {
     id: "xp-pahe-4",
     vehicleModelId: "xpander",
-    name: "Pahe 4: Paket Lengkap + Engine Flush",
+    name: "PAHE 4: Ganti Oli + Filter Oli + AC & Engine Oil Flush",
     mileage: 0,
     jobs: [
         { description: "Jasa Ganti Oli", cost: 98500 },
@@ -109,7 +109,7 @@ export const periodicServices: PeriodicService[] = [
   {
     id: "ps-pahe-4",
     vehicleModelId: "pajero-sport",
-    name: "Pahe 4: Paket Lengkap + Engine Flush",
+    name: "PAHE 4: Ganti Oli + Filter Oli + AC & Engine Oil Flush",
     mileage: 0,
     jobs: [
         { description: "Jasa Ganti Oli, Filter Oli & AC", cost: 198000 },

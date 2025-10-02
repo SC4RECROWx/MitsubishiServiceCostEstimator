@@ -49,7 +49,7 @@ export const periodicServices: PeriodicService[] = [
   {
     id: "xp-pahe-4",
     vehicleModelId: "xpander",
-    name: "PAHE 4: Ganti Oli + Filter Oli + AC & Engine Oil Flush",
+    name: "Pahe 4: Ganti Oli + Filter Oli + AC & Engine Oil Flush",
     mileage: 0,
     jobs: [
         { description: "Jasa Ganti Oli", cost: 98500 },

@@ -18,7 +18,7 @@ Aplikasi web interaktif yang dirancang untuk membantu pemilik kendaraan Mitsubis
 - **Komponen UI**: [Shadcn/ui](https://ui.shadcn.com/)
 - **PDF Generation**: [jsPDF](https://github.com/parallax/jsPDF)
 
-## 🔧 Menjalankan Secara Lokal
+## 🔧 Menjalankan Secara Lokal (Mode Pengembangan)
 
 Untuk menjalankan aplikasi ini di lingkungan pengembangan lokal Anda, ikuti langkah-langkah berikut:
 
@@ -38,4 +38,32 @@ Untuk menjalankan aplikasi ini di lingkungan pengembangan lokal Anda, ikuti lang
     Aplikasi akan berjalan pada `http://localhost:9002`.
     ```bash
     npm run dev
+    ```
+
+## 📦 Menjalankan di Server (Mode Produksi)
+
+Aplikasi Next.js tidak bisa langsung disalin ke folder `htdocs` seperti aplikasi PHP. Ia membutuhkan Node.js untuk berjalan. Berikut adalah cara untuk menjalankannya di server Anda:
+
+1.  **Build Aplikasi**
+    Perintah ini akan mengkompilasi aplikasi Anda menjadi file-file statis dan server-side code yang teroptimasi di dalam folder `.next`.
+    ```bash
+    npm run build
+    ```
+
+2.  **Jalankan Aplikasi**
+    Setelah proses build selesai, jalankan perintah ini untuk memulai server produksi Next.js. Secara default, aplikasi akan berjalan di port `3000`.
+    ```bash
+    npm run start
+    ```
+
+Aplikasi Anda sekarang berjalan dalam mode produksi yang jauh lebih cepat dan teroptimasi.
+
+**Tips Tambahan**:
+*   Untuk menjaga agar aplikasi tetap berjalan bahkan setelah Anda menutup terminal, disarankan menggunakan manajer proses seperti `pm2`.
+    ```bash
+    # Install pm2 secara global (jika belum ada)
+    npm install pm2 -g
+    
+    # Jalankan aplikasi menggunakan pm2
+    pm2 start npm --name "mitsubishi-app" -- start
     ```

@@ -2,11 +2,11 @@ import type { Part } from "@/lib/types";
 
 export const parts: Part[] = [
   // Xpander Parts
-  { id: "xp-engine-oil-1l", name: "Engine Oil 0W-20 1L", partNumber: "MZ690220", price: 100000 },
-  { id: "xp-oil-filter", name: "Oil Filter - Xpander", partNumber: "1230A182", price: 55000 },
-  { id: "xp-drain-plug-gasket", name: "Gasket, Engine Oil Drain Plug", partNumber: "MD050317", price: 7000 },
-  { id: "xp-ac-filter", name: "Filter, A/C", partNumber: "7850A002", price: 150000 },
-  { id: "xp-engine-flush", name: "Engine Flush", partNumber: "CHEM-FLUSH", price: 95000 },
+  { id: "xp-engine-oil-1l", name: "Engine Oil 0W-20 1L", partNumber: "MZ690220", price: 129000 },
+  { id: "xp-oil-filter", name: "Oil Filter - Xpander", partNumber: "1230A182", price: 68500 },
+  { id: "xp-drain-plug-gasket", name: "Gasket, Engine Oil Drain Plug", partNumber: "MD050317", price: 20000 },
+  { id: "xp-ac-filter", name: "Filter, A/C", partNumber: "7850A002", price: 168000 },
+  { id: "xp-engine-flush", name: "Engine Flush", partNumber: "CHEM-FLUSH", price: 140000 },
   { id: "xp-brake-pad-front", name: "Pad Kit, Front Brake - Xpander", partNumber: "4605B595", price: 550000 },
   { id: "xp-brake-shoe-rear", name: "Shoe Kit, Rear Brake - Xpander", partNumber: "4800A238", price: 450000 },
   { id: "xp-battery", name: "Battery, 34B19L", partNumber: "MZ690013", price: 850000 },

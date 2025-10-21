@@ -8,6 +8,11 @@ export const vehicles: Vehicle[] = [
       { year: 2024, trims: ["Ultimate CVT", "Sport CVT", "Exceed CVT", "Exceed MT", "GLS CVT", "GLS MT"] },
       { year: 2023, trims: ["Ultimate CVT", "Sport CVT", "Exceed CVT", "Exceed MT", "GLS CVT", "GLS MT"] },
       { year: 2022, trims: ["Ultimate CVT", "Sport CVT", "Exceed CVT", "Exceed MT", "GLS CVT", "GLS MT"] },
+      { year: 2021, trims: ["Ultimate AT", "Sport AT", "Sport MT", "Exceed AT", "Exceed MT", "GLS AT", "GLS MT", "GLX MT"] },
+      { year: 2020, trims: ["Ultimate AT", "Sport AT", "Sport MT", "Exceed AT", "Exceed MT", "GLS AT", "GLS MT", "GLX MT"] },
+      { year: 2019, trims: ["Ultimate AT", "Sport AT", "Exceed AT", "Exceed MT", "GLS MT", "GLX MT"] },
+      { year: 2018, trims: ["Ultimate AT", "Sport AT", "Exceed AT", "Exceed MT", "GLS MT", "GLX MT"] },
+      { year: 2017, trims: ["Ultimate AT", "Sport AT", "Exceed AT", "Exceed MT", "GLS MT", "GLX MT"] },
     ],
   },
   {

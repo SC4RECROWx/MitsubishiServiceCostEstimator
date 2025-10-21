@@ -21,7 +21,7 @@ export const useCollection = <T,>(
     includeId?: boolean;
   }
 ) => {
-  const [data, setData] = useState<T[] | null>(null);
+  const [data, setData] = useState<T[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<FirestoreError | null>(null);
 

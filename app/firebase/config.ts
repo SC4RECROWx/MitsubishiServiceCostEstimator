@@ -1,14 +1,11 @@
-// This file is used to store the Firebase configuration.
-// It is used by the initializeFirebase function in src/firebase/index.ts.
-
-// IMPORTANT: Replace this with your own Firebase configuration.
-// You can find it in the Firebase Console:
-// https://console.firebase.google.com/
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 export const firebaseConfig = {
-  apiKey: "REPLACE_WITH_YOUR_API_KEY",
-  authDomain: "REPLACE_WITH_YOUR_AUTH_DOMAIN",
-  projectId: "REPLACE_WITH_YOUR_PROJECT_ID",
-  storageBucket: "REPLACE_WITH_YOUR_STORAGE_BUCKET",
-  messagingSenderId: "REPLACE_WITH_YOUR_MESSAGING_SENDER_ID",
-  appId: "REPLACE_WITH_YOUR_APP_ID",
+  apiKey: "AIzaSyDSYUZFbrSEH7c2TXOvzsh2zJWU9z3ir5E",
+  authDomain: "tanyajawabbengkel.firebaseapp.com",
+  projectId: "tanyajawabbengkel",
+  storageBucket: "tanyajawabbengkel.firebasestorage.app",
+  messagingSenderId: "185191079835",
+  appId: "1:185191079835:web:c822394dfbd1bbcd2b4b3e",
+  measurementId: "G-J6Y9M69KFW"
 };

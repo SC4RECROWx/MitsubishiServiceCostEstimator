@@ -10,7 +10,7 @@ export interface Vehicle {
 export interface SelectedVehicle {
   model: string;
   year: number;
-  trim: string;
+  transmisi: string;
   modelName: string;
 }
 

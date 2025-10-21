@@ -85,7 +85,7 @@ export default function PrintableEstimate({
         <div className="space-y-1.5 mb-6">
             <h2 className="text-2xl font-semibold leading-none tracking-tight">Estimasi Biaya Servis & Aksesoris</h2>
             {vehicle && (
-                <p className="text-sm text-muted-foreground">{`${vehicle.modelName} ${vehicle.year} ${vehicle.trim}`}</p>
+                <p className="text-sm text-muted-foreground">{`${vehicle.modelName} ${vehicle.year} ${vehicle.transmisi}`}</p>
             )}
         </div>
         <div>

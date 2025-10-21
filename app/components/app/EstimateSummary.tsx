@@ -103,7 +103,7 @@ export default function EstimateSummary({
       // Vehicle Info
       pdf.setFontSize(12);
       pdf.setFont("helvetica", "normal");
-      pdf.text(`${vehicle.modelName} ${vehicle.year} ${vehicle.trim}`, margin, cursorY);
+      pdf.text(`${vehicle.modelName} ${vehicle.year} ${vehicle.transmisi}`, margin, cursorY);
       cursorY += 10;
       
       // Line separator
@@ -195,7 +195,7 @@ export default function EstimateSummary({
 
   const waNumber = "6282348000085";
   const waMessage = encodeURIComponent(`Halo, saya ingin melakukan booking service untuk kendaraan saya:
-Model: ${vehicle.modelName} ${vehicle.year} ${vehicle.trim}
+Model: ${vehicle.modelName} ${vehicle.year} ${vehicle.transmisi}
 Estimasi Biaya: ${formatCurrency(totalCosts.total)}
 
 Services:
@@ -209,7 +209,7 @@ ${selectedItems.map(item => `- ${item.name}`).join('\n')}
         <CardHeader>
             <CardTitle>Ringkasan Estimasi</CardTitle>
             {vehicle && (
-            <CardDescription>{`${vehicle.modelName} ${vehicle.year} ${vehicle.trim}`}</CardDescription>
+            <CardDescription>{`${vehicle.modelName} ${vehicle.year} ${vehicle.transmisi}`}</CardDescription>
             )}
         </CardHeader>
         <CardContent className="grid gap-4">

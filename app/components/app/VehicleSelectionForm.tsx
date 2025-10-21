@@ -99,14 +99,14 @@ export default function VehicleSelectionForm({ vehicles, onVehicleSelect }: Prop
       </div>
 
       <div className="grid gap-2">
-        <Label htmlFor="trim-select">Tipe / Varian</Label>
+        <Label htmlFor="trim-select">Transmisi</Label>
         <Select
           onValueChange={handleTrimChange}
           value={selectedTrim}
           disabled={!selectedYear}
         >
           <SelectTrigger id="trim-select">
-            <SelectValue placeholder="Pilih Tipe" />
+            <SelectValue placeholder="Pilih Transmisi" />
           </SelectTrigger>
           <SelectContent>
             {trims.map((trim) => (

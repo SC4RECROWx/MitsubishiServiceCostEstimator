@@ -64,12 +64,7 @@ export default function ServiceSelection({
 }: Props) {
   const handlePeriodicChange = (serviceId: string) => {
     const selected = periodicServices.find((s) => s.id === serviceId);
-    // Allow unselecting by passing null if the same item is selected again
-    if (selectedPeriodicService && selectedPeriodicService.id === serviceId) {
-      onPeriodicChange(null);
-    } else {
-      onPeriodicChange(selected || null);
-    }
+    onPeriodicChange(selected || null);
   };
   
   const createHandleChange = (

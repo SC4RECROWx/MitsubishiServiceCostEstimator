@@ -51,7 +51,7 @@ export default function VehicleSelectionForm({ vehicles, onVehicleSelect }: Prop
       onVehicleSelect({
         model: model.id,
         year: parseInt(selectedYear, 10),
-        trim,
+        transmisi: trim,
         modelName: model.name,
       });
     } else {
@@ -99,14 +99,14 @@ export default function VehicleSelectionForm({ vehicles, onVehicleSelect }: Prop
       </div>
 
       <div className="grid gap-2">
-        <Label htmlFor="trim-select">Transmisi</Label>
+        <Label htmlFor="trim-select">Tipe / Varian</Label>
         <Select
           onValueChange={handleTrimChange}
           value={selectedTrim}
           disabled={!selectedYear}
         >
           <SelectTrigger id="trim-select">
-            <SelectValue placeholder="Pilih Transmisi" />
+            <SelectValue placeholder="Pilih Tipe" />
           </SelectTrigger>
           <SelectContent>
             {trims.map((trim) => (

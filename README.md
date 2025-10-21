@@ -14,7 +14,6 @@ Aplikasi web interaktif yang dirancang untuk membantu pemilik kendaraan Mitsubis
 
 - **Framework**: [Next.js](https://nextjs.org/) (dengan App Router & Turbopack)
 - **Bahasa**: [TypeScript](https://www.typescriptlang.org/)
-- **Database**: [Firebase Firestore](https://firebase.google.com/docs/firestore)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/)
 - **Komponen UI**: [Shadcn/ui](https://ui.shadcn.com/)
 - **PDF Generation**: [jsPDF](https://github.com/parallax/jsPDF)
@@ -35,11 +34,7 @@ Untuk menjalankan aplikasi ini di lingkungan pengembangan lokal Anda, ikuti lang
     npm install
     ```
 
-3.  **Konfigurasi Firebase**
-    - Buka file `app/firebase/config.ts`.
-    - Ganti placeholder dengan konfigurasi proyek Firebase Anda sendiri. Anda bisa mendapatkannya dari Firebase Console.
-
-4.  **Jalankan Server Pengembangan**
+3.  **Jalankan Server Pengembangan**
     Aplikasi akan berjalan pada `http://localhost:9002`.
     ```bash
     npm run dev

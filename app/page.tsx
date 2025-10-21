@@ -31,7 +31,7 @@ import { accessories } from "@/lib/data/accessories";
 
 export default function Home() {
   const [selectedVehicle, setSelectedVehicle] = useState<SelectedVehicle | null>(null);
-  const [selectedPeriodicServices, setSelectedPeriodicServices] = useState<PeriodicService[]>([]);
+  const [selectedPeriodicService, setSelectedPeriodicService] = useState<PeriodicService | null>(null);
   const [selectedAdditionalServices, setSelectedAdditionalServices] = useState<AdditionalService[]>([]);
   const [selectedTyreServices, setSelectedTyreServices] = useState<AdditionalService[]>([]);
   const [selectedAcServices, setSelectedAcServices] = useState<AdditionalService[]>([]);
@@ -64,7 +64,7 @@ export default function Home() {
   }, [selectedVehicle]);
   
   useEffect(() => {
-    setSelectedPeriodicServices([]);
+    setSelectedPeriodicService(null);
     setSelectedAdditionalServices([]);
     setSelectedTyreServices([]);
     setSelectedAcServices([]);
@@ -138,12 +138,12 @@ export default function Home() {
                       acAndEngineServices={filteredServices.ac}
                       accessories={filteredServices.accessories}
                       partsData={parts}
-                      onPeriodicChange={setSelectedPeriodicServices}
+                      onPeriodicChange={setSelectedPeriodicService}
                       onAdditionalChange={setSelectedAdditionalServices}
                       onTyreChange={setSelectedTyreServices}
                       onAcChange={setSelectedAcServices}
                       onAccessoryChange={setSelectedAccessories}
-                      selectedPeriodicServices={selectedPeriodicServices}
+                      selectedPeriodicService={selectedPeriodicService}
                       selectedAdditionalServices={selectedAdditionalServices}
                       selectedTyreServices={selectedTyreServices}
                       selectedAcServices={selectedAcServices}
@@ -158,7 +158,7 @@ export default function Home() {
           <div className="sticky top-6 grid gap-6">
             <EstimateSummary
               vehicle={selectedVehicle}
-              periodicServices={selectedPeriodicServices}
+              periodicServices={selectedPeriodicService ? [selectedPeriodicService] : []}
               additionalServices={allSelectedServices}
               accessories={selectedAccessories}
               partsData={parts}
@@ -170,7 +170,7 @@ export default function Home() {
       <div id="printable-summary" className="print-container print-hidden">
         <PrintableEstimate
             vehicle={selectedVehicle}
-            periodicServices={selectedPeriodicServices}
+            periodicServices={selectedPeriodicService ? [selectedPeriodicService] : []}
             additionalServices={allSelectedServices}
             accessories={selectedAccessories}
             partsData={parts}

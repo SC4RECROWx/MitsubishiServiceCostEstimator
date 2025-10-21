@@ -21,8 +21,7 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli", cost: 98500 },
-        { description: "Jasa Ganti Saringan Oli", cost: 98500 },
+        { description: "Jasa Ganti Oli & Filter Oli", cost: 98500 },
     ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
@@ -36,8 +35,7 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 3: Ganti Oli + Filter Oli & AC",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli", cost: 98500 },
-        { description: "Jasa Ganti Saringan Oli", cost: 98500 },
+        { description: "Jasa Ganti Oli & Filter Oli", cost: 98500 },
     ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
@@ -52,8 +50,7 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 4: Ganti Oli + Filter Oli + AC & Engine Oil Flush",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli", cost: 98500 },
-        { description: "Jasa Ganti Saringan Oli", cost: 98500 },
+        { description: "Jasa Ganti Oli & Filter Oli", cost: 98500 },
     ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
@@ -224,8 +221,11 @@ export const additionalServices: AdditionalService[] = [
     id: "add-brake-pad-front-xp",
     name: "Ganti Kampas Rem Depan - Xpander",
     applicableModels: ["xpander"],
-    job: { description: "Jasa Ganti Kampas Rem Depan", cost: 150000 },
-    parts: [{ partId: "xp-brake-pad-front", quantity: 1 }],
+    job: { description: "Jasa Ganti Kampas Rem Depan", cost: 295500 },
+    parts: [
+        { partId: "xp-brake-pad-front", quantity: 1 },
+        { partId: "common-brake-cleaner", quantity: 1 }
+    ],
   },
   {
     id: "add-brake-pad-front-ps",
@@ -238,8 +238,11 @@ export const additionalServices: AdditionalService[] = [
     id: "add-brake-pad-rear-xp",
     name: "Ganti Kampas Rem Belakang - Xpander",
     applicableModels: ["xpander"],
-    job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 150000 },
-    parts: [{ partId: "xp-brake-shoe-rear", quantity: 1 }],
+    job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 394000 },
+    parts: [
+        { partId: "xp-brake-shoe-rear", quantity: 1 },
+        { partId: "common-brake-cleaner", quantity: 1 }
+    ],
   },
   {
     id: "add-brake-pad-rear-ps",

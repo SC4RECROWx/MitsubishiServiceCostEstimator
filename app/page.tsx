@@ -9,16 +9,10 @@ import type {
   SelectedVehicle,
   Part,
 } from "@/lib/types";
-import { vehicles as allVehicles } from "@/lib/data/vehicles";
-import {
-  periodicServices as allPeriodicServices,
-  additionalServices as allAdditionalServices,
-  tyreServices as allTyreServices,
-  acAndEngineServices as allAcAndEngineServices,
-  getAcServicePrice,
-} from "@/lib/data/services";
-import { accessories as allAccessories } from "@/lib/data/accessories";
-import { parts as allParts } from "@/lib/data/parts";
+
+import { useCollection } from "@/firebase/firestore/use-collection";
+import { collection, query, where } from "firebase/firestore";
+import { useFirestore } from "@/firebase/provider";
 
 import Header from "@/components/app/Header";
 import VehicleSelectionForm from "@/components/app/VehicleSelectionForm";
@@ -28,15 +22,32 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { PlaceHolderImages } from "@/lib/placeholder-images";
 import PrintableEstimate from "@/components/app/PrintableEstimate";
+import { getAcServicePrice } from "@/lib/data/services"; 
 
 export default function Home() {
-  const [vehicles] = useState<Vehicle[]>(allVehicles);
-  const [parts] = useState<Part[]>(allParts);
-  const [periodicServices] = useState<PeriodicService[]>(allPeriodicServices);
-  const [additionalServices] = useState<AdditionalService[]>(allAdditionalServices);
-  const [tyreServices] = useState<AdditionalService[]>(allTyreServices);
-  const [acAndEngineServices] = useState<AdditionalService[]>(allAcAndEngineServices);
-  const [accessories] = useState<Accessory[]>(allAccessories);
+  const firestore = useFirestore();
+
+  const { data: vehicles = [], loading: loadingVehicles } = useCollection<Vehicle>(
+    firestore ? collection(firestore, "vehicles") : null, { includeId: true }
+  );
+  const { data: parts = [], loading: loadingParts } = useCollection<Part>(
+    firestore ? collection(firestore, "parts") : null, { includeId: true }
+  );
+  const { data: periodicServices = [], loading: loadingPeriodic } = useCollection<PeriodicService>(
+    firestore ? collection(firestore, "periodicServices") : null, { includeId: true }
+  );
+  const { data: additionalServices = [], loading: loadingAdditional } = useCollection<AdditionalService>(
+    firestore ? collection(firestore, "additionalServices") : null, { includeId: true }
+  );
+  const { data: tyreServices = [], loading: loadingTyre } = useCollection<AdditionalService>(
+    firestore ? collection(firestore, "tyreServices") : null, { includeId: true }
+  );
+  const { data: acAndEngineServices = [], loading: loadingAc } = useCollection<AdditionalService>(
+    firestore ? collection(firestore, "acAndEngineServices") : null, { includeId: true }
+  );
+  const { data: accessories = [], loading: loadingAccessories } = useCollection<Accessory>(
+    firestore ? collection(firestore, "accessories") : null, { includeId: true }
+  );
 
   const [selectedVehicle, setSelectedVehicle] = useState<SelectedVehicle | null>(null);
   const [selectedPeriodicService, setSelectedPeriodicService] = useState<PeriodicService | null>(null);
@@ -90,6 +101,8 @@ export default function Home() {
     ...selectedAcServices,
   ];
 
+  const isLoading = loadingVehicles || loadingParts || loadingPeriodic || loadingAdditional || loadingTyre || loadingAc || loadingAccessories;
+
   return (
     <div className="flex min-h-screen w-full flex-col">
       <Header />
@@ -113,10 +126,14 @@ export default function Home() {
                 <CardTitle>1. Pilih Kendaraan Anda</CardTitle>
               </CardHeader>
               <CardContent className="grid gap-6 md:grid-cols-[2fr_1fr]">
-                <VehicleSelectionForm
-                  vehicles={vehicles}
-                  onVehicleSelect={setSelectedVehicle}
-                />
+                {isLoading ? (
+                  <p>Memuat data kendaraan...</p>
+                ) : (
+                  <VehicleSelectionForm
+                    vehicles={vehicles}
+                    onVehicleSelect={setSelectedVehicle}
+                  />
+                )}
                 {vehicleImage && (
                   <div className="hidden items-center justify-center md:flex">
                     <Image
@@ -139,24 +156,28 @@ export default function Home() {
                     <CardTitle>2. Pilih Jenis Servis & Aksesoris</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <ServiceSelection
-                      periodicServices={filteredServices.periodic}
-                      additionalServices={filteredServices.additional}
-                      tyreServices={filteredServices.tyre}
-                      acAndEngineServices={filteredServices.ac}
-                      accessories={filteredServices.accessories}
-                      partsData={parts}
-                      onPeriodicChange={setSelectedPeriodicService}
-                      onAdditionalChange={setSelectedAdditionalServices}
-                      onTyreChange={setSelectedTyreServices}
-                      onAcChange={setSelectedAcServices}
-                      onAccessoryChange={setSelectedAccessories}
-                      selectedPeriodicService={selectedPeriodicService}
-                      selectedAdditionalServices={selectedAdditionalServices}
-                      selectedTyreServices={selectedTyreServices}
-                      selectedAcServices={selectedAcServices}
-                      selectedAccessories={selectedAccessories}
-                    />
+                    {isLoading ? (
+                      <p>Memuat data servis...</p>
+                    ) : (
+                      <ServiceSelection
+                        periodicServices={filteredServices.periodic}
+                        additionalServices={filteredServices.additional}
+                        tyreServices={filteredServices.tyre}
+                        acAndEngineServices={filteredServices.ac}
+                        accessories={filteredServices.accessories}
+                        partsData={parts}
+                        onPeriodicChange={setSelectedPeriodicService}
+                        onAdditionalChange={setSelectedAdditionalServices}
+                        onTyreChange={setSelectedTyreServices}
+                        onAcChange={setSelectedAcServices}
+                        onAccessoryChange={setSelectedAccessories}
+                        selectedPeriodicService={selectedPeriodicService}
+                        selectedAdditionalServices={selectedAdditionalServices}
+                        selectedTyreServices={selectedTyreServices}
+                        selectedAcServices={selectedAcServices}
+                        selectedAccessories={selectedAccessories}
+                      />
+                    )}
                   </CardContent>
                 </Card>
               </>

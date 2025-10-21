@@ -4,12 +4,13 @@ import { Inter } from 'next/font/google';
 import { Toaster } from '@/components/ui/toaster';
 import { cn } from '@/lib/utils';
 import { ThemeProvider } from '@/components/app/ThemeProvider';
+import { FirebaseClientProvider } from '@/firebase/client-provider';
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: 'Tanya Jawab Bengkel',
-  description: 'Estimasi biaya servis dan dapatkan rekomendasi dari AI Service Advisor.',
+  description: 'Estimasi biaya servis dan dapatkan rekomendasi.',
 };
 
 export default function RootLayout({
@@ -34,7 +35,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <FirebaseClientProvider>
+            {children}
+          </FirebaseClientProvider>
           <Toaster />
         </ThemeProvider>
       </body>

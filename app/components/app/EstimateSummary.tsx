@@ -12,7 +12,7 @@ import { useToast } from "@/hooks/use-toast";
 
 interface Props {
   vehicle: SelectedVehicle | null;
-  periodicService: PeriodicService | null;
+  periodicServices: PeriodicService[];
   additionalServices: AdditionalService[];
   accessories: Accessory[];
   partsData: Part[];
@@ -22,7 +22,7 @@ const PPN_RATE = 0.11; // 11%
 
 export default function EstimateSummary({
   vehicle,
-  periodicService,
+  periodicServices,
   additionalServices,
   accessories,
   partsData,
@@ -48,10 +48,10 @@ export default function EstimateSummary({
 
   const selectedItems: SelectedItem[] = useMemo(() => {
     const items: SelectedItem[] = [];
-    if (periodicService) {
-      const { partsCost, laborCost } = calculateServiceCosts(periodicService);
-      items.push({ name: periodicService.name, partsCost, laborCost });
-    }
+    periodicServices.forEach(service => {
+      const { partsCost, laborCost } = calculateServiceCosts(service);
+      items.push({ name: service.name, partsCost, laborCost });
+    });
     additionalServices.forEach(service => {
       const { partsCost, laborCost } = calculateServiceCosts(service);
       items.push({ name: service.name, partsCost, laborCost });
@@ -61,7 +61,7 @@ export default function EstimateSummary({
         items.push({ name: accessory.name, partsCost, laborCost });
     });
     return items;
-  }, [periodicService, additionalServices, accessories, partsData]);
+  }, [periodicServices, additionalServices, accessories, partsData]);
 
   const totalCosts = useMemo(() => {
     const totals = selectedItems.reduce(

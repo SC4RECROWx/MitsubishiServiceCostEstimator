@@ -8,7 +8,6 @@ import {
 } from "@/components/ui/accordion";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
-import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import {
   Table,
   TableBody,
@@ -32,12 +31,12 @@ interface Props {
   acAndEngineServices: AdditionalService[];
   accessories: Accessory[];
   partsData: Part[];
-  onPeriodicChange: (service: PeriodicService | null) => void;
+  onPeriodicChange: (services: PeriodicService[]) => void;
   onAdditionalChange: (services: AdditionalService[]) => void;
   onTyreChange: (services: AdditionalService[]) => void;
   onAcChange: (services: AdditionalService[]) => void;
   onAccessoryChange: (accessories: Accessory[]) => void;
-  selectedPeriodicService: PeriodicService | null;
+  selectedPeriodicServices: PeriodicService[];
   selectedAdditionalServices: AdditionalService[];
   selectedTyreServices: AdditionalService[];
   selectedAcServices: AdditionalService[];
@@ -56,17 +55,12 @@ export default function ServiceSelection({
   onTyreChange,
   onAcChange,
   onAccessoryChange,
-  selectedPeriodicService,
+  selectedPeriodicServices,
   selectedAdditionalServices,
   selectedTyreServices,
   selectedAcServices,
   selectedAccessories,
 }: Props) {
-  const handlePeriodicChange = (serviceId: string) => {
-    const service = periodicServices.find((s) => s.id === serviceId) || null;
-    onPeriodicChange(service);
-  };
-
   const createHandleChange = (
     selectedItems: any[],
     setSelectedItems: (items: any[]) => void
@@ -79,6 +73,7 @@ export default function ServiceSelection({
     }
   };
 
+  const handlePeriodicChange = createHandleChange(selectedPeriodicServices, onPeriodicChange);
   const handleAdditionalChange = createHandleChange(selectedAdditionalServices, onAdditionalChange);
   const handleTyreChange = createHandleChange(selectedTyreServices, onTyreChange);
   const handleAcChange = createHandleChange(selectedAcServices, onAcChange);
@@ -171,16 +166,16 @@ export default function ServiceSelection({
       <AccordionItem value="item-1">
         <AccordionTrigger className="text-lg font-medium">Paket Servis Berkala</AccordionTrigger>
         <AccordionContent>
-          <RadioGroup
-            value={selectedPeriodicService?.id}
-            onValueChange={handlePeriodicChange}
-            className="grid gap-4"
-          >
+          <div className="grid gap-4">
             {periodicServices.map((service) => (
               <Accordion type="single" collapsible key={service.id} className="rounded-md border">
                 <AccordionItem value={service.id}>
                     <div className="flex items-center space-x-3 p-4">
-                        <RadioGroupItem value={service.id} id={service.id} />
+                        <Checkbox
+                            id={service.id}
+                            checked={selectedPeriodicServices.some((s) => s.id === service.id)}
+                            onCheckedChange={() => handlePeriodicChange(service)}
+                        />
                         <Label htmlFor={service.id} className="flex-1 font-normal cursor-pointer text-base">
                             {service.name}
                         </Label>
@@ -192,7 +187,7 @@ export default function ServiceSelection({
                 </AccordionItem>
               </Accordion>
             ))}
-          </RadioGroup>
+          </div>
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-2">

@@ -138,23 +138,11 @@ export default function Home() {
               <CardHeader>
                 <CardTitle>1. Pilih Kendaraan Anda</CardTitle>
               </CardHeader>
-              <CardContent className="grid gap-6 md:grid-cols-[2fr_1fr]">
+              <CardContent>
                 <VehicleSelectionForm
                     vehicles={vehicles}
                     onVehicleSelect={setSelectedVehicle}
                 />
-                {vehicleImage && (
-                  <div className="hidden items-center justify-center md:flex">
-                    <Image
-                      src={vehicleImage.imageUrl}
-                      alt={vehicleImage.description}
-                      width={200}
-                      height={133}
-                      className="rounded-lg object-cover"
-                      data-ai-hint={vehicleImage.imageHint}
-                    />
-                  </div>
-                )}
               </CardContent>
             </Card>
 

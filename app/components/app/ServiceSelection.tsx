@@ -63,8 +63,12 @@ export default function ServiceSelection({
   selectedAccessories,
 }: Props) {
   const handlePeriodicChange = (serviceId: string) => {
-    const selected = periodicServices.find((s) => s.id === serviceId);
-    onPeriodicChange(selected || null);
+    if (selectedPeriodicService?.id === serviceId) {
+      onPeriodicChange(null);
+    } else {
+      const selected = periodicServices.find((s) => s.id === serviceId);
+      onPeriodicChange(selected || null);
+    }
   };
   
   const createHandleChange = (

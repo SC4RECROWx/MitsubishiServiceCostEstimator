@@ -265,6 +265,28 @@ export const additionalServices: AdditionalService[] = [
     job: { description: "Jasa Ganti Aki", cost: 100000 },
     parts: [{ partId: "ps-battery", quantity: 1 }],
   },
+  // Xpander Transmission Oil Services
+  {
+    id: "add-transm-oil-xp-mt",
+    name: "Ganti Oli Transmisi MT - Xpander",
+    applicableModels: ["xpander"],
+    job: { description: "Jasa Ganti Oli Transmisi Manual", cost: 295500 },
+    parts: [{ partId: "xp-transm-oil-mt-1l", quantity: 3 }],
+  },
+  {
+    id: "add-transm-oil-xp-at",
+    name: "Ganti Oli Transmisi AT - Xpander",
+    applicableModels: ["xpander"],
+    job: { description: "Jasa Ganti Oli Transmisi Matic", cost: 591000 },
+    parts: [{ partId: "xp-transm-oil-atf-ma1-1l", quantity: 4 }],
+  },
+  {
+    id: "add-transm-oil-xp-cvt",
+    name: "Ganti Oli Transmisi CVT - Xpander",
+    applicableModels: ["xpander"],
+    job: { description: "Jasa Ganti Oli Transmisi Matic", cost: 591000 },
+    parts: [{ partId: "xp-transm-oil-cvt-ma1-4l", quantity: 1 }],
+  },
 ];
 
 export const tyreServices: AdditionalService[] = [

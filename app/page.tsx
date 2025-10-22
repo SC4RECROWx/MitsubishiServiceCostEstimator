@@ -44,9 +44,28 @@ export default function Home() {
     const periodic = periodicServices.filter(
       (s) => s.vehicleModelId === selectedVehicle.model
     );
-    const additional = additionalServices.filter((s) =>
-      s.applicableModels.includes(selectedVehicle.model)
-    );
+
+    const additional = additionalServices.filter((s) => {
+      if (!s.applicableModels.includes(selectedVehicle.model)) {
+        return false;
+      }
+      // Special filtering for Xpander transmission oil
+      if (selectedVehicle.model === 'xpander') {
+        const transmissionType = selectedVehicle.transmisi.toUpperCase();
+        if (s.id === "add-transm-oil-xp-mt") {
+          return transmissionType.includes("MT");
+        }
+        if (s.id === "add-transm-oil-xp-at") {
+          return transmissionType.includes("AT");
+        }
+        if (s.id === "add-transm-oil-xp-cvt") {
+          return transmissionType.includes("CVT");
+        }
+      }
+      // Show other applicable services
+      return !s.id.startsWith("add-transm-oil-xp-");
+    });
+    
     const tyre = tyreServices.filter((s) =>
       s.applicableModels.includes(selectedVehicle.model)
     );

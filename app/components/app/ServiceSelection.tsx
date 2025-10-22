@@ -107,10 +107,12 @@ export default function ServiceSelection({
           </TableHeader>
           <TableBody>
             {jobs.map((job, index) => (
-              <TableRow key={`job-${index}`}>
-                <TableCell>{job.description}</TableCell>
-                <TableCell className="text-right">{formatCurrency(job.cost)}</TableCell>
-              </TableRow>
+              job.cost > 0 && (
+                <TableRow key={`job-${index}`}>
+                  <TableCell>{job.description}</TableCell>
+                  <TableCell className="text-right">{formatCurrency(job.cost)}</TableCell>
+                </TableRow>
+              )
             ))}
             {service.parts.map((p, index) => {
               const partDetail = getPartDetails(p.partId);

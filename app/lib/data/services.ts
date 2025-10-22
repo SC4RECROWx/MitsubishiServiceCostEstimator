@@ -298,7 +298,7 @@ export const additionalServices: AdditionalService[] = [
   // Xpander Other Services
   {
     id: "add-air-filter-xp",
-    name: "Ganti Saringan Udara - Xpander",
+    name: "Saringan Udara",
     applicableModels: ["xpander"],
     job: { description: "Penggantian Saringan Udara", cost: 0 },
     parts: [{ partId: "xp-air-filter", quantity: 1 }],

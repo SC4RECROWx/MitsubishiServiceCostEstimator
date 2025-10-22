@@ -61,6 +61,65 @@ export const periodicServices: PeriodicService[] = [
       { partId: "xp-engine-flush", quantity: 1 },
     ],
   },
+    // Pahe Services for Xpander Cross
+  {
+    id: "xpc-pahe-1",
+    vehicleModelId: "xpander-cross",
+    name: "Pahe 1: Ganti Oli",
+    mileage: 0,
+    jobs: [
+        { description: "Jasa Ganti Oli", cost: 98500 },
+    ],
+    parts: [
+        { partId: "xp-engine-oil-1l", quantity: 4 },
+        { partId: "xp-drain-plug-gasket", quantity: 1 }
+    ],
+  },
+  {
+    id: "xpc-pahe-2",
+    vehicleModelId: "xpander-cross",
+    name: "Pahe 2: Ganti Oli + Filter Oli",
+    mileage: 0,
+    jobs: [
+        { description: "Jasa Ganti Oli & Filter Oli", cost: 98500 },
+    ],
+    parts: [
+      { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-oil-filter", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
+    ],
+  },
+  {
+    id: "xpc-pahe-3",
+    vehicleModelId: "xpander-cross",
+    name: "Pahe 3: Ganti Oli + Filter Oli & AC",
+    mileage: 0,
+    jobs: [
+        { description: "Jasa Ganti Oli & Filter Oli", cost: 98500 },
+    ],
+    parts: [
+      { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-oil-filter", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
+      { partId: "xp-ac-filter", quantity: 1 },
+    ],
+  },
+  {
+    id: "xpc-pahe-4",
+    vehicleModelId: "xpander-cross",
+    name: "Pahe 4: Ganti Oli + Filter Oli + AC & Engine Oil Flush",
+    mileage: 0,
+    jobs: [
+        { description: "Jasa Ganti Oli & Filter Oli", cost: 98500 },
+    ],
+    parts: [
+      { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-oil-filter", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
+      { partId: "xp-ac-filter", quantity: 1 },
+      { partId: "xp-engine-flush", quantity: 1 },
+    ],
+  },
   // Pahe Services for Pajero Sport
   {
     id: "ps-pahe-1",
@@ -221,7 +280,7 @@ export const additionalServices: AdditionalService[] = [
   {
     id: "add-brake-pad-front-xp",
     name: "Ganti Kampas Rem Depan - Xpander",
-    applicableModels: ["xpander"],
+    applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Ganti Kampas Rem Depan", cost: 295500 },
     parts: [
         { partId: "xp-brake-pad-front", quantity: 1 },
@@ -238,7 +297,7 @@ export const additionalServices: AdditionalService[] = [
   {
     id: "add-brake-pad-rear-xp",
     name: "Ganti Kampas Rem Belakang - Xpander",
-    applicableModels: ["xpander"],
+    applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 394000 },
     parts: [
         { partId: "xp-brake-shoe-rear", quantity: 1 },
@@ -255,14 +314,14 @@ export const additionalServices: AdditionalService[] = [
   {
     id: "add-battery-xp",
     name: "Ganti Aki - Xpander",
-    applicableModels: ["xpander"],
+    applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Ganti Aki", cost: 328333 },
     parts: [{ partId: "xp-battery", quantity: 1 }],
   },
   {
     id: "add-battery-xp-asg",
     name: "Ganti Aki ASG (Idle Start-Stop) - Xpander",
-    applicableModels: ["xpander"],
+    applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Ganti Aki", cost: 328333 },
     parts: [{ partId: "xp-battery-asg", quantity: 1 }],
   },
@@ -277,21 +336,21 @@ export const additionalServices: AdditionalService[] = [
   {
     id: "add-transm-oil-xp-mt",
     name: "Ganti Oli Transmisi MT - Xpander",
-    applicableModels: ["xpander"],
+    applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Ganti Oli Transmisi Manual", cost: 295500 },
     parts: [{ partId: "xp-transm-oil-mt-1l", quantity: 3 }],
   },
   {
     id: "add-transm-oil-xp-at",
     name: "Ganti Oli Transmisi AT - Xpander",
-    applicableModels: ["xpander"],
+    applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Ganti Oli Transmisi Matic", cost: 591000 },
     parts: [{ partId: "xp-transm-oil-atf-ma1-1l", quantity: 4 }],
   },
   {
     id: "add-transm-oil-xp-cvt",
     name: "Ganti Oli Transmisi CVT - Xpander",
-    applicableModels: ["xpander"],
+    applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Ganti Oli Transmisi Matic", cost: 591000 },
     parts: [{ partId: "xp-transm-oil-cvt-ma1-4l", quantity: 1 }],
   },
@@ -299,21 +358,21 @@ export const additionalServices: AdditionalService[] = [
   {
     id: "add-air-filter-xp",
     name: "Saringan Udara",
-    applicableModels: ["xpander"],
+    applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Penggantian Saringan Udara", cost: 0 },
     parts: [{ partId: "xp-air-filter", quantity: 1 }],
   },
   {
     id: "add-alternator-belt-xp",
     name: "Ganti Belt Alternator - Xpander",
-    applicableModels: ["xpander"],
+    applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Penggantian Belt Alternator", cost: 246250 },
     parts: [{ partId: "xp-alternator-belt", quantity: 1 }],
   },
   {
     id: "add-spark-plug-xp",
     name: "Ganti Busi - Xpander",
-    applicableModels: ["xpander"],
+    applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Penggantian Busi", cost: 394000 },
     parts: [{ partId: "xp-spark-plug", quantity: 4 }], // Assuming 4 spark plugs
   },
@@ -323,34 +382,34 @@ export const tyreServices: AdditionalService[] = [
   {
     id: "add-spooring",
     name: "Spooring",
-    applicableModels: ["xpander", "pajero-sport", "triton", "xforce", "outlander-sport", "mirage", "l300"],
+    applicableModels: ["xpander", "xpander-cross", "pajero-sport", "triton", "xforce", "outlander-sport", "mirage", "l300"],
     job: { description: "Jasa Spooring", cost: 133200 },
     parts: [],
   },
   {
     id: "add-balancing-r13-16",
     name: "Balancing Roda (R13-R16)",
-    applicableModels: ["xpander", "mirage", "l300", "xforce", "outlander-sport"],
+    applicableModels: ["xpander", "xpander-cross", "mirage", "l300", "xforce", "outlander-sport"],
     job: { description: "Jasa Balancing per roda", cost: 22200 },
     parts: [{ partId: "common-balancing-weight", quantity: 1 }],
   },
   {
     id: "add-balancing-r17-offroad",
     name: "Balancing Roda (R17 & Offroad)",
-    applicableModels: ["pajero-sport", "triton", "xpander", "xforce", "outlander-sport"],
+    applicableModels: ["pajero-sport", "triton", "xpander", "xpander-cross", "xforce", "outlander-sport"],
     job: { description: "Jasa Balancing per roda", cost: 27750 },
     parts: [{ partId: "common-balancing-weight", quantity: 1 }],
   },
   {
     id: "add-nitrogen",
     name: "Kuras Nitrogen",
-    applicableModels: ["xpander", "pajero-sport", "triton", "xforce", "outlander-sport", "mirage", "l300"],
+    applicableModels: ["xpander", "xpander-cross", "pajero-sport", "triton", "xforce", "outlander-sport", "mirage", "l300"],
     job: { description: "Jasa Kuras Nitrogen per roda", cost: 10545 },
     parts: [],
   },
 ];
 
-const smallCars = ["mirage", "xpander", "xforce"];
+const smallCars = ["mirage", "xpander", "xpander-cross", "xforce"];
 const largeCars = ["triton", "outlander-sport", "pajero-sport", "pajero", "delica"]; // Assuming Delica might be added later
 
 export const acAndEngineServices: AdditionalService[] = [

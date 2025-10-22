@@ -16,6 +16,18 @@ export const vehicles: Vehicle[] = [
     ],
   },
   {
+    id: "xpander-cross",
+    name: "Xpander Cross",
+    years: [
+      { year: 2024, trims: ["Premium CVT", "MT"] },
+      { year: 2023, trims: ["Premium CVT", "MT"] },
+      { year: 2022, trims: ["Premium CVT", "MT", "CVT"] },
+      { year: 2021, trims: ["Premium CVT", "AT", "MT"] },
+      { year: 2020, trims: ["Premium AT", "AT", "MT"] },
+      { year: 2019, trims: ["Premium AT", "AT", "MT"] },
+    ],
+  },
+  {
     id: "pajero-sport",
     name: "All New Pajero Sport",
     years: [

@@ -8,6 +8,12 @@
       "imageHint": "white car"
     },
     {
+      "id": "xpander-cross",
+      "description": "Mitsubishi Xpander Cross",
+      "imageUrl": "https://picsum.photos/seed/xpander-cross/600/400",
+      "imageHint": "orange suv"
+    },
+    {
       "id": "pajero-sport",
       "description": "Mitsubishi All New Pajero Sport",
       "imageUrl": "https://picsum.photos/seed/pajero-sport/600/400",

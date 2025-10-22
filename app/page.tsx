@@ -50,9 +50,9 @@ export default function Home() {
         return false;
       }
       
-      if (selectedVehicle.model === 'xpander') {
+      if (selectedVehicle.model === 'xpander' || selectedVehicle.model === 'xpander-cross') {
         const transmissionType = selectedVehicle.transmisi.toUpperCase();
-        const isASGTrim = transmissionType.includes("ULTIMATE CVT") || transmissionType.includes("SPORT CVT");
+        const isASGTrim = transmissionType.includes("ULTIMATE CVT") || transmissionType.includes("SPORT CVT") || transmissionType.includes("PREMIUM CVT");
 
         // Filter battery services based on trim
         if (s.id === "add-battery-xp-asg") {

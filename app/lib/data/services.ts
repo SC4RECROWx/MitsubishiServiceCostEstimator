@@ -262,7 +262,7 @@ export const additionalServices: AdditionalService[] = [
     id: "add-battery-xp-asg",
     name: "Ganti Aki ASG (Idle Start-Stop) - Xpander",
     applicableModels: ["xpander"],
-    job: { description: "Jasa Ganti Aki ASG (ISS)", cost: 328333 },
+    job: { description: "Jasa Ganti Aki", cost: 328333 },
     parts: [{ partId: "xp-battery-asg", quantity: 1 }],
   },
   {

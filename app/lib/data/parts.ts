@@ -9,7 +9,7 @@ export const parts: Part[] = [
   { id: "xp-engine-flush", name: "Engine Flush", partNumber: "CHEM-FLUSH", price: 140000 },
   { id: "xp-brake-pad-front", name: "Pad Kit, Front Brake - Xpander", partNumber: "4605B595", price: 600000 },
   { id: "xp-brake-shoe-rear", name: "Shoe Kit, Rear Brake - Xpander", partNumber: "4800A238", price: 480000 },
-  { id: "xp-battery", name: "Battery, 34B19L", partNumber: "MZ690013", price: 850000 },
+  { id: "xp-battery", name: "Battery, 34B19L", partNumber: "spb07001", price: 1030000 },
   { id: "xp-battery-asg", name: "Battery, ASG (for ISS) - Xpander", partNumber: "SPB9807011", price: 3090000 },
   { id: "xp-transm-oil-mt-1l", name: "Transmission Oil MT 1L", partNumber: "MZ-MT-OIL-1L", price: 131000 },
   { id: "xp-transm-oil-atf-ma1-1l", name: "Transmission Oil ATF-MA1 1L", partNumber: "MZ-ATF-MA1-1L", price: 215000 },

@@ -255,7 +255,7 @@ export const additionalServices: AdditionalService[] = [
     id: "add-battery-xp",
     name: "Ganti Aki - Xpander",
     applicableModels: ["xpander"],
-    job: { description: "Jasa Ganti Aki", cost: 75000 },
+    job: { description: "Jasa Ganti Aki", cost: 328333 },
     parts: [{ partId: "xp-battery", quantity: 1 }],
   },
   {

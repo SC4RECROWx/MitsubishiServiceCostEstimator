@@ -1,3 +1,4 @@
+
 import type { PeriodicService, AdditionalService } from "@/lib/types";
 
 export const periodicServices: PeriodicService[] = [
@@ -299,7 +300,7 @@ export const additionalServices: AdditionalService[] = [
     id: "add-air-filter-xp",
     name: "Ganti Saringan Udara - Xpander",
     applicableModels: ["xpander"],
-    job: { description: "Jasa Ganti Saringan Udara", cost: 0 },
+    job: { description: "Penggantian Saringan Udara", cost: 0 },
     parts: [{ partId: "xp-air-filter", quantity: 1 }],
   },
   {

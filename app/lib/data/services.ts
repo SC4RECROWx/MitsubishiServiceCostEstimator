@@ -259,6 +259,13 @@ export const additionalServices: AdditionalService[] = [
     parts: [{ partId: "xp-battery", quantity: 1 }],
   },
   {
+    id: "add-battery-xp-asg",
+    name: "Ganti Aki ASG (Idle Start-Stop) - Xpander",
+    applicableModels: ["xpander"],
+    job: { description: "Jasa Ganti Aki ASG (ISS)", cost: 328333 },
+    parts: [{ partId: "xp-battery-asg", quantity: 1 }],
+  },
+  {
     id: "add-battery-ps",
     name: "Ganti Aki - All New Pajero Sport",
     applicableModels: ["pajero-sport"],

@@ -49,9 +49,18 @@ export default function Home() {
       if (!s.applicableModels.includes(selectedVehicle.model)) {
         return false;
       }
-      // Special filtering for Xpander transmission oil
+      
       if (selectedVehicle.model === 'xpander') {
         const transmissionType = selectedVehicle.transmisi.toUpperCase();
+        const isASGTrim = transmissionType.includes("ULTIMATE CVT") || transmissionType.includes("SPORT CVT");
+
+        // Filter battery services based on trim
+        if (s.id === "add-battery-xp-asg") {
+          return isASGTrim; // Show ASG battery only for specific trims
+        }
+        if (s.id === "add-battery-xp") {
+          return !isASGTrim; // Hide standard battery for ASG trims
+        }
         
         // Handle oil change services based on transmission type
         if (s.id.startsWith("add-transm-oil-xp-")) {

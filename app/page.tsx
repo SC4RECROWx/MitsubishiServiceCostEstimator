@@ -52,18 +52,24 @@ export default function Home() {
       // Special filtering for Xpander transmission oil
       if (selectedVehicle.model === 'xpander') {
         const transmissionType = selectedVehicle.transmisi.toUpperCase();
-        if (s.id === "add-transm-oil-xp-mt") {
-          return transmissionType.includes("MT");
-        }
-        if (s.id === "add-transm-oil-xp-at") {
-          return transmissionType.includes("AT");
-        }
-        if (s.id === "add-transm-oil-xp-cvt") {
-          return transmissionType.includes("CVT");
+        
+        // Handle oil change services based on transmission type
+        if (s.id.startsWith("add-transm-oil-xp-")) {
+            if (s.id === "add-transm-oil-xp-mt") {
+              return transmissionType.includes("MT");
+            }
+            if (s.id === "add-transm-oil-xp-at") {
+              // Show AT service only if transmission is AT and NOT CVT
+              return transmissionType.includes("AT") && !transmissionType.includes("CVT");
+            }
+            if (s.id === "add-transm-oil-xp-cvt") {
+              return transmissionType.includes("CVT");
+            }
+            return false; // Don't show other transmission services if they don't match
         }
       }
       // Show other applicable services
-      return !s.id.startsWith("add-transm-oil-xp-");
+      return true;
     });
     
     const tyre = tyreServices.filter((s) =>

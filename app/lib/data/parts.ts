@@ -14,6 +14,9 @@ export const parts: Part[] = [
   { id: "xp-transm-oil-mt-1l", name: "Transmission Oil MT 1L", partNumber: "MZ-MT-OIL-1L", price: 131000 },
   { id: "xp-transm-oil-atf-ma1-1l", name: "Transmission Oil ATF-MA1 1L", partNumber: "MZ-ATF-MA1-1L", price: 215000 },
   { id: "xp-transm-oil-cvt-ma1-4l", name: "Transmission Oil CVT-MA1 4L", partNumber: "MZ-CVT-MA1-4L", price: 1065675 },
+  { id: "xp-air-filter", name: "Saringan Udara - Xpander", partNumber: "1500a687", price: 150000 },
+  { id: "xp-alternator-belt", name: "Belt Alternator - Xpander", partNumber: "1340a181", price: 137000 },
+  { id: "xp-spark-plug", name: "Busi - Xpander", partNumber: "1822a086", price: 335000 },
   
   // Pajero Sport Parts
   { id: "ps-engine-oil", name: "Engine Oil 5W-30 5.5L", partNumber: "MZ690221", price: 650000 },

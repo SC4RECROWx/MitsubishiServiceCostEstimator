@@ -294,6 +294,28 @@ export const additionalServices: AdditionalService[] = [
     job: { description: "Jasa Ganti Oli Transmisi Matic", cost: 591000 },
     parts: [{ partId: "xp-transm-oil-cvt-ma1-4l", quantity: 1 }],
   },
+  // Xpander Other Services
+  {
+    id: "add-air-filter-xp",
+    name: "Ganti Saringan Udara - Xpander",
+    applicableModels: ["xpander"],
+    job: { description: "Jasa Ganti Saringan Udara", cost: 0 },
+    parts: [{ partId: "xp-air-filter", quantity: 1 }],
+  },
+  {
+    id: "add-alternator-belt-xp",
+    name: "Ganti Belt Alternator - Xpander",
+    applicableModels: ["xpander"],
+    job: { description: "Jasa Penggantian Belt Alternator", cost: 246250 },
+    parts: [{ partId: "xp-alternator-belt", quantity: 1 }],
+  },
+  {
+    id: "add-spark-plug-xp",
+    name: "Ganti Busi - Xpander",
+    applicableModels: ["xpander"],
+    job: { description: "Jasa Penggantian Busi", cost: 394000 },
+    parts: [{ partId: "xp-spark-plug", quantity: 4 }], // Assuming 4 spark plugs
+  },
 ];
 
 export const tyreServices: AdditionalService[] = [

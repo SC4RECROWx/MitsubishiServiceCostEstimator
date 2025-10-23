@@ -420,6 +420,27 @@ export const additionalServices: AdditionalService[] = [
     job: { description: "Jasa Penggantian Busi", cost: 394000 },
     parts: [{ partId: "xp-spark-plug", quantity: 4 }], // Assuming 4 spark plugs
   },
+  // Outlander Sport Brake Services
+  {
+    id: "add-brake-pad-front-os",
+    name: "Ganti Kampas Rem Depan - Outlander Sport",
+    applicableModels: ["outlander-sport"],
+    job: { description: "Jasa Pengerjaan Kampas Rem Depan", cost: 312000 },
+    parts: [
+      { partId: "os-brake-pad-front", quantity: 1 },
+      { partId: "common-brake-cleaner", quantity: 1 },
+    ],
+  },
+  {
+    id: "add-brake-pad-rear-os",
+    name: "Ganti Kampas Rem Belakang - Outlander Sport",
+    applicableModels: ["outlander-sport"],
+    job: { description: "Jasa Pengerjaan Kampas Rem Belakang", cost: 416000 },
+    parts: [
+      { partId: "os-brake-pad-rear", quantity: 1 },
+      { partId: "common-brake-cleaner", quantity: 1 },
+    ],
+  },
 ];
 
 export const tyreServices: AdditionalService[] = [
@@ -538,18 +559,38 @@ export const acAndEngineServices: AdditionalService[] = [
 
 export function getAcServicePrice(serviceId: string, vehicleModelId: string): number {
   const isSmallCar = ["xpander", "mirage", "xpander-cross", "xforce"].includes(vehicleModelId);
-  
+  const isLargeCar = ["triton", "outlander-sport", "pajero-sport", "pajero", "delica"].includes(vehicleModelId);
+
+  if (isSmallCar) {
+    switch (serviceId) {
+      case "ac-fresh-ringan-sb": return 559016;
+      case "ac-fresh-ringan-db": return 609174;
+      case "ac-clean": return 355473;
+      case "ac-care": return 223170;
+      case "ac-fresh-sb": return 1017714;
+      case "ac-fresh-db": return 1424800;
+      case "ac-oli-kompresor-single": return 302000;
+      case "ac-oli-kompresor-double": return 355473;
+      case "ac-engine-clean": return 223170;
+    }
+  }
+
+  if (isLargeCar) {
+    switch (serviceId) {
+      case "ac-fresh-ringan-sb": return 609174;
+      case "ac-fresh-ringan-db": return 660631;
+      case "ac-clean": return 405631;
+      case "ac-care": return 253701;
+      case "ac-fresh-sb": return 1219803;
+      case "ac-fresh-db": return 1730114;
+      case "ac-oli-kompresor-single": return 355473;
+      case "ac-oli-kompresor-double": return 405631;
+      case "ac-engine-clean": return 253701;
+    }
+  }
+
+  // Default cases for fixed prices regardless of car size
   switch (serviceId) {
-    case "ac-fresh-ringan-sb": return isSmallCar ? 559016 : 609174;
-    case "ac-fresh-ringan-db": return isSmallCar ? 609174 : 660631;
-    case "ac-clean": return isSmallCar ? 355473 : 405631;
-    case "ac-care": return isSmallCar ? 223170 : 253701;
-    case "ac-fresh-sb": return isSmallCar ? 1017714 : 1219803;
-    case "ac-fresh-db": return isSmallCar ? 1424800 : 1730114;
-    case "ac-oli-kompresor-single": return isSmallCar ? 302000 : 355473;
-    case "ac-oli-kompresor-double": return isSmallCar ? 355473 : 405631;
-    case "ac-engine-clean": return isSmallCar ? 223170 : 253701;
-    // Default cases for fixed prices
     case "ac-fogging": return 102000;
     case "ac-flat-rate": return 303860;
     default: return 0;

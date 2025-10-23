@@ -37,6 +37,9 @@ export const parts: Part[] = [
   { id: "os-ac-filter", name: "Filter, A/C - Outlander Sport", partNumber: "7803A109", price: 330000 },
   { id: "os-brake-pad-front", name: "Kampas Rem Depan - Outlander Sport", partNumber: "4605A875", price: 1610000 },
   { id: "os-brake-pad-rear", name: "Kampas Rem Belakang - Outlander Sport", partNumber: "4605A568", price: 1600000 },
+  { id: "os-oil-cvt-j4", name: "Oli CVTF J-4 1L", partNumber: "MZ-CVTF-J4-1L", price: 169000 },
+  { id: "os-oil-mt-75w80", name: "Oli MTF 75W 80 1L", partNumber: "MZ-MTF-75W80-1L", price: 131000 },
+
 
   // Mirage Parts
   { id: "mr-engine-oil", name: "Engine Oil 0W-20 3L", partNumber: "MZ690220-3L", price: 300000 },

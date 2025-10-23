@@ -50,8 +50,9 @@ export default function Home() {
         return false;
       }
       
+      const transmissionType = selectedVehicle.transmisi.toUpperCase();
+      
       if (selectedVehicle.model === 'xpander' || selectedVehicle.model === 'xpander-cross') {
-        const transmissionType = selectedVehicle.transmisi.toUpperCase();
         const isASGTrim = transmissionType.includes("ULTIMATE CVT") || transmissionType.includes("SPORT CVT") || transmissionType.includes("PREMIUM CVT");
 
         // Filter battery services based on trim
@@ -77,6 +78,20 @@ export default function Home() {
             return false; // Don't show other transmission services if they don't match
         }
       }
+
+      if (selectedVehicle.model === 'outlander-sport') {
+        const trim = selectedVehicle.transmisi.toUpperCase();
+        if (s.id.startsWith("add-transm-oil-os-")) {
+          if (s.id === "add-transm-oil-os-cvt") {
+            return trim.includes("GLS") || trim.includes("PX");
+          }
+          if (s.id === "add-transm-oil-os-mt") {
+            return trim.includes("GLX");
+          }
+          return false;
+        }
+      }
+
       // Show other applicable services
       return true;
     });

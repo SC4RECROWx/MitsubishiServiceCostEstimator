@@ -441,6 +441,21 @@ export const additionalServices: AdditionalService[] = [
       { partId: "common-brake-cleaner", quantity: 1 },
     ],
   },
+  // Outlander Sport Transmission Services
+  {
+    id: "add-transm-oil-os-cvt",
+    name: "Ganti Oli Transmisi Matic CVT - Outlander Sport",
+    applicableModels: ["outlander-sport"],
+    job: { description: "Jasa Ganti Oli Matic CVT", cost: 416000 },
+    parts: [{ partId: "os-oil-cvt-j4", quantity: 5 }],
+  },
+  {
+    id: "add-transm-oil-os-mt",
+    name: "Ganti Oli Transmisi Manual - Outlander Sport",
+    applicableModels: ["outlander-sport"],
+    job: { description: "Jasa Ganti Oli Manual", cost: 312000 },
+    parts: [{ partId: "os-oil-mt-75w80", quantity: 4 }],
+  },
 ];
 
 export const tyreServices: AdditionalService[] = [

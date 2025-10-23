@@ -57,9 +57,14 @@ export const vehicles: Vehicle[] = [
     id: "outlander-sport",
     name: "Outlander Sport",
     years: [
+        { year: 2021, trims: ["PX", "GLS", "GLX"] },
         { year: 2020, trims: ["PX", "GLS", "GLX"] },
         { year: 2019, trims: ["PX", "GLS", "GLX"] },
         { year: 2018, trims: ["PX", "GLS", "GLX"] },
+        { year: 2017, trims: ["PX", "GLS", "GLX"] },
+        { year: 2016, trims: ["PX", "GLS", "GLX"] },
+        { year: 2015, trims: ["PX", "GLS", "GLX"] },
+        { year: 2014, trims: ["PX", "GLS", "GLX"] },
     ],
   },
   {

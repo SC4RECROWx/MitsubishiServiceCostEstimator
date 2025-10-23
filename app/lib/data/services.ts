@@ -454,14 +454,14 @@ export const tyreServices: AdditionalService[] = [
 ];
 
 const smallCars = ["mirage", "xpander", "xpander-cross", "xforce"];
-const largeCars = ["triton", "outlander-sport", "pajero-sport", "pajero", "delica"]; // Assuming Delica might be added later
+const largeCars = ["triton", "outlander-sport", "pajero-sport", "pajero", "delica"];
 
 export const acAndEngineServices: AdditionalService[] = [
   {
     id: "ac-fresh-ringan-sb",
     name: "AC FRESH RINGAN (SINGLE BLOWER)",
     applicableModels: [...smallCars, ...largeCars],
-    job: { description: "Jasa AC Fresh Ringan Single Blower", cost: 0 }, // Cost is set dynamically
+    job: { description: "Jasa AC Fresh Ringan Single Blower", cost: 0 },
     parts: [],
   },
   {
@@ -524,7 +524,7 @@ export const acAndEngineServices: AdditionalService[] = [
     id: "ac-flat-rate",
     name: "FLATRATE SERVICE /JAM",
     applicableModels: [...smallCars, ...largeCars],
-    job: { description: "Jasa Flatrate per Jam", cost: 302000 },
+    job: { description: "Jasa Flatrate per Jam", cost: 303860 },
     parts: [],
   },
   {
@@ -537,21 +537,21 @@ export const acAndEngineServices: AdditionalService[] = [
 ];
 
 export function getAcServicePrice(serviceId: string, vehicleModelId: string): number {
-  const isSmallCar = smallCars.includes(vehicleModelId);
+  const isSmallCar = ["xpander", "mirage", "xpander-cross", "xforce"].includes(vehicleModelId);
   
   switch (serviceId) {
-    case "ac-fresh-ringan-sb": return isSmallCar ? 555000 : 605000;
-    case "ac-fresh-ringan-db": return isSmallCar ? 605000 : 660000;
-    case "ac-clean": return isSmallCar ? 271395 : 309690;
-    case "ac-care": return isSmallCar ? 170304 : 252000;
-    case "ac-fresh-sb": return isSmallCar ? 1011000 : 1212000;
-    case "ac-fresh-db": return isSmallCar ? 1415000 : 1718000;
-    case "ac-oli-kompresor-single": return isSmallCar ? 302000 : 353000;
-    case "ac-oli-kompresor-double": return isSmallCar ? 353000 : 403000;
-    case "ac-engine-clean": return isSmallCar ? 222000 : 252000;
+    case "ac-fresh-ringan-sb": return isSmallCar ? 559016 : 609174;
+    case "ac-fresh-ringan-db": return isSmallCar ? 609174 : 660631;
+    case "ac-clean": return isSmallCar ? 355473 : 405631;
+    case "ac-care": return isSmallCar ? 223170 : 253701;
+    case "ac-fresh-sb": return isSmallCar ? 1017714 : 1219803;
+    case "ac-fresh-db": return isSmallCar ? 1424800 : 1730114;
+    case "ac-oli-kompresor-single": return isSmallCar ? 302000 : 355473;
+    case "ac-oli-kompresor-double": return isSmallCar ? 355473 : 405631;
+    case "ac-engine-clean": return isSmallCar ? 223170 : 253701;
     // Default cases for fixed prices
     case "ac-fogging": return 102000;
-    case "ac-flat-rate": return 302000;
+    case "ac-flat-rate": return 303860;
     default: return 0;
   }
 }

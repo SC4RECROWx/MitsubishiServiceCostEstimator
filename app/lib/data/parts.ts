@@ -34,6 +34,7 @@ export const parts: Part[] = [
   // Outlander Sport Parts
   { id: "os-engine-oil", name: "Engine Oil 5W-30 4L", partNumber: "MZ690221-4L", price: 480000 },
   { id: "os-oil-filter", name: "Oil Filter - Outlander Sport", partNumber: "1230A105", price: 75000 },
+  { id: "os-ac-filter", name: "Filter, A/C - Outlander Sport", partNumber: "7803A109", price: 330000 },
   
   // Mirage Parts
   { id: "mr-engine-oil", name: "Engine Oil 0W-20 3L", partNumber: "MZ690220-3L", price: 300000 },

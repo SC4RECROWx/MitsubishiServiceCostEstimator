@@ -198,18 +198,62 @@ export const periodicServices: PeriodicService[] = [
   },
   // Pahe Services for Outlander Sport
   {
+    id: "os-pahe-1",
+    vehicleModelId: "outlander-sport",
+    name: "Pahe 1: Ganti Oli",
+    mileage: 0,
+    jobs: [{ description: "Jasa Ganti Oli", cost: 104000 }],
+    parts: [
+      { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
+    ],
+  },
+  {
     id: "os-pahe-2",
     vehicleModelId: "outlander-sport",
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli & Filter Oli", cost: 110000 },
-        { description: "Jasa Pengecekan Umum", cost: 50000 }
+      { description: "Jasa Ganti Oli", cost: 104000 },
+      { description: "Jasa Ganti Filter Oli", cost: 104000 },
     ],
     parts: [
-      { partId: "os-engine-oil", quantity: 1 },
-      { partId: "os-oil-filter", quantity: 1 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 }, // Assuming gasket is similar
+      { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-oil-filter", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
+    ],
+  },
+  {
+    id: "os-pahe-3",
+    vehicleModelId: "outlander-sport",
+    name: "Pahe 3: Ganti Oli + Filter Oli & Filter AC",
+    mileage: 0,
+    jobs: [
+      { description: "Jasa Ganti Oli", cost: 104000 },
+      { description: "Jasa Ganti Filter Oli", cost: 104000 },
+    ],
+    parts: [
+      { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-oil-filter", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
+      { partId: "os-ac-filter", quantity: 1 },
+    ],
+  },
+  {
+    id: "os-pahe-4",
+    vehicleModelId: "outlander-sport",
+    name: "Pahe 4: Ganti Oli + Filter Oli + Filter AC & Engine Flush",
+    mileage: 0,
+    jobs: [
+      { description: "Jasa Ganti Oli", cost: 104000 },
+      { description: "Jasa Ganti Filter Oli", cost: 104000 },
+    ],
+    parts: [
+      { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-oil-filter", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
+      { partId: "os-ac-filter", quantity: 1 },
+      { partId: "xp-engine-flush", quantity: 1 },
     ],
   },
   // Pahe Services for Mirage

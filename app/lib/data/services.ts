@@ -218,7 +218,7 @@ export const periodicServices: PeriodicService[] = [
       { description: "Jasa Ganti Filter Oli", cost: 104000 },
     ],
     parts: [
-      { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-engine-oil-1l", quantity: 5 },
       { partId: "xp-oil-filter", quantity: 1 },
       { partId: "xp-drain-plug-gasket", quantity: 1 },
     ],
@@ -233,7 +233,7 @@ export const periodicServices: PeriodicService[] = [
       { description: "Jasa Ganti Filter Oli", cost: 104000 },
     ],
     parts: [
-      { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-engine-oil-1l", quantity: 5 },
       { partId: "xp-oil-filter", quantity: 1 },
       { partId: "xp-drain-plug-gasket", quantity: 1 },
       { partId: "os-ac-filter", quantity: 1 },
@@ -242,14 +242,14 @@ export const periodicServices: PeriodicService[] = [
   {
     id: "os-pahe-4",
     vehicleModelId: "outlander-sport",
-    name: "Pahe 4: Ganti Oli + Filter Oli + Filter AC & Engine Flush",
+    name: "Pahe 4: Ganti Oli + Filter Oli + Filter Oli & Engine FLush",
     mileage: 0,
     jobs: [
       { description: "Jasa Ganti Oli", cost: 104000 },
       { description: "Jasa Ganti Filter Oli", cost: 104000 },
     ],
     parts: [
-      { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-engine-oil-1l", quantity: 5 },
       { partId: "xp-oil-filter", quantity: 1 },
       { partId: "xp-drain-plug-gasket", quantity: 1 },
       { partId: "os-ac-filter", quantity: 1 },

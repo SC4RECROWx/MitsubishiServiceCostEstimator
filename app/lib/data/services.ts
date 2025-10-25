@@ -22,7 +22,8 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli & Filter Oli", cost: 98500 },
+        { description: "Jasa Ganti Oli", cost: 98500 },
+        { description: "Jasa Ganti Filter Oli", cost: 0 },
     ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
@@ -36,7 +37,8 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 3: Ganti Oli + Filter Oli & AC",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli & Filter Oli", cost: 98500 },
+        { description: "Jasa Ganti Oli", cost: 98500 },
+        { description: "Jasa Ganti Filter Oli", cost: 0 },
     ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
@@ -51,7 +53,8 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 4: Ganti Oli + Filter Oli + AC & Engine Oil Flush",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli & Filter Oli", cost: 98500 },
+        { description: "Jasa Ganti Oli", cost: 98500 },
+        { description: "Jasa Ganti Filter Oli", cost: 0 },
     ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
@@ -81,7 +84,8 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli & Filter Oli", cost: 98500 },
+        { description: "Jasa Ganti Oli", cost: 98500 },
+        { description: "Jasa Ganti Filter Oli", cost: 0 },
     ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
@@ -95,7 +99,8 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 3: Ganti Oli + Filter Oli & AC",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli & Filter Oli", cost: 98500 },
+        { description: "Jasa Ganti Oli", cost: 98500 },
+        { description: "Jasa Ganti Filter Oli", cost: 0 },
     ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
@@ -110,7 +115,8 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 4: Ganti Oli + Filter Oli + AC & Engine Oil Flush",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli & Filter Oli", cost: 98500 },
+        { description: "Jasa Ganti Oli", cost: 98500 },
+        { description: "Jasa Ganti Filter Oli", cost: 0 },
     ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
@@ -138,7 +144,8 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli & Filter Oli", cost: 143000 },
+        { description: "Jasa Ganti Oli", cost: 108000 },
+        { description: "Jasa Ganti Filter Oli", cost: 35000 },
         { description: "Jasa Pengecekan Umum", cost: 50000 }
     ],
     parts: [
@@ -153,7 +160,9 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 3: Ganti Oli + Filter Oli & AC",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli, Filter Oli & AC", cost: 198000 },
+        { description: "Jasa Ganti Oli", cost: 108000 },
+        { description: "Jasa Ganti Filter Oli", cost: 35000 },
+        { description: "Jasa Ganti Filter AC", cost: 55000 },
         { description: "Jasa Pengecekan Umum", cost: 50000 }
     ],
     parts: [
@@ -169,7 +178,9 @@ export const periodicServices: PeriodicService[] = [
     name: "PAHE 4: Ganti Oli + Filter Oli + AC & Engine Oil Flush",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli, Filter Oli & AC", cost: 198000 },
+        { description: "Jasa Ganti Oli", cost: 108000 },
+        { description: "Jasa Ganti Filter Oli", cost: 35000 },
+        { description: "Jasa Ganti Filter AC", cost: 55000 },
         { description: "Engine Flush", cost: 200000 },
         { description: "Jasa Pengecekan Umum", cost: 50000 }
     ],
@@ -187,7 +198,8 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli & Filter Oli", cost: 97000 },
+        { description: "Jasa Ganti Oli", cost: 97000 },
+        { description: "Jasa Ganti Filter Oli", cost: 0 },
         { description: "Jasa Pengecekan Umum", cost: 50000 }
     ],
     parts: [
@@ -263,7 +275,8 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli & Filter Oli", cost: 75000 },
+        { description: "Jasa Ganti Oli", cost: 75000 },
+        { description: "Jasa Ganti Filter Oli", cost: 0 },
         { description: "Jasa Pengecekan Umum", cost: 50000 }
     ],
     parts: [
@@ -292,7 +305,8 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli & Filter Oli", cost: 85000 },
+        { description: "Jasa Ganti Oli", cost: 70000 },
+        { description: "Jasa Ganti Filter Oli", cost: 15000 },
         { description: "Jasa Pengecekan Umum", cost: 50000 }
     ],
     parts: [
@@ -307,7 +321,9 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 3: Lengkap (Oli, Filter Oli, Filter Solar)",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli, Filter Oli & Filter Solar", cost: 125000 },
+        { description: "Jasa Ganti Oli", cost: 70000 },
+        { description: "Jasa Ganti Filter Oli", cost: 15000 },
+        { description: "Jasa Ganti Filter Solar", cost: 40000 },
         { description: "Jasa Pengecekan Umum", cost: 50000 }
     ],
     parts: [
@@ -465,7 +481,7 @@ export const additionalServices: AdditionalService[] = [
   },
 ];
 
-const allModels = ["xpander", "xpander-cross", "pajero-sport", "pajero", "xforce", "outlander-sport", "triton", "mirage", "l300"];
+const allModels = ["xpander", "xpander-cross", "pajero-sport", "pajero", "xforce", "outlander-sport", "triton", "mirage", "l300", "delica"];
 
 export const tyreServices: AdditionalService[] = [
   {

@@ -465,32 +465,34 @@ export const additionalServices: AdditionalService[] = [
   },
 ];
 
+const allModels = ["xpander", "xpander-cross", "pajero-sport", "pajero", "xforce", "outlander-sport", "triton", "mirage", "l300"];
+
 export const tyreServices: AdditionalService[] = [
   {
     id: "add-spooring",
     name: "Spooring",
-    applicableModels: ["xpander", "xpander-cross", "pajero-sport", "triton", "xforce", "outlander-sport", "mirage", "l300"],
+    applicableModels: allModels,
     job: { description: "Jasa Spooring", cost: 133200 },
     parts: [],
   },
   {
     id: "add-balancing-r13-16",
     name: "Balancing Roda (R13-R16)",
-    applicableModels: ["xpander", "xpander-cross", "mirage", "l300", "xforce", "outlander-sport"],
+    applicableModels: allModels,
     job: { description: "Jasa Balancing per roda", cost: 22200 },
     parts: [{ partId: "common-balancing-weight", quantity: 1 }],
   },
   {
     id: "add-balancing-r17-offroad",
     name: "Balancing Roda (R17 & Offroad)",
-    applicableModels: ["pajero-sport", "triton", "xpander", "xpander-cross", "xforce", "outlander-sport"],
+    applicableModels: allModels,
     job: { description: "Jasa Balancing per roda", cost: 27750 },
     parts: [{ partId: "common-balancing-weight", quantity: 1 }],
   },
   {
     id: "add-nitrogen",
     name: "Kuras Nitrogen",
-    applicableModels: ["xpander", "xpander-cross", "pajero-sport", "triton", "xforce", "outlander-sport", "mirage", "l300"],
+    applicableModels: allModels,
     job: { description: "Jasa Kuras Nitrogen per roda", cost: 10545 },
     parts: [],
   },

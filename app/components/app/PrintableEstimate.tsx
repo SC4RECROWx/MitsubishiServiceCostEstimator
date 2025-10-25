@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import type { PeriodicService, AdditionalService, Accessory, Part, SelectedVehicle, SelectedItem } from "@/lib/types";
+import type { PeriodicService, AdditionalService, Part, SelectedVehicle, SelectedItem } from "@/lib/types";
 import { formatCurrency } from "@/lib/utils";
 import {
   Table,
@@ -17,7 +17,6 @@ interface Props {
   vehicle: SelectedVehicle | null;
   periodicServices: PeriodicService[];
   additionalServices: AdditionalService[];
-  accessories: Accessory[];
   partsData: Part[];
 }
 
@@ -28,7 +27,6 @@ export default function PrintableEstimate({
   vehicle,
   periodicServices,
   additionalServices,
-  accessories,
   partsData,
 }: Props) {
   const getPartDetails = (partId: string) => {
@@ -44,10 +42,6 @@ export default function PrintableEstimate({
     return { partsCost, laborCost };
   };
 
-  const calculateAccessoryCosts = (item: Accessory): { partsCost: number; laborCost: number } => {
-    return { partsCost: item.price, laborCost: item.job.cost };
-  };
-
   const selectedItems: SelectedItem[] = useMemo(() => {
     const items: SelectedItem[] = [];
     periodicServices.forEach(service => {
@@ -58,12 +52,8 @@ export default function PrintableEstimate({
       const { partsCost, laborCost } = calculateServiceCosts(service);
       items.push({ name: service.name, partsCost, laborCost });
     });
-    accessories.forEach(accessory => {
-      const { partsCost, laborCost } = calculateAccessoryCosts(accessory);
-      items.push({ name: accessory.name, partsCost, laborCost });
-    });
     return items;
-  }, [periodicServices, additionalServices, accessories, partsData]);
+  }, [periodicServices, additionalServices, partsData]);
 
   const totalCosts = useMemo(() => {
     const totals = selectedItems.reduce(
@@ -83,7 +73,7 @@ export default function PrintableEstimate({
   return (
     <div className="p-6 bg-background text-foreground">
         <div className="space-y-1.5 mb-6">
-            <h2 className="text-2xl font-semibold leading-none tracking-tight">Estimasi Biaya Servis & Aksesoris</h2>
+            <h2 className="text-2xl font-semibold leading-none tracking-tight">Estimasi Biaya Servis</h2>
             {vehicle && (
                 <p className="text-sm text-muted-foreground">{`${vehicle.modelName} ${vehicle.year} ${vehicle.transmisi}`}</p>
             )}
@@ -112,7 +102,7 @@ export default function PrintableEstimate({
             <Separator className="my-4"/>
              <div className="space-y-2 text-base">
                 <div className="flex justify-between">
-                    <span>Total Suku Cadang & Aksesoris</span>
+                    <span>Total Suku Cadang</span>
                     <span className="font-semibold">{formatCurrency(totalCosts.parts)}</span>
                 </div>
                 <div className="flex justify-between">

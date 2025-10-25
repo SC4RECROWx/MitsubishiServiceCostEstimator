@@ -5,7 +5,7 @@ import jsPDF from "jspdf";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import type { PeriodicService, AdditionalService, Accessory, Part, SelectedVehicle, SelectedItem } from "@/lib/types";
+import type { PeriodicService, AdditionalService, Part, SelectedVehicle, SelectedItem } from "@/lib/types";
 import { formatCurrency } from "@/lib/utils";
 import { Eye, Car, CalendarPlus } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -14,7 +14,6 @@ interface Props {
   vehicle: SelectedVehicle | null;
   periodicServices: PeriodicService[];
   additionalServices: AdditionalService[];
-  accessories: Accessory[];
   partsData: Part[];
 }
 
@@ -24,7 +23,6 @@ export default function EstimateSummary({
   vehicle,
   periodicServices,
   additionalServices,
-  accessories,
   partsData,
 }: Props) {
   const { toast } = useToast();
@@ -42,10 +40,6 @@ export default function EstimateSummary({
     return { partsCost, laborCost };
   };
 
-  const calculateAccessoryCosts = (item: Accessory): { partsCost: number; laborCost: number } => {
-    return { partsCost: item.price, laborCost: item.job.cost };
-  };
-
   const selectedItems: SelectedItem[] = useMemo(() => {
     const items: SelectedItem[] = [];
     periodicServices.forEach(service => {
@@ -56,12 +50,8 @@ export default function EstimateSummary({
       const { partsCost, laborCost } = calculateServiceCosts(service);
       items.push({ name: service.name, partsCost, laborCost });
     });
-    accessories.forEach(accessory => {
-        const { partsCost, laborCost } = calculateAccessoryCosts(accessory);
-        items.push({ name: accessory.name, partsCost, laborCost });
-    });
     return items;
-  }, [periodicServices, additionalServices, accessories, partsData]);
+  }, [periodicServices, additionalServices, partsData]);
 
   const totalCosts = useMemo(() => {
     const totals = selectedItems.reduce(
@@ -97,7 +87,7 @@ export default function EstimateSummary({
       // Header
       pdf.setFontSize(18);
       pdf.setFont("helvetica", "bold");
-      pdf.text("Estimasi Biaya Servis & Aksesoris", margin, cursorY);
+      pdf.text("Estimasi Biaya Servis", margin, cursorY);
       cursorY += 10;
 
       // Vehicle Info
@@ -230,7 +220,7 @@ ${selectedItems.map(item => `- ${item.name}`).join('\n')}
 
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                  <span>Total Suku Cadang & Aksesoris</span>
+                  <span>Total Suku Cadang</span>
                   <span className="font-medium">{formatCurrency(totalCosts.parts)}</span>
               </div>
               <div className="flex justify-between">

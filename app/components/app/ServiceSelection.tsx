@@ -21,7 +21,6 @@ import { formatCurrency } from "@/lib/utils";
 import type {
   PeriodicService,
   AdditionalService,
-  Accessory,
   Part,
 } from "@/lib/types";
 
@@ -30,18 +29,15 @@ interface Props {
   additionalServices: AdditionalService[];
   tyreServices: AdditionalService[];
   acAndEngineServices: AdditionalService[];
-  accessories: Accessory[];
   partsData: Part[];
   onPeriodicChange: (service: PeriodicService | null) => void;
   onAdditionalChange: (services: AdditionalService[]) => void;
   onTyreChange: (services: AdditionalService[]) => void;
   onAcChange: (services: AdditionalService[]) => void;
-  onAccessoryChange: (accessories: Accessory[]) => void;
   selectedPeriodicService: PeriodicService | null;
   selectedAdditionalServices: AdditionalService[];
   selectedTyreServices: AdditionalService[];
   selectedAcServices: AdditionalService[];
-  selectedAccessories: Accessory[];
 }
 
 export default function ServiceSelection({
@@ -49,18 +45,15 @@ export default function ServiceSelection({
   additionalServices,
   tyreServices,
   acAndEngineServices,
-  accessories,
   partsData,
   onPeriodicChange,
   onAdditionalChange,
   onTyreChange,
   onAcChange,
-  onAccessoryChange,
   selectedPeriodicService,
   selectedAdditionalServices,
   selectedTyreServices,
   selectedAcServices,
-  selectedAccessories,
 }: Props) {
   const handlePeriodicChange = (serviceId: string) => {
     if (selectedPeriodicService?.id === serviceId) {
@@ -86,7 +79,6 @@ export default function ServiceSelection({
   const handleAdditionalChange = createHandleChange(selectedAdditionalServices, onAdditionalChange);
   const handleTyreChange = createHandleChange(selectedTyreServices, onTyreChange);
   const handleAcChange = createHandleChange(selectedAcServices, onAcChange);
-  const handleAccessoryChange = createHandleChange(selectedAccessories, onAccessoryChange);
 
   const getPartDetails = (partId: string) => {
     return partsData.find((p) => p.id === partId);
@@ -136,36 +128,6 @@ export default function ServiceSelection({
                 <TableCell>Subtotal</TableCell>
                 <TableCell className="text-right">{formatCurrency(totalJobCost + totalPartCost)}</TableCell>
               </TableRow>
-          </TableBody>
-        </Table>
-      </div>
-    );
-  };
-
-  const renderAccessoryDetails = (accessory: Accessory) => {
-    const totalCost = accessory.price + accessory.job.cost;
-    return (
-      <div className="space-y-4 text-sm">
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Deskripsi</TableHead>
-              <TableHead className="text-right">Biaya</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            <TableRow>
-              <TableCell>Harga Barang</TableCell>
-              <TableCell className="text-right">{formatCurrency(accessory.price)}</TableCell>
-            </TableRow>
-            <TableRow>
-              <TableCell>{accessory.job.description}</TableCell>
-              <TableCell className="text-right">{formatCurrency(accessory.job.cost)}</TableCell>
-            </TableRow>
-            <TableRow className="font-bold bg-secondary">
-              <TableCell>Subtotal</TableCell>
-              <TableCell className="text-right">{formatCurrency(totalCost)}</TableCell>
-            </TableRow>
           </TableBody>
         </Table>
       </div>
@@ -270,31 +232,6 @@ export default function ServiceSelection({
                     </div>
                     <AccordionContent className="px-4 pb-4">
                         {renderServiceDetails(service)}
-                    </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-          ))}
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-3">
-        <AccordionTrigger className="text-lg font-medium">Aksesoris Mitsubishi</AccordionTrigger>
-        <AccordionContent className="grid gap-4">
-          {accessories.map((accessory) => (
-             <Accordion type="single" collapsible key={accessory.id} className="rounded-md border">
-                <AccordionItem value={accessory.id}>
-                    <div className="flex items-center space-x-3 p-4">
-                        <Checkbox
-                            id={accessory.id}
-                            checked={selectedAccessories.some((s) => s.id === accessory.id)}
-                            onCheckedChange={() => handleAccessoryChange(accessory)}
-                        />
-                        <Label htmlFor={accessory.id} className="flex-1 font-normal cursor-pointer text-base">
-                            {accessory.name}
-                        </Label>
-                        <AccordionTrigger className="py-0 px-2 [&[data-state=open]>svg]:text-primary" />
-                    </div>
-                    <AccordionContent className="px-4 pb-4">
-                        {renderAccessoryDetails(accessory)}
                     </AccordionContent>
                 </AccordionItem>
               </Accordion>

@@ -5,7 +5,6 @@ import type {
   Vehicle,
   PeriodicService,
   AdditionalService,
-  Accessory,
   SelectedVehicle,
   Part,
 } from "@/lib/types";
@@ -15,8 +14,6 @@ import VehicleSelectionForm from "@/components/app/VehicleSelectionForm";
 import ServiceSelection from "@/components/app/ServiceSelection";
 import EstimateSummary from "@/components/app/EstimateSummary";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import Image from "next/image";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
 import PrintableEstimate from "@/components/app/PrintableEstimate";
 import { vehicles } from "@/lib/data/vehicles";
 import { parts } from "@/lib/data/parts";
@@ -27,7 +24,6 @@ import {
   acAndEngineServices,
   getAcServicePrice
 } from "@/lib/data/services";
-import { accessories } from "@/lib/data/accessories";
 
 export default function Home() {
   const [selectedVehicle, setSelectedVehicle] = useState<SelectedVehicle | null>(null);
@@ -35,11 +31,10 @@ export default function Home() {
   const [selectedAdditionalServices, setSelectedAdditionalServices] = useState<AdditionalService[]>([]);
   const [selectedTyreServices, setSelectedTyreServices] = useState<AdditionalService[]>([]);
   const [selectedAcServices, setSelectedAcServices] = useState<AdditionalService[]>([]);
-  const [selectedAccessories, setSelectedAccessories] = useState<Accessory[]>([]);
 
   const filteredServices = useMemo(() => {
     if (!selectedVehicle) {
-      return { periodic: [], additional: [], accessories: [], tyre: [], ac: [] };
+      return { periodic: [], additional: [], tyre: [], ac: [] };
     }
     const periodic = periodicServices.filter(
       (s) => s.vehicleModelId === selectedVehicle.model
@@ -105,11 +100,8 @@ export default function Home() {
       ...service,
       job: { ...service.job, cost: getAcServicePrice(service.id, selectedVehicle.model) }
     }));
-    const vehicleAccessories = accessories.filter((a) =>
-      a.applicableModels.includes(selectedVehicle.model)
-    );
 
-    return { periodic, additional, accessories: vehicleAccessories, tyre, ac };
+    return { periodic, additional, tyre, ac };
   }, [selectedVehicle]);
   
   useEffect(() => {
@@ -117,12 +109,6 @@ export default function Home() {
     setSelectedAdditionalServices([]);
     setSelectedTyreServices([]);
     setSelectedAcServices([]);
-    setSelectedAccessories([]);
-  }, [selectedVehicle]);
-
-  const vehicleImage = useMemo(() => {
-    if (!selectedVehicle) return null;
-    return PlaceHolderImages.find((img) => img.id === selectedVehicle.model);
   }, [selectedVehicle]);
 
   const allSelectedServices = [
@@ -165,7 +151,7 @@ export default function Home() {
               <>
                 <Card>
                   <CardHeader>
-                    <CardTitle>2. Pilih Jenis Servis & Aksesoris</CardTitle>
+                    <CardTitle>2. Pilih Jenis Servis</CardTitle>
                   </CardHeader>
                   <CardContent>
                     <ServiceSelection
@@ -173,18 +159,15 @@ export default function Home() {
                       additionalServices={filteredServices.additional}
                       tyreServices={filteredServices.tyre}
                       acAndEngineServices={filteredServices.ac}
-                      accessories={filteredServices.accessories}
                       partsData={parts}
                       onPeriodicChange={setSelectedPeriodicService}
                       onAdditionalChange={setSelectedAdditionalServices}
                       onTyreChange={setSelectedTyreServices}
                       onAcChange={setSelectedAcServices}
-                      onAccessoryChange={setSelectedAccessories}
                       selectedPeriodicService={selectedPeriodicService}
                       selectedAdditionalServices={selectedAdditionalServices}
                       selectedTyreServices={selectedTyreServices}
                       selectedAcServices={selectedAcServices}
-                      selectedAccessories={selectedAccessories}
                     />
                   </CardContent>
                 </Card>
@@ -197,7 +180,6 @@ export default function Home() {
               vehicle={selectedVehicle}
               periodicServices={selectedPeriodicService ? [selectedPeriodicService] : []}
               additionalServices={allSelectedServices}
-              accessories={selectedAccessories}
               partsData={parts}
             />
           </div>
@@ -209,7 +191,6 @@ export default function Home() {
             vehicle={selectedVehicle}
             periodicServices={selectedPeriodicService ? [selectedPeriodicService] : []}
             additionalServices={allSelectedServices}
-            accessories={selectedAccessories}
             partsData={parts}
         />
       </div>

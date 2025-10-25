@@ -21,7 +21,7 @@ export const vehicles: Vehicle[] = [
     years: [
       { year: 2024, trims: ["Premium CVT", "MT"] },
       { year: 2023, trims: ["Premium CVT", "MT"] },
-      { year: 2022, trims: ["Premium CVT", "MT", "CVT"] },
+      { year: 2022, trims: ["Premium CVT", "MT"] },
       { year: 2021, trims: ["Premium CVT", "AT", "MT"] },
       { year: 2020, trims: ["Premium AT", "MT"] },
       { year: 2019, trims: ["Premium AT", "MT"] },

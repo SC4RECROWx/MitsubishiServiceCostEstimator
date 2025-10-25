@@ -19,6 +19,7 @@ export const vehicles: Vehicle[] = [
     id: "xpander-cross",
     name: "Xpander Cross",
     years: [
+      { year: 2025, trims: ["Premium CVT", "MT"] },
       { year: 2024, trims: ["Premium CVT", "MT"] },
       { year: 2023, trims: ["Premium CVT", "MT"] },
       { year: 2022, trims: ["Premium CVT", "MT"] },

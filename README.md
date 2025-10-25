@@ -30,6 +30,7 @@ Berikut adalah informasi yang Anda butuhkan untuk mendeploy aplikasi ini sebagai
 *   **Build Command**: `npm run build`
 *   **Publish Directory**: Direktori yang berisi hasil build produksi adalah **`out`**. Direktori ini dibuat setelah menjalankan `npm run build`.
 *   **Index File**: `index.html` (akan dibuat secara otomatis di dalam folder `out`).
+*   **Error File**: `404.html` (akan dibuat secara otomatis di dalam folder `out`).
 
 ### Langkah-langkah Deployment
 
@@ -53,6 +54,8 @@ Berikut adalah informasi yang Anda butuhkan untuk mendeploy aplikasi ini sebagai
 4.  **Konfigurasi di Platform Deployment (Contoh: Sevalla, Netlify, Vercel)**
     - Atur **Build Command** menjadi `npm run build`.
     - Atur **Publish Directory** menjadi `out`.
+    - Atur **Index File** menjadi `index.html`.
+    - Atur **Error File** menjadi `404.html`.
     - Redeploy (deploy ulang) situs Anda.
 
 Platform akan secara otomatis menyajikan file dari folder `out`, dan masalah 404 Anda akan teratasi.

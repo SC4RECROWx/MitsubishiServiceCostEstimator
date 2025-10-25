@@ -456,6 +456,13 @@ export const additionalServices: AdditionalService[] = [
     job: { description: "Jasa Ganti Oli Manual", cost: 312000 },
     parts: [{ partId: "os-oil-mt-75w80", quantity: 4 }],
   },
+  {
+    id: "add-alternator-belt-os",
+    name: "Ganti Belt Alternator - Outlander Sport",
+    applicableModels: ["outlander-sport"],
+    job: { description: "Jasa Ganti Belt Alternator", cost: 290000 },
+    parts: [{ partId: "os-alternator-belt", quantity: 1 }],
+  },
 ];
 
 export const tyreServices: AdditionalService[] = [

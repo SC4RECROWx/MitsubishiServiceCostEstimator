@@ -39,6 +39,7 @@ export const parts: Part[] = [
   { id: "os-brake-pad-rear", name: "Kampas Rem Belakang - Outlander Sport", partNumber: "4605A568", price: 1600000 },
   { id: "os-oil-cvt-j4", name: "Oli CVTF J-4 1L", partNumber: "MZ-CVTF-J4-1L", price: 169000 },
   { id: "os-oil-mt-75w80", name: "Oli MTF 75W 80 1L", partNumber: "MZ-MTF-75W80-1L", price: 131000 },
+  { id: "os-alternator-belt", name: "Belt Alternator - Outlander Sport", partNumber: "OS-BELT-ALT", price: 1155000 },
 
 
   // Mirage Parts

@@ -18,9 +18,20 @@ Aplikasi web interaktif yang dirancang untuk membantu pemilik kendaraan Mitsubis
 - **Komponen UI**: [Shadcn/ui](https://ui.shadcn.com/)
 - **PDF Generation**: [jsPDF](https://github.com/parallax/jsPDF)
 
-## 🔧 Menjalankan Secara Lokal (Mode Pengembangan)
+---
 
-Untuk menjalankan aplikasi ini di lingkungan pengembangan lokal Anda, ikuti langkah-langkah berikut:
+## 🔧 Panduan Deployment
+
+Berikut adalah informasi yang Anda butuhkan untuk mendeploy aplikasi Next.js ini di server Anda.
+
+### Ringkasan Konfigurasi Server
+
+*   **Versi Node.js**: **18.x** atau **20.x** (versi LTS yang direkomendasikan).
+*   **Index File**: Aplikasi Next.js tidak memiliki satu file `index` tradisional. Entry point utama aplikasi adalah halaman `app/page.tsx`. Server Next.js akan menangani routing secara otomatis.
+*   **Publish Directory**: Direktori yang berisi hasil build produksi adalah **`.next`**. Direktori ini dibuat setelah menjalankan `npm run build`.
+*   **Error File**: Untuk menangani error, Anda bisa membuat file kustom `app/error.tsx`. Jika file ini tidak ada, Next.js akan menggunakan halaman error standarnya.
+
+### Langkah-langkah Deployment
 
 1.  **Clone Repositori**
     ```bash
@@ -29,41 +40,35 @@ Untuk menjalankan aplikasi ini di lingkungan pengembangan lokal Anda, ikuti lang
     ```
 
 2.  **Install Dependensi**
-    Pastikan Anda memiliki Node.js versi 18 atau lebih baru.
+    Pastikan server Anda memiliki Node.js (versi 18 atau lebih baru).
     ```bash
     npm install
     ```
 
-3.  **Jalankan Server Pengembangan**
-    Aplikasi akan berjalan pada `http://localhost:9002`.
-    ```bash
-    npm run dev
-    ```
-
-## 📦 Menjalankan di Server (Mode Produksi)
-
-Aplikasi Next.js tidak bisa langsung disalin ke folder `htdocs` seperti aplikasi PHP. Ia membutuhkan Node.js untuk berjalan. Berikut adalah cara untuk menjalankannya di server Anda:
-
-1.  **Build Aplikasi**
-    Perintah ini akan mengkompilasi aplikasi Anda menjadi file-file statis dan server-side code yang teroptimasi di dalam folder `.next`.
+3.  **Build Aplikasi**
+    Perintah ini akan mengkompilasi aplikasi Anda menjadi file-file statis dan kode server yang teroptimasi di dalam folder `.next`.
     ```bash
     npm run build
     ```
 
-2.  **Jalankan Aplikasi**
+4.  **Jalankan Aplikasi dalam Mode Produksi**
     Setelah proses build selesai, jalankan perintah ini untuk memulai server produksi Next.js. Secara default, aplikasi akan berjalan di port `3000`.
     ```bash
     npm run start
     ```
 
-Aplikasi Anda sekarang berjalan dalam mode produksi yang jauh lebih cepat dan teroptimasi.
+### Menjaga Aplikasi Tetap Berjalan (Rekomendasi)
 
-**Tips Tambahan**:
-*   Untuk menjaga agar aplikasi tetap berjalan bahkan setelah Anda menutup terminal, disarankan menggunakan manajer proses seperti `pm2`.
+Untuk memastikan aplikasi tetap berjalan bahkan setelah Anda menutup terminal, sangat disarankan menggunakan manajer proses seperti `pm2`.
+
+1.  **Install `pm2` secara global (jika belum ada):**
     ```bash
-    # Install pm2 secara global (jika belum ada)
     npm install pm2 -g
-    
-    # Jalankan aplikasi menggunakan pm2
+    ```
+2.  **Jalankan aplikasi menggunakan `pm2`:**
+    ```bash
+    # Beri nama prosesnya "mitsubishi-app" dan jalankan perintah "npm start"
     pm2 start npm --name "mitsubishi-app" -- start
     ```
+
+Dengan mengikuti langkah-langkah di atas, aplikasi Anda akan berjalan dalam mode produksi yang cepat dan teroptimasi di server Anda.

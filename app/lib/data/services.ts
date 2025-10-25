@@ -496,14 +496,14 @@ export const tyreServices: AdditionalService[] = [
     name: "Balancing Roda (R13-R16)",
     applicableModels: allModels,
     job: { description: "Jasa Balancing per roda", cost: 22200 },
-    parts: [{ partId: "common-balancing-weight", quantity: 1 }],
+    parts: [],
   },
   {
     id: "add-balancing-r17-offroad",
     name: "Balancing Roda (R17 & Offroad)",
     applicableModels: allModels,
     job: { description: "Jasa Balancing per roda", cost: 27750 },
-    parts: [{ partId: "common-balancing-weight", quantity: 1 }],
+    parts: [],
   },
   {
     id: "add-nitrogen",

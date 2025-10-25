@@ -23,7 +23,7 @@ export const periodicServices: PeriodicService[] = [
     mileage: 0,
     jobs: [
         { description: "Jasa Ganti Oli", cost: 98500 },
-        { description: "Jasa Ganti Filter Oli", cost: 0 },
+        { description: "Jasa Ganti Filter Oli", cost: 98500 },
     ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
@@ -38,7 +38,7 @@ export const periodicServices: PeriodicService[] = [
     mileage: 0,
     jobs: [
         { description: "Jasa Ganti Oli", cost: 98500 },
-        { description: "Jasa Ganti Filter Oli", cost: 0 },
+        { description: "Jasa Ganti Filter Oli", cost: 98500 },
     ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
@@ -54,7 +54,7 @@ export const periodicServices: PeriodicService[] = [
     mileage: 0,
     jobs: [
         { description: "Jasa Ganti Oli", cost: 98500 },
-        { description: "Jasa Ganti Filter Oli", cost: 0 },
+        { description: "Jasa Ganti Filter Oli", cost: 98500 },
     ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
@@ -85,7 +85,7 @@ export const periodicServices: PeriodicService[] = [
     mileage: 0,
     jobs: [
         { description: "Jasa Ganti Oli", cost: 98500 },
-        { description: "Jasa Ganti Filter Oli", cost: 0 },
+        { description: "Jasa Ganti Filter Oli", cost: 98500 },
     ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
@@ -100,7 +100,7 @@ export const periodicServices: PeriodicService[] = [
     mileage: 0,
     jobs: [
         { description: "Jasa Ganti Oli", cost: 98500 },
-        { description: "Jasa Ganti Filter Oli", cost: 0 },
+        { description: "Jasa Ganti Filter Oli", cost: 98500 },
     ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
@@ -116,7 +116,7 @@ export const periodicServices: PeriodicService[] = [
     mileage: 0,
     jobs: [
         { description: "Jasa Ganti Oli", cost: 98500 },
-        { description: "Jasa Ganti Filter Oli", cost: 0 },
+        { description: "Jasa Ganti Filter Oli", cost: 98500 },
     ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
@@ -569,14 +569,14 @@ export const acAndEngineServices: AdditionalService[] = [
   },
   {
     id: "ac-oli-kompresor-single",
-    name: "OLI KOMPRESOR - SINGLE (JASA FREON & OLI)",
+    name: "OLI KOMPRESOR - SINGLE (JASA,FREON & OLI)",
     applicableModels: [...smallCars, ...largeCars],
     job: { description: "Jasa & Oli Kompresor Single Blower", cost: 0 },
     parts: [],
   },
   {
     id: "ac-oli-kompresor-double",
-    name: "OLI KOMPRESOR - DOUBLE (JASA FREON & OLI)",
+    name: "OLI KOMPRESOR - DOUBLE (JASA,FREON & OLI)",
     applicableModels: [...smallCars, ...largeCars],
     job: { description: "Jasa & Oli Kompresor Double Blower", cost: 0 },
     parts: [],

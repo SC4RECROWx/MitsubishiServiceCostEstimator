@@ -34,7 +34,7 @@ export const parts: Part[] = [
   // Outlander Sport Parts
   { id: "os-engine-oil", name: "Engine Oil 5W-30 4L", partNumber: "MZ690221-4L", price: 480000 },
   { id: "os-oil-filter", name: "Oil Filter - Outlander Sport", partNumber: "1230A105", price: 75000 },
-  { id: "os-ac-filter", name: "Filter, A/C - Outlander Sport", partNumber: "7803A109", price: 330000 },
+  { id: "os-ac-filter", name: "Filter, A/C - Outlander Sport", partNumber: "7803A109", price: 300000 },
   { id: "os-brake-pad-front", name: "Kampas Rem Depan - Outlander Sport", partNumber: "4605A875", price: 1610000 },
   { id: "os-brake-pad-rear", name: "Kampas Rem Belakang - Outlander Sport", partNumber: "4605A568", price: 1600000 },
   { id: "os-oil-cvt-j4", name: "Oli CVTF J-4 1L", partNumber: "MZ-CVTF-J4-1L", price: 169000 },

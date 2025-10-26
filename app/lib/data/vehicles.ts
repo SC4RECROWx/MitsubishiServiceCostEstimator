@@ -9,11 +9,11 @@ export const vehicles: Vehicle[] = [
       { year: 2024, trims: ["Ultimate CVT", "Ultimate MT", "Exceed CVT", "Exceed MT", "GLS CVT", "GLS MT"] },
       { year: 2023, trims: ["Ultimate CVT", "Ultimate MT", "Exceed CVT", "Exceed MT", "GLS CVT", "GLS MT"] },
       { year: 2022, trims: ["Ultimate CVT", "Ultimate MT", "Exceed CVT", "Exceed MT", "GLS CVT", "GLS MT"] },
-      { year: 2021, trims: ["Ultimate CVT", "Ultimate MT", "Sport MT", "Exceed CVT", "Exceed MT", "GLS CVT", "GLS MT", "GLX MT"] },
-      { year: 2020, trims: ["Ultimate AT", "Sport AT", "Sport MT", "Exceed AT", "Exceed MT", "GLS AT", "GLS MT", "GLX MT"] },
-      { year: 2019, trims: ["Ultimate AT", "Sport AT", "Sport MT", "Exceed AT", "Exceed MT", "GLS AT", "GLS MT", "GLX MT"] },
-      { year: 2018, trims: ["Ultimate AT", "Sport AT", "Exceed AT", "Exceed MT", "GLS MT", "GLX MT"] },
-      { year: 2017, trims: ["Ultimate AT", "Sport AT", "Exceed AT", "Exceed MT", "GLS MT", "GLX MT"] },
+      { year: 2021, trims: ["Ultimate CVT", "Ultimate MT", "Ultimate MT", "Exceed CVT", "Exceed MT", "GLS CVT", "GLS MT", "GLX MT"] },
+      { year: 2020, trims: ["Ultimate AT", "Ultimate MT", "Ultimate MT", "Exceed AT", "Exceed MT", "GLS AT", "GLS MT", "GLX MT"] },
+      { year: 2019, trims: ["Ultimate AT", "Ultimate MT", "Ultimate MT", "Exceed AT", "Exceed MT", "GLS AT", "GLS MT", "GLX MT"] },
+      { year: 2018, trims: ["Ultimate AT", "Ultimate MT", "Exceed AT", "Exceed MT", "GLS MT", "GLX MT"] },
+      { year: 2017, trims: ["Ultimate AT", "Ultimate MT", "Exceed AT", "Exceed MT", "GLS MT", "GLX MT"] },
     ],
   },
   {
@@ -31,6 +31,20 @@ export const vehicles: Vehicle[] = [
   },
   {
     id: "pajero-sport",
+    name: "Pajero Sport",
+    years: [
+        { year: 2016, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "GLX 4x4 MT"] },
+        { year: 2015, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "GLS 4x2 MT", "GLX 4x4 MT", "V6 Bensin"] },
+        { year: 2014, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "GLS 4x2 MT", "GLX 4x4 MT", "V6 Bensin"] },
+        { year: 2013, trims: ["Dakar 4x2 AT", "Exceed 4x2 AT", "GLS 4x2 MT", "GLX 4x4 MT"] },
+        { year: 2012, trims: ["Dakar 4x2 AT", "Exceed 4x2 AT", "GLS 4x2 MT", "GLX 4x4 MT"] },
+        { year: 2011, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "GLS 4x2 MT", "GLX 4x4 MT"] },
+        { year: 2010, trims: ["Exceed 4x4 AT", "Exceed 4x2 AT", "GLS 4x2 MT", "GLX 4x4 MT"] },
+        { year: 2009, trims: ["Exceed 4x4 AT", "Exceed 4x2 AT", "GLS 4x2 MT"] },
+    ],
+  },
+  {
+    id: "pajero-sport-anps",
     name: "All New Pajero Sport",
     years: [
         { year: 2024, trims: ["Dakar Ultimate 4x4 AT", "Dakar Ultimate 4x2 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "Exceed 4x2 MT", "GLX 4x4 MT"] },
@@ -41,20 +55,6 @@ export const vehicles: Vehicle[] = [
         { year: 2019, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "Exceed 4x2 MT", "GLX 4x4 MT", "Ultimate 4x2 AT"] },
         { year: 2018, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "Exceed 4x2 MT", "GLX 4x4 MT", "Ultimate 4x2 AT"] },
         { year: 2017, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "Exceed 4x2 MT", "GLX 4x4 MT", "Ultimate 4x2 AT"] },
-        { year: 2016, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "GLX 4x4 MT"] },
-    ],
-  },
-  {
-    id: "pajero",
-    name: "Pajero Sport",
-    years: [
-        { year: 2015, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "GLS 4x2 MT", "GLX 4x4 MT"] },
-        { year: 2014, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "GLS 4x2 MT", "GLX 4x4 MT"] },
-        { year: 2013, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "GLS 4x2 MT", "GLX 4x4 MT"] },
-        { year: 2012, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "GLS 4x2 MT", "GLX 4x4 MT"] },
-        { year: 2011, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "GLS 4x2 MT", "GLX 4x4 MT"] },
-        { year: 2010, trims: ["Exceed 4x4 AT", "Exceed 4x2 AT", "GLS 4x2 MT", "GLX 4x4 MT"] },
-        { year: 2009, trims: ["Exceed 4x4 AT", "Exceed 4x2 AT", "GLS 4x2 MT"] },
     ],
   },
   {

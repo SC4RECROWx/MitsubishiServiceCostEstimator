@@ -1,3 +1,4 @@
+
 import type { Vehicle } from "@/lib/types";
 
 export const vehicles: Vehicle[] = [
@@ -46,6 +47,7 @@ export const vehicles: Vehicle[] = [
     id: "pajero-sport-anps",
     name: "All New Pajero Sport",
     years: [
+        { year: 2025, trims: ["Dakar Ultimate 4x4 AT", "Dakar Ultimate 4x2 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "Exceed 4x2 MT", "GLX 4x4 MT"] },
         { year: 2024, trims: ["Dakar Ultimate 4x4 AT", "Dakar Ultimate 4x2 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "Exceed 4x2 MT", "GLX 4x4 MT"] },
         { year: 2023, trims: ["Dakar Ultimate 4x4 AT", "Dakar Ultimate 4x2 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "Exceed 4x2 MT", "GLX 4x4 MT"] },
         { year: 2022, trims: ["Dakar Ultimate 4x4 AT", "Dakar Ultimate 4x2 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "Exceed 4x2 MT", "GLX 4x4 MT"] },
@@ -54,6 +56,7 @@ export const vehicles: Vehicle[] = [
         { year: 2019, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "Exceed 4x2 MT", "GLX 4x4 MT", "Ultimate 4x2 AT"] },
         { year: 2018, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "Exceed 4x2 MT", "GLX 4x4 MT", "Ultimate 4x2 AT"] },
         { year: 2017, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "Exceed 4x2 MT", "GLX 4x4 MT", "Ultimate 4x2 AT"] },
+        { year: 2016, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "GLX 4x4 MT"] },
     ],
   },
   {

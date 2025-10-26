@@ -33,7 +33,6 @@ export const vehicles: Vehicle[] = [
     id: "pajero-sport",
     name: "Pajero Sport",
     years: [
-        { year: 2016, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "GLX 4x4 MT"] },
         { year: 2015, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "GLS 4x2 MT", "GLX 4x4 MT", "V6 Bensin"] },
         { year: 2014, trims: ["Dakar 4x4 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "GLS 4x2 MT", "GLX 4x4 MT", "V6 Bensin"] },
         { year: 2013, trims: ["Dakar 4x2 AT", "Exceed 4x2 AT", "GLS 4x2 MT", "GLX 4x4 MT"] },

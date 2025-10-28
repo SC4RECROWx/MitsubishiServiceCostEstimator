@@ -21,7 +21,7 @@ export const parts: Part[] = [
   // All New Pajero Sport Parts (Dakar)
   { id: "ps-dakar-engine-oil", name: "Engine Oil 5W-30 5.5L", partNumber: "MZ690221", price: 650000 },
   { id: "ps-dakar-oil-filter", name: "Oil Filter - Pajero Sport Dakar", partNumber: "1230A154", price: 125000 },
-  { id: "ps-dakar-drain-plug-gasket", name: "Gasket, Oil Drain Plug - Pajero", partNumber: "MF660031", price: 15000 },
+  { id: "ps-dakar-drain-plug-gasket", name: "Gasket, Oil Drain Plug - Pajero", partNumber: "MF660031", price: 20000 },
   { id: "ps-dakar-ac-filter", name: "Filter, A/C - Pajero Sport Dakar", partNumber: "7850A002", price: 150000 },
   { id: "ps-dakar-brake-pad-front", name: "Pad Kit, Front Brake - Pajero Sport Dakar", partNumber: "4605B925", price: 1200000 },
   { id: "ps-dakar-brake-pad-rear", name: "Pad Kit, Rear Brake - Pajero Sport Dakar", partNumber: "4605B929", price: 850000 },

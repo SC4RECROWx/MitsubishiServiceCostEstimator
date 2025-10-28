@@ -648,17 +648,17 @@ export const additionalServices: AdditionalService[] = [
     parts: [],
   },
   {
-    id: "add-spark-plug-mr",
-    name: "Ganti Busi",
+    id: "add-spark-plug-mr-optional",
+    name: "Engine Tune Up + Ganti Busi (opsional)",
     applicableModels: ["mirage"],
-    job: { description: "Jasa Ganti Busi", cost: 0 },
+    job: { description: "Jasa Tune Up & Ganti Busi", cost: 689500 },
     parts: [{ partId: "mr-spark-plug", quantity: 3 }],
   },
   {
-    id: "add-alternator-belt-mr",
-    name: "Ganti Belt Alternator",
+    id: "add-alternator-belt-mr-optional",
+    name: "Engine Tune Up + Ganti Belt Alternator (opsional)",
     applicableModels: ["mirage"],
-    job: { description: "Jasa Ganti Belt Alternator", cost: 197000 },
+    job: { description: "Jasa Tune Up & Ganti Belt Alternator", cost: 886500 }, // 689500 (Tune Up) + 197000 (Belt)
     parts: [{ partId: "mr-alternator-belt", quantity: 1 }],
   },
   {

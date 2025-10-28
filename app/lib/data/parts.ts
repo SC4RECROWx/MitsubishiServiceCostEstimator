@@ -31,7 +31,10 @@ export const parts: Part[] = [
   { id: "ps-exceed-engine-oil-1l", name: "Engine Oil 10W-30 1L", partNumber: "MZ-EXCEED-OIL-1L", price: 105000 },
   { id: "ps-exceed-oil-filter", name: "Oil Filter - Pajero Sport Exceed/GLX", partNumber: "PS-EXCEED-FILTER", price: 180000 },
   { id: "ps-exceed-ac-filter", name: "Filter, A/C - Pajero Sport Exceed/GLX", partNumber: "PS-EXCEED-AC", price: 330000 },
-  
+  { id: "ps-mut", name: "MUT", partNumber: "CHEM-MUT", price: 348000 },
+  { id: "ps-fuel-filter", name: "Fuel Filter - Pajero Sport", partNumber: "PS-FUEL-FILTER-GEN", price: 424000 },
+  { id: "ps-purging", name: "Purging", partNumber: "CHEM-PURGE", price: 143960 },
+
   // Xforce Parts
   { id: "xf-engine-oil", name: "Engine Oil 0W-20 4L", partNumber: "MZ690220-4L", price: 400000 },
   { id: "xf-oil-filter", name: "Oil Filter - Xforce", partNumber: "1230A182", price: 55000 },

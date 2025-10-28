@@ -451,6 +451,17 @@ export const additionalServices: AdditionalService[] = [
     job: { description: "Jasa Ganti Aki", cost: 100000 },
     parts: [{ partId: "ps-dakar-battery", quantity: 1 }],
   },
+  {
+    id: "add-fuel-filter-ps",
+    name: "Ganti Fuel Filter - All New Pajero Sport",
+    applicableModels: ["pajero-sport-anps"],
+    job: { description: "Jasa Ganti Fuel Filter", cost: 145000 },
+    parts: [
+      { partId: "ps-mut", quantity: 1 },
+      { partId: "ps-fuel-filter", quantity: 1 },
+      { partId: "ps-purging", quantity: 1 },
+    ],
+  },
   // Xpander Transmission Oil Services
   {
     id: "add-transm-oil-xp-mt",
@@ -695,4 +706,3 @@ export function getAcServicePrice(serviceId: string, vehicleModelId: string): nu
     default: return 0;
   }
 }
-

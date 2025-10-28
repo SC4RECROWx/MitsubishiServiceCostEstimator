@@ -252,10 +252,45 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "xforce",
     name: "Pahe 1: Ganti Oli",
     mileage: 0,
-    jobs: [{ description: "Jasa Ganti Oli", cost: 98500 }],
+    jobs: [
+        { description: "Jasa Ganti Oli", cost: 98500 },
+    ],
+    parts: [
+        { partId: "xp-engine-oil-1l", quantity: 4 },
+        { partId: "xp-drain-plug-gasket", quantity: 1 }
+    ],
+  },
+  {
+    id: "xf-pahe-3",
+    vehicleModelId: "xforce",
+    name: "Pahe 3: Ganti Oli + Filter Oli & AC",
+    mileage: 0,
+    jobs: [
+        { description: "Jasa Ganti Oli", cost: 98500 },
+        { description: "Jasa Ganti Filter Oli", cost: 98500 },
+    ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-oil-filter", quantity: 1 },
       { partId: "xp-drain-plug-gasket", quantity: 1 },
+      { partId: "xp-ac-filter", quantity: 1 },
+    ],
+  },
+  {
+    id: "xf-pahe-4",
+    vehicleModelId: "xforce",
+    name: "Pahe 4: Ganti Oli + Filter Oli + AC & Engine Flush",
+    mileage: 0,
+    jobs: [
+        { description: "Jasa Ganti Oli", cost: 98500 },
+        { description: "Jasa Ganti Filter Oli", cost: 98500 },
+    ],
+    parts: [
+      { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-oil-filter", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
+      { partId: "xp-ac-filter", quantity: 1 },
+      { partId: "xp-engine-flush", quantity: 1 },
     ],
   },
   {
@@ -271,39 +306,6 @@ export const periodicServices: PeriodicService[] = [
       { partId: "xp-engine-oil-1l", quantity: 4 },
       { partId: "xp-oil-filter", quantity: 1 },
       { partId: "xp-drain-plug-gasket", quantity: 1 },
-    ],
-  },
-  {
-    id: "xf-pahe-3",
-    vehicleModelId: "xforce",
-    name: "Pahe 3: Ganti Oli + Filter Oli & AC",
-    mileage: 0,
-    jobs: [
-      { description: "Jasa Ganti Oli", cost: 98500 },
-      { description: "Jasa Ganti Filter Oli", cost: 98500 },
-    ],
-    parts: [
-      { partId: "xp-engine-oil-1l", quantity: 4 },
-      { partId: "xp-oil-filter", quantity: 1 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 },
-      { partId: "xp-ac-filter", quantity: 1 },
-    ],
-  },
-  {
-    id: "xf-pahe-4",
-    vehicleModelId: "xforce",
-    name: "Pahe 4: Ganti Oli + Filter Oli + AC & Engine Flush",
-    mileage: 0,
-    jobs: [
-      { description: "Jasa Ganti Oli", cost: 98500 },
-      { description: "Jasa Ganti Filter Oli", cost: 98500 },
-    ],
-    parts: [
-      { partId: "xp-engine-oil-1l", quantity: 4 },
-      { partId: "xp-oil-filter", quantity: 1 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 },
-      { partId: "xp-ac-filter", quantity: 1 },
-      { partId: "xp-engine-flush", quantity: 1 },
     ],
   },
   // Pahe Services for Outlander Sport
@@ -510,7 +512,7 @@ export const additionalServices: AdditionalService[] = [
     id: "add-battery-ps",
     name: "Ganti Aki",
     applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Aki", cost: 197000 },
+    job: { description: "Jasa Ganti Aki", cost: 290000 },
     parts: [{ partId: "ps-battery", quantity: 1 }],
   },
   {

@@ -695,3 +695,4 @@ export function getAcServicePrice(serviceId: string, vehicleModelId: string): nu
     default: return 0;
   }
 }
+

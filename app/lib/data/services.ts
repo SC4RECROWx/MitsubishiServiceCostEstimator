@@ -470,7 +470,7 @@ export const additionalServices: AdditionalService[] = [
     id: "add-battery-ps",
     name: "Ganti Aki",
     applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Aki", cost: 100000 },
+    job: { description: "Jasa Ganti Aki", cost: 197000 },
     parts: [{ partId: "ps-battery", quantity: 1 }],
   },
   {
@@ -524,7 +524,7 @@ export const additionalServices: AdditionalService[] = [
   // Xpander Other Services
   {
     id: "add-air-filter-xp",
-    name: "Saringan Udara",
+    name: "Ganti Saringan Udara",
     applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Penggantian Saringan Udara", cost: 0 },
     parts: [{ partId: "xp-air-filter", quantity: 1 }],

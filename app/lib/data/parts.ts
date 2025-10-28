@@ -59,8 +59,9 @@ export const parts: Part[] = [
   { id: "os-oil-mt-75w80", name: "Oli MTF 75W 80 1L", partNumber: "MZ-MTF-75W80-1L", price: 131000 },
   { id: "os-alternator-belt", name: "Belt Alternator - Outlander Sport", partNumber: "OS-BELT-ALT", price: 1155000 },
 
-
   // Mirage Parts
+  { id: "mr-oil-filter", name: "Oil Filter", partNumber: "MR-OIL-FILTER", price: 68500 },
+  { id: "mr-ac-filter", name: "Filter, AC", partNumber: "MR-AC-FILTER", price: 168000 },
   { id: "mr-brake-pad-front", name: "Kampas Rem Depan", partNumber: "MR-PAD-F", price: 880000 },
   { id: "mr-brake-shoe-rear", name: "Kampas Rem Belakang", partNumber: "MR-SHOE-R", price: 1120000 },
   { id: "mr-spark-plug", name: "Busi", partNumber: "MR-SPARK", price: 335000 },

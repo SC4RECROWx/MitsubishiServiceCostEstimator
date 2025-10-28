@@ -329,7 +329,9 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "mirage",
     name: "Pahe 1: Ganti Oli",
     mileage: 0,
-    jobs: [{ description: "Jasa", cost: 98500 }],
+    jobs: [
+        { description: "Jasa Ganti Oli Mesin", cost: 98500 }
+    ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 3 },
       { partId: "xp-drain-plug-gasket", quantity: 1 },
@@ -340,10 +342,13 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "mirage",
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
-    jobs: [{ description: "Jasa", cost: 98500 }],
+    jobs: [
+        { description: "Jasa Ganti Oli Mesin", cost: 98500 },
+        { description: "Jasa Ganti Filter Oli Mesin", cost: 98500 }
+    ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 3 },
-      { partId: "xp-oil-filter", quantity: 1 },
+      { partId: "mr-oil-filter", quantity: 1 },
       { partId: "xp-drain-plug-gasket", quantity: 1 },
     ],
   },
@@ -352,11 +357,14 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "mirage",
     name: "Pahe 3: Ganti Oli, Filter Oli + Filter AC",
     mileage: 0,
-    jobs: [{ description: "Jasa", cost: 98500 }],
+    jobs: [
+        { description: "Jasa Ganti Oli Mesin", cost: 98500 },
+        { description: "Jasa Ganti Filter Oli Mesin", cost: 98500 }
+    ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 3 },
-      { partId: "xp-oil-filter", quantity: 1 },
-      { partId: "xp-ac-filter", quantity: 1 },
+      { partId: "mr-oil-filter", quantity: 1 },
+      { partId: "mr-ac-filter", quantity: 1 },
       { partId: "xp-drain-plug-gasket", quantity: 1 },
     ],
   },
@@ -365,11 +373,14 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "mirage",
     name: "Pahe 4: Ganti Oli, Filter Oli, Filter AC + Engine Flush",
     mileage: 0,
-    jobs: [{ description: "Jasa", cost: 98500 }],
+    jobs: [
+        { description: "Jasa Ganti Oli Mesin", cost: 98500 },
+        { description: "Jasa Ganti Filter Oli Mesin", cost: 98500 }
+    ],
     parts: [
       { partId: "xp-engine-oil-1l", quantity: 3 },
-      { partId: "xp-oil-filter", quantity: 1 },
-      { partId: "xp-ac-filter", quantity: 1 },
+      { partId: "mr-oil-filter", quantity: 1 },
+      { partId: "mr-ac-filter", quantity: 1 },
       { partId: "xp-engine-flush", quantity: 1 },
       { partId: "xp-drain-plug-gasket", quantity: 1 },
     ],

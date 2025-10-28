@@ -36,8 +36,8 @@ Berikut adalah informasi yang Anda butuhkan untuk mendeploy aplikasi ini sebagai
 
 1.  **Clone Repositori**
     ```bash
-    git clone [https://github.com/SC4RECROWx/MitsubishiServiceCostEstimator.git]
-    cd [MitsubishiServiceCostEstimator]
+    git clone <URL_REPOSITORI_ANDA>
+    cd <NAMA_DIREKTORI_PROYEK>
     ```
 
 2.  **Install Dependensi**

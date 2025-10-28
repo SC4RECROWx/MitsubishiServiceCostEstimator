@@ -414,6 +414,16 @@ export const additionalServices: AdditionalService[] = [
     parts: [{ partId: "ps-dakar-brake-pad-front", quantity: 1 }],
   },
   {
+    id: "add-brake-pad-front-ps-exceed",
+    name: "Ganti Kampas Rem Depan - All New Pajero Sport (Exceed/GLX)",
+    applicableModels: ["pajero-sport-anps"],
+    job: { description: "Jasa Ganti Kampas Rem Depan", cost: 435000 },
+    parts: [
+        { partId: "ps-exceed-brake-pad-front", quantity: 1 },
+        { partId: "common-brake-cleaner", quantity: 1 },
+    ],
+  },
+  {
     id: "add-brake-pad-rear-xp",
     name: "Ganti Kampas Rem Belakang - Xpander",
     applicableModels: ["xpander", "xpander-cross"],
@@ -429,6 +439,16 @@ export const additionalServices: AdditionalService[] = [
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 200000 },
     parts: [{ partId: "ps-dakar-brake-pad-rear", quantity: 1 }],
+  },
+  {
+    id: "add-brake-pad-rear-ps-exceed",
+    name: "Ganti Kampas Rem Belakang - All New Pajero Sport (Exceed/GLX)",
+    applicableModels: ["pajero-sport-anps"],
+    job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 435000 },
+    parts: [
+        { partId: "ps-exceed-brake-pad-rear", quantity: 1 },
+        { partId: "common-brake-cleaner", quantity: 1 },
+    ],
   },
   {
     id: "add-battery-xp",

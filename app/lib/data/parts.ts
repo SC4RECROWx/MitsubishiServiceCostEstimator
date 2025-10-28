@@ -31,6 +31,8 @@ export const parts: Part[] = [
   { id: "ps-exceed-engine-oil-1l", name: "Engine Oil 10W-30 1L", partNumber: "MZ-EXCEED-OIL-1L", price: 105000 },
   { id: "ps-exceed-oil-filter", name: "Oil Filter - Pajero Sport Exceed/GLX", partNumber: "PS-EXCEED-FILTER", price: 180000 },
   { id: "ps-exceed-ac-filter", name: "Filter, A/C - Pajero Sport Exceed/GLX", partNumber: "PS-EXCEED-AC", price: 330000 },
+  { id: "ps-exceed-brake-pad-front", name: "Kampas Rem Depan - Pajero Sport Exceed/GLX", partNumber: "PS-EXCEED-PAD-F", price: 1860000 },
+  { id: "ps-exceed-brake-pad-rear", name: "Kampas Rem Belakang - Pajero Sport Exceed/GLX", partNumber: "PS-EXCEED-PAD-R", price: 1540000 },
   { id: "ps-mut", name: "MUT", partNumber: "CHEM-MUT", price: 348000 },
   { id: "ps-fuel-filter", name: "Fuel Filter - Pajero Sport", partNumber: "PS-FUEL-FILTER-GEN", price: 424000 },
   { id: "ps-purging", name: "Purging", partNumber: "CHEM-PURGE", price: 143960 },

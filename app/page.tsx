@@ -87,8 +87,10 @@ export default function Home() {
 
       if (selectedVehicle.model === 'pajero-sport-anps') {
         const isDakar = transmissionType.includes('DAKAR');
+        const isExceedOrGlx = transmissionType.includes('EXCEED') || transmissionType.includes('GLX');
+
         if (s.id.includes('-ps-dakar')) return isDakar;
-        if (s.id.includes('-ps-exceed')) return !isDakar;
+        if (s.id.includes('-ps-exceed')) return isExceedOrGlx;
       }
 
       // Show other applicable services

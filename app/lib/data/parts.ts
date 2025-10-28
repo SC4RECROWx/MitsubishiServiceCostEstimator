@@ -64,8 +64,6 @@ export const parts: Part[] = [
   { id: "mr-ac-filter", name: "Filter, AC", partNumber: "MR-AC-FILTER", price: 168000 },
   { id: "mr-brake-pad-front", name: "Kampas Rem Depan", partNumber: "MR-PAD-F", price: 880000 },
   { id: "mr-brake-shoe-rear", name: "Kampas Rem Belakang", partNumber: "MR-SHOE-R", price: 1120000 },
-  { id: "mr-spark-plug", name: "Busi", partNumber: "MR-SPARK", price: 335000 },
-  { id: "mr-alternator-belt", name: "Belt Alternator", partNumber: "MR-BELT", price: 231000 },
 
   // Common Parts
   { id: "common-brake-cleaner", name: "Brake Cleaner", partNumber: "CHEM-BRKCLN", price: 107380 },

@@ -534,14 +534,14 @@ export const additionalServices: AdditionalService[] = [
     id: "add-air-filter-ps-dakar",
     name: "Ganti Saringan Udara",
     applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Saringan Udara", cost: 25000 },
+    job: { description: "Jasa Ganti Saringan Udara", cost: 0 },
     parts: [{ partId: "ps-dakar-air-filter", quantity: 1 }],
   },
   {
     id: "add-air-filter-ps-exceed",
     name: "Ganti Saringan Udara",
     applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Saringan Udara", cost: 25000 },
+    job: { description: "Jasa Ganti Saringan Udara", cost: 0 },
     parts: [{ partId: "ps-exceed-air-filter", quantity: 1 }],
   },
   {

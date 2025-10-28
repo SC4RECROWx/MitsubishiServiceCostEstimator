@@ -32,22 +32,10 @@
       "imageHint": "red suv"
     },
     {
-      "id": "triton",
-      "description": "Mitsubishi Triton",
-      "imageUrl": "https://picsum.photos/seed/triton/600/400",
-      "imageHint": "silver pickup"
-    },
-    {
-      "id: "mirage",
+      "id": "mirage",
       "description": "Mitsubishi Mirage",
       "imageUrl": "https://picsum.photos/seed/mirage/600/400",
       "imageHint": "red hatchback"
-    },
-    {
-      "id: "l300",
-      "description": "Mitsubishi L300",
-      "imageUrl": "https://picsum.photos/seed/l300/600/400",
-      "imageHint": "black van"
     }
   ]
 }

@@ -69,30 +69,12 @@ export const vehicles: Vehicle[] = [
     ],
   },
   {
-    id: "triton",
-    name: "Triton",
-    years: [
-        { year: 2024, trims: ["Ultimate AT", "Exceed MT", "GLS MT", "HDX MT"] },
-        { year: 2023, trims: ["Ultimate AT", "Exceed MT", "GLS MT", "HDX MT"] },
-        { year: 2022, trims: ["Ultimate AT", "Exceed MT", "GLS MT", "HDX MT"] },
-    ],
-  },
-  {
     id: "mirage",
     name: "Mirage",
     years: [
         { year: 2018, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
         { year: 2017, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
         { year: 2016, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
-    ],
-  },
-  {
-    id: "l300",
-    name: "L300",
-    years: [
-        { year: 2024, trims: ["Cab & Chassis", "Pickup Flatbed"] },
-        { year: 2023, trims: ["Cab & Chassis", "Pickup Flatbed"] },
-        { year: 2022, trims: ["Cab & Chassis", "Pickup Flatbed"] },
     ],
   },
 ];

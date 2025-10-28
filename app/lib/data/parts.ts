@@ -64,12 +64,6 @@ export const parts: Part[] = [
   { id: "mr-engine-oil", name: "Engine Oil 0W-20 3L", partNumber: "MZ690220-3L", price: 300000 },
   { id: "mr-oil-filter", name: "Oil Filter - Mirage", partNumber: "1230A182", price: 55000 },
 
-  // L300 Parts
-  { id: "l300-engine-oil", name: "Engine Oil 15W-40 5L", partNumber: "MZ690111", price: 450000 },
-  { id: "l300-oil-filter", name: "Oil Filter - L300", partNumber: "MD356900", price: 60000 },
-  { id: "l300-drain-plug-gasket", name: "Gasket, Oil Drain Plug - L300", partNumber: "MF660031", price: 20000 },
-  { id: "l300-fuel-filter", name: "Filter, Fuel - L300", partNumber: "MB220900", price: 75000 },
-
   // Common Parts
   { id: "common-brake-cleaner", name: "Brake Cleaner", partNumber: "CHEM-BRKCLN", price: 107380 },
 ];

@@ -195,7 +195,7 @@ export const periodicServices: PeriodicService[] = [
     jobs: [{ description: "Jasa Ganti Oli", cost: 145000 }],
     parts: [
       { partId: "ps-exceed-engine-oil-1l", quantity: 6 },
-      { partId: "l300-drain-plug-gasket", quantity: 1 },
+      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
     ],
   },
   {
@@ -210,7 +210,7 @@ export const periodicServices: PeriodicService[] = [
     parts: [
       { partId: "ps-exceed-engine-oil-1l", quantity: 7 },
       { partId: "ps-exceed-oil-filter", quantity: 1 },
-      { partId: "l300-drain-plug-gasket", quantity: 1 },
+      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
     ],
   },
   {
@@ -226,7 +226,7 @@ export const periodicServices: PeriodicService[] = [
       { partId: "ps-exceed-engine-oil-1l", quantity: 7 },
       { partId: "ps-exceed-oil-filter", quantity: 1 },
       { partId: "ps-exceed-ac-filter", quantity: 1 },
-      { partId: "l300-drain-plug-gasket", quantity: 1 },
+      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
     ],
   },
   {
@@ -243,7 +243,7 @@ export const periodicServices: PeriodicService[] = [
       { partId: "ps-exceed-oil-filter", quantity: 1 },
       { partId: "ps-exceed-ac-filter", quantity: 1 },
       { partId: "xp-engine-flush", quantity: 1 },
-      { partId: "l300-drain-plug-gasket", quantity: 1 },
+      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
     ],
   },
   // Pahe Services for Xforce
@@ -338,54 +338,6 @@ export const periodicServices: PeriodicService[] = [
       { partId: "mr-engine-oil", quantity: 1 },
       { partId: "mr-oil-filter", quantity: 1 },
       { partId: "xp-drain-plug-gasket", quantity: 1 }, // Assuming gasket is similar
-    ],
-  },
-  // Pahe Services for L300
-  {
-    id: "l300-pahe-1",
-    vehicleModelId: "l300",
-    name: "Pahe 1: Ganti Oli",
-    mileage: 0,
-    jobs: [
-        { description: "Jasa Ganti Oli", cost: 70000 },
-        { description: "Jasa Pengecekan Umum", cost: 50000 }
-    ],
-    parts: [
-      { partId: "l300-engine-oil", quantity: 1 },
-    ],
-  },
-  {
-    id: "l300-pahe-2",
-    vehicleModelId: "l300",
-    name: "Pahe 2: Ganti Oli + Filter Oli",
-    mileage: 0,
-    jobs: [
-        { description: "Jasa Ganti Oli", cost: 70000 },
-        { description: "Jasa Ganti Filter Oli", cost: 15000 },
-        { description: "Jasa Pengecekan Umum", cost: 50000 }
-    ],
-    parts: [
-      { partId: "l300-engine-oil", quantity: 1 },
-      { partId: "l300-oil-filter", quantity: 1 },
-      { partId: "l300-drain-plug-gasket", quantity: 1 },
-    ],
-  },
-  {
-    id: "l300-pahe-3",
-    vehicleModelId: "l300",
-    name: "Pahe 3: Lengkap (Oli, Filter Oli, Filter Solar)",
-    mileage: 0,
-    jobs: [
-        { description: "Jasa Ganti Oli", cost: 70000 },
-        { description: "Jasa Ganti Filter Oli", cost: 15000 },
-        { description: "Jasa Ganti Filter Solar", cost: 40000 },
-        { description: "Jasa Pengecekan Umum", cost: 50000 }
-    ],
-    parts: [
-      { partId: "l300-engine-oil", quantity: 1 },
-      { partId: "l300-oil-filter", quantity: 1 },
-      { partId: "l300-drain-plug-gasket", quantity: 1 },
-      { partId: "l300-fuel-filter", quantity: 1 },
     ],
   },
 ];
@@ -617,7 +569,7 @@ export const additionalServices: AdditionalService[] = [
   },
 ];
 
-const allModels = ["xpander", "xpander-cross", "pajero-sport-anps", "xforce", "outlander-sport", "triton", "mirage", "l300", "delica"];
+const allModels = ["xpander", "xpander-cross", "pajero-sport-anps", "xforce", "outlander-sport", "mirage", "delica"];
 
 export const tyreServices: AdditionalService[] = [
   {
@@ -651,7 +603,7 @@ export const tyreServices: AdditionalService[] = [
 ];
 
 const smallCars = ["mirage", "xpander", "xpander-cross", "xforce"];
-const largeCars = ["triton", "outlander-sport", "pajero-sport-anps", "delica"];
+const largeCars = ["outlander-sport", "pajero-sport-anps", "delica"];
 
 export const acAndEngineServices: AdditionalService[] = [
   {
@@ -735,7 +687,7 @@ export const acAndEngineServices: AdditionalService[] = [
 
 export function getAcServicePrice(serviceId: string, vehicleModelId: string): number {
   const isSmallCar = ["xpander", "mirage", "xpander-cross", "xforce"].includes(vehicleModelId);
-  const isLargeCar = ["triton", "outlander-sport", "pajero-sport-anps", "delica"].includes(vehicleModelId);
+  const isLargeCar = ["outlander-sport", "pajero-sport-anps", "delica"].includes(vehicleModelId);
 
   if (isSmallCar) {
     switch (serviceId) {

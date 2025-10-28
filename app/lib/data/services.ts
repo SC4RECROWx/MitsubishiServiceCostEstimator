@@ -399,7 +399,7 @@ export const periodicServices: PeriodicService[] = [
 export const additionalServices: AdditionalService[] = [
   {
     id: "add-brake-pad-front-xp",
-    name: "Ganti Kampas Rem Depan - Xpander",
+    name: "Ganti Kampas Rem Depan",
     applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Ganti Kampas Rem Depan", cost: 295500 },
     parts: [
@@ -409,14 +409,14 @@ export const additionalServices: AdditionalService[] = [
   },
   {
     id: "add-brake-pad-front-ps-dakar",
-    name: "Ganti Kampas Rem Depan - All New Pajero Sport",
+    name: "Ganti Kampas Rem Depan",
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Kampas Rem Depan", cost: 200000 },
     parts: [{ partId: "ps-dakar-brake-pad-front", quantity: 1 }],
   },
   {
     id: "add-brake-pad-front-ps-exceed",
-    name: "Ganti Kampas Rem Depan - All New Pajero Sport",
+    name: "Ganti Kampas Rem Depan",
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Kampas Rem Depan", cost: 435000 },
     parts: [
@@ -426,7 +426,7 @@ export const additionalServices: AdditionalService[] = [
   },
   {
     id: "add-brake-pad-rear-xp",
-    name: "Ganti Kampas Rem Belakang - Xpander",
+    name: "Ganti Kampas Rem Belakang",
     applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 394000 },
     parts: [
@@ -436,14 +436,14 @@ export const additionalServices: AdditionalService[] = [
   },
   {
     id: "add-brake-pad-rear-ps-dakar",
-    name: "Ganti Kampas Rem Belakang - All New Pajero Sport",
+    name: "Ganti Kampas Rem Belakang",
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 200000 },
     parts: [{ partId: "ps-dakar-brake-pad-rear", quantity: 1 }],
   },
   {
     id: "add-brake-pad-rear-ps-exceed",
-    name: "Ganti Kampas Rem Belakang - All New Pajero Sport",
+    name: "Ganti Kampas Rem Belakang",
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 435000 },
     parts: [
@@ -453,28 +453,28 @@ export const additionalServices: AdditionalService[] = [
   },
   {
     id: "add-battery-xp",
-    name: "Ganti Aki - Xpander",
+    name: "Ganti Aki",
     applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Ganti Aki", cost: 328333 },
     parts: [{ partId: "xp-battery", quantity: 1 }],
   },
   {
     id: "add-battery-xp-asg",
-    name: "Ganti Aki ASG (Idle Start-Stop) - Xpander",
+    name: "Ganti Aki ASG (Idle Start-Stop)",
     applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Ganti Aki", cost: 328333 },
     parts: [{ partId: "xp-battery-asg", quantity: 1 }],
   },
   {
     id: "add-battery-ps-dakar",
-    name: "Ganti Aki - All New Pajero Sport",
+    name: "Ganti Aki",
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Aki", cost: 100000 },
     parts: [{ partId: "ps-dakar-battery", quantity: 1 }],
   },
   {
     id: "add-fuel-filter-ps",
-    name: "Ganti Fuel Filter - All New Pajero Sport",
+    name: "Ganti Fuel Filter",
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Fuel Filter", cost: 145000 },
     parts: [
@@ -486,21 +486,21 @@ export const additionalServices: AdditionalService[] = [
   // Xpander Transmission Oil Services
   {
     id: "add-transm-oil-xp-mt",
-    name: "Ganti Oli Transmisi MT - Xpander",
+    name: "Ganti Oli Transmisi MT",
     applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Ganti Oli Transmisi Manual", cost: 295500 },
     parts: [{ partId: "xp-transm-oil-mt-1l", quantity: 3 }],
   },
   {
     id: "add-transm-oil-xp-at",
-    name: "Ganti Oli Transmisi AT - Xpander",
+    name: "Ganti Oli Transmisi AT",
     applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Ganti Oli Transmisi Matic", cost: 591000 },
     parts: [{ partId: "xp-transm-oil-atf-ma1-1l", quantity: 4 }],
   },
   {
     id: "add-transm-oil-xp-cvt",
-    name: "Ganti Oli Transmisi CVT - Xpander",
+    name: "Ganti Oli Transmisi CVT",
     applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Ganti Oli Transmisi Matic", cost: 591000 },
     parts: [{ partId: "xp-transm-oil-cvt-ma1-4l", quantity: 1 }],
@@ -515,14 +515,14 @@ export const additionalServices: AdditionalService[] = [
   },
   {
     id: "add-alternator-belt-xp",
-    name: "Ganti Belt Alternator - Xpander",
+    name: "Ganti Belt Alternator",
     applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Penggantian Belt Alternator", cost: 246250 },
     parts: [{ partId: "xp-alternator-belt", quantity: 1 }],
   },
   {
     id: "add-spark-plug-xp",
-    name: "Ganti Busi - Xpander",
+    name: "Ganti Busi",
     applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Penggantian Busi", cost: 394000 },
     parts: [{ partId: "xp-spark-plug", quantity: 4 }], // Assuming 4 spark plugs
@@ -530,7 +530,7 @@ export const additionalServices: AdditionalService[] = [
   // Outlander Sport Brake Services
   {
     id: "add-brake-pad-front-os",
-    name: "Ganti Kampas Rem Depan - Outlander Sport",
+    name: "Ganti Kampas Rem Depan",
     applicableModels: ["outlander-sport"],
     job: { description: "Jasa Pengerjaan Kampas Rem Depan", cost: 312000 },
     parts: [
@@ -540,7 +540,7 @@ export const additionalServices: AdditionalService[] = [
   },
   {
     id: "add-brake-pad-rear-os",
-    name: "Ganti Kampas Rem Belakang - Outlander Sport",
+    name: "Ganti Kampas Rem Belakang",
     applicableModels: ["outlander-sport"],
     job: { description: "Jasa Pengerjaan Kampas Rem Belakang", cost: 416000 },
     parts: [
@@ -551,21 +551,21 @@ export const additionalServices: AdditionalService[] = [
   // Outlander Sport Transmission Services
   {
     id: "add-transm-oil-os-cvt",
-    name: "Ganti Oli Transmisi Matic CVT - Outlander Sport",
+    name: "Ganti Oli Transmisi Matic CVT",
     applicableModels: ["outlander-sport"],
     job: { description: "Jasa Ganti Oli Matic CVT", cost: 416000 },
     parts: [{ partId: "os-oil-cvt-j4", quantity: 5 }],
   },
   {
     id: "add-transm-oil-os-mt",
-    name: "Ganti Oli Transmisi Manual - Outlander Sport",
+    name: "Ganti Oli Transmisi Manual",
     applicableModels: ["outlander-sport"],
     job: { description: "Jasa Ganti Oli Manual", cost: 312000 },
     parts: [{ partId: "os-oil-mt-75w80", quantity: 4 }],
   },
   {
     id: "add-alternator-belt-os",
-    name: "Ganti Belt Alternator - Outlander Sport",
+    name: "Ganti Belt Alternator",
     applicableModels: ["outlander-sport"],
     job: { description: "Jasa Ganti Belt Alternator", cost: 290000 },
     parts: [{ partId: "os-alternator-belt", quantity: 1 }],

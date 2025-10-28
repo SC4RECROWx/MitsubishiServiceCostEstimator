@@ -133,10 +133,12 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 1: Ganti Oli",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli", cost: 108000 },
-        { description: "Jasa Pengecekan Umum", cost: 50000 }
+        { description: "Jasa Ganti Oli", cost: 145000 },
     ],
-    parts: [{ partId: "ps-dakar-engine-oil", quantity: 1 }],
+    parts: [
+      { partId: "ps-exceed-engine-oil-1l", quantity: 7 },
+      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
+    ],
   },
   {
     id: "ps-dakar-pahe-2",
@@ -144,12 +146,11 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli", cost: 108000 },
-        { description: "Jasa Ganti Filter Oli", cost: 35000 },
-        { description: "Jasa Pengecekan Umum", cost: 50000 }
+        { description: "Jasa Ganti Oli", cost: 145000 },
+        { description: "Jasa Ganti Oli Filter", cost: 145000 },
     ],
     parts: [
-      { partId: "ps-dakar-engine-oil", quantity: 1 },
+      { partId: "ps-exceed-engine-oil-1l", quantity: 8 },
       { partId: "ps-dakar-oil-filter", quantity: 1 },
       { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
     ],
@@ -157,38 +158,34 @@ export const periodicServices: PeriodicService[] = [
   {
     id: "ps-dakar-pahe-3",
     vehicleModelId: "pajero-sport-anps",
-    name: "Pahe 3: Ganti Oli + Filter Oli & AC",
+    name: "Pahe 3: Ganti Oli, Filter Oli + Filter AC",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli", cost: 108000 },
-        { description: "Jasa Ganti Filter Oli", cost: 35000 },
-        { description: "Jasa Ganti Filter AC", cost: 55000 },
-        { description: "Jasa Pengecekan Umum", cost: 50000 }
+        { description: "Jasa Ganti Oli", cost: 145000 },
+        { description: "Jasa Ganti Oli Filter", cost: 145000 },
     ],
     parts: [
-      { partId: "ps-dakar-engine-oil", quantity: 1 },
+      { partId: "ps-exceed-engine-oil-1l", quantity: 8 },
       { partId: "ps-dakar-oil-filter", quantity: 1 },
-      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
       { partId: "ps-dakar-ac-filter", quantity: 1 },
+      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
     ],
   },
   {
     id: "ps-dakar-pahe-4",
     vehicleModelId: "pajero-sport-anps",
-    name: "PAHE 4: Ganti Oli + Filter Oli + AC & Engine Oil Flush",
+    name: "Pahe 4: Ganti Oli, Filter Oli, Filter AC + Engine Flush",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli", cost: 108000 },
-        { description: "Jasa Ganti Filter Oli", cost: 35000 },
-        { description: "Jasa Ganti Filter AC", cost: 55000 },
-        { description: "Engine Flush", cost: 200000 },
-        { description: "Jasa Pengecekan Umum", cost: 50000 }
+        { description: "Jasa Ganti Oli", cost: 145000 },
+        { description: "Jasa Ganti Oli Filter", cost: 145000 },
     ],
     parts: [
-      { partId: "ps-dakar-engine-oil", quantity: 1 },
+      { partId: "ps-exceed-engine-oil-1l", quantity: 8 },
       { partId: "ps-dakar-oil-filter", quantity: 1 },
-      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
       { partId: "ps-dakar-ac-filter", quantity: 1 },
+      { partId: "xp-engine-flush", quantity: 1 },
+      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
     ],
   },
   // Pahe Services for Pajero Sport (Exceed/GLX)
@@ -200,7 +197,7 @@ export const periodicServices: PeriodicService[] = [
     jobs: [{ description: "Jasa Ganti Oli", cost: 145000 }],
     parts: [
       { partId: "ps-exceed-engine-oil-1l", quantity: 6 },
-      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
     ],
   },
   {
@@ -215,7 +212,7 @@ export const periodicServices: PeriodicService[] = [
     parts: [
       { partId: "ps-exceed-engine-oil-1l", quantity: 7 },
       { partId: "ps-exceed-oil-filter", quantity: 1 },
-      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
     ],
   },
   {
@@ -231,7 +228,7 @@ export const periodicServices: PeriodicService[] = [
       { partId: "ps-exceed-engine-oil-1l", quantity: 7 },
       { partId: "ps-exceed-oil-filter", quantity: 1 },
       { partId: "ps-exceed-ac-filter", quantity: 1 },
-      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
     ],
   },
   {
@@ -248,7 +245,7 @@ export const periodicServices: PeriodicService[] = [
       { partId: "ps-exceed-oil-filter", quantity: 1 },
       { partId: "ps-exceed-ac-filter", quantity: 1 },
       { partId: "xp-engine-flush", quantity: 1 },
-      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
     ],
   },
   // Pahe Services for Xforce

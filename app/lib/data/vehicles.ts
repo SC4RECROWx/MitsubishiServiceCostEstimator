@@ -50,6 +50,7 @@ export const vehicles: Vehicle[] = [
     id: "xforce",
     name: "Xforce",
     years: [
+        { year: 2025, trims: ["Ultimate CVT", "Exceed CVT"] },
         { year: 2024, trims: ["Ultimate CVT", "Exceed CVT"] },
         { year: 2023, trims: ["Ultimate CVT", "Exceed CVT"] },
     ],

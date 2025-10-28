@@ -33,7 +33,7 @@ export const parts: Part[] = [
   { id: "ps-exceed-ac-filter", name: "Filter, A/C - Pajero Sport Exceed/GLX", partNumber: "PS-EXCEED-AC", price: 330000 },
   { id: "ps-exceed-brake-pad-front", name: "Kampas Rem Depan", partNumber: "PS-EXCEED-PAD-F", price: 867000 },
   { id: "ps-exceed-brake-pad-rear", name: "Kampas Rem Belakang", partNumber: "PS-EXCEED-PAD-R", price: 1000000 },
-  { id: "ps-mtf-oil", name: "Oli Transmisi MTF", partNumber: "PS-MTF-OIL", price: 524000 },
+  { id: "ps-mtf-oil-1l", name: "Oli Transmisi MTF 1L", partNumber: "PS-MTF-OIL-1L", price: 131000 },
   { id: "ps-mut", name: "MUT", partNumber: "CHEM-MUT", price: 348000 },
   { id: "ps-fuel-filter", name: "Fuel Filter", partNumber: "PS-FUEL-FILTER-GEN", price: 424000 },
   { id: "ps-purging", name: "Purging", partNumber: "CHEM-PURGE", price: 143960 },

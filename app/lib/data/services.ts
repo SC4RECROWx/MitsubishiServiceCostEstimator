@@ -1,3 +1,4 @@
+
 import type { PeriodicService, AdditionalService } from "@/lib/types";
 
 export const periodicServices: PeriodicService[] = [
@@ -408,14 +409,14 @@ export const additionalServices: AdditionalService[] = [
   },
   {
     id: "add-brake-pad-front-ps-dakar",
-    name: "Ganti Kampas Rem Depan - All New Pajero Sport (Dakar)",
+    name: "Ganti Kampas Rem Depan - All New Pajero Sport",
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Kampas Rem Depan", cost: 200000 },
     parts: [{ partId: "ps-dakar-brake-pad-front", quantity: 1 }],
   },
   {
     id: "add-brake-pad-front-ps-exceed",
-    name: "Ganti Kampas Rem Depan - All New Pajero Sport (Exceed/GLX)",
+    name: "Ganti Kampas Rem Depan - All New Pajero Sport",
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Kampas Rem Depan", cost: 435000 },
     parts: [
@@ -435,14 +436,14 @@ export const additionalServices: AdditionalService[] = [
   },
   {
     id: "add-brake-pad-rear-ps-dakar",
-    name: "Ganti Kampas Rem Belakang - All New Pajero Sport (Dakar)",
+    name: "Ganti Kampas Rem Belakang - All New Pajero Sport",
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 200000 },
     parts: [{ partId: "ps-dakar-brake-pad-rear", quantity: 1 }],
   },
   {
     id: "add-brake-pad-rear-ps-exceed",
-    name: "Ganti Kampas Rem Belakang - All New Pajero Sport (Exceed/GLX)",
+    name: "Ganti Kampas Rem Belakang - All New Pajero Sport",
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 435000 },
     parts: [
@@ -466,7 +467,7 @@ export const additionalServices: AdditionalService[] = [
   },
   {
     id: "add-battery-ps-dakar",
-    name: "Ganti Aki - All New Pajero Sport (Dakar)",
+    name: "Ganti Aki - All New Pajero Sport",
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Aki", cost: 100000 },
     parts: [{ partId: "ps-dakar-battery", quantity: 1 }],

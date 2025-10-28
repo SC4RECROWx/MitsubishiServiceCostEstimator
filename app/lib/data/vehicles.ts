@@ -75,6 +75,10 @@ export const vehicles: Vehicle[] = [
         { year: 2018, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
         { year: 2017, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
         { year: 2016, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
+        { year: 2015, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
+        { year: 2014, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
+        { year: 2013, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
+        { year: 2012, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
     ],
   },
 ];

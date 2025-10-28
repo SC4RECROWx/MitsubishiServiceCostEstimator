@@ -513,6 +513,13 @@ export const additionalServices: AdditionalService[] = [
     job: { description: "Jasa Ganti Oli Transmisi MT", cost: 435000 },
     parts: [{ partId: "ps-mtf-oil-1l", quantity: 4 }],
   },
+  {
+    id: "add-transfer-oil-ps-4x4",
+    name: "Ganti Oli 4x4 Transfer",
+    applicableModels: ["pajero-sport-anps"],
+    job: { description: "Jasa Ganti Oli 4x4 Transfer", cost: 290000 },
+    parts: [{ partId: "ps-transfer-oil-1l", quantity: 3 }],
+  },
   // Xpander Other Services
   {
     id: "add-air-filter-xp",

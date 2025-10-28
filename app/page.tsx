@@ -88,10 +88,12 @@ export default function Home() {
       if (selectedVehicle.model === 'pajero-sport-anps') {
         const isDakar = transmissionType.includes('DAKAR');
         const isExceedOrGlx = transmissionType.includes('EXCEED') || transmissionType.includes('GLX');
+        const is4x4 = transmissionType.includes('4X4');
 
         if (s.id.includes('-ps-dakar')) return isDakar;
         if (s.id.includes('-ps-exceed')) return isExceedOrGlx;
         if (s.id === "add-transm-oil-ps-mt") return transmissionType.includes("MT");
+        if (s.id === "add-transfer-oil-ps-4x4") return is4x4;
       }
 
       // Show other applicable services

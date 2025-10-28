@@ -36,55 +36,59 @@ export default function Home() {
     if (!selectedVehicle) {
       return { periodic: [], additional: [], tyre: [], ac: [] };
     }
-    const periodic = periodicServices.filter(
-      (s) => s.vehicleModelId === selectedVehicle.model
-    );
+    
+    const transmissionType = selectedVehicle.transmisi.toUpperCase();
+
+    const periodic = periodicServices.filter((s) => {
+        if (s.vehicleModelId !== selectedVehicle.model) return false;
+
+        if (selectedVehicle.model === 'pajero-sport-anps') {
+            const isDakar = transmissionType.includes('DAKAR');
+            const isExceedOrGlx = transmissionType.includes('EXCEED') || transmissionType.includes('GLX');
+
+            if (s.id.startsWith('ps-dakar-') && isDakar) return true;
+            if (s.id.startsWith('ps-exceed-') && isExceedOrGlx) return true;
+
+            return false;
+        }
+
+        return true;
+    });
 
     const additional = additionalServices.filter((s) => {
       if (!s.applicableModels.includes(selectedVehicle.model)) {
         return false;
       }
       
-      const transmissionType = selectedVehicle.transmisi.toUpperCase();
-      
       if (selectedVehicle.model === 'xpander' || selectedVehicle.model === 'xpander-cross') {
-        const isASGTrim = transmissionType.includes("ULTIMATE CVT") || transmissionType.includes("SPORT CVT") || transmissionType.includes("PREMIUM CVT");
+        const isASGTrim = transmissionType.includes("ULTIMATE CVT") || transmissionType.includes("PREMIUM CVT");
 
         // Filter battery services based on trim
-        if (s.id === "add-battery-xp-asg") {
-          return isASGTrim; // Show ASG battery only for specific trims
-        }
-        if (s.id === "add-battery-xp") {
-          return !isASGTrim; // Hide standard battery for ASG trims
-        }
+        if (s.id === "add-battery-xp-asg") return isASGTrim;
+        if (s.id === "add-battery-xp") return !isASGTrim;
         
         // Handle oil change services based on transmission type
         if (s.id.startsWith("add-transm-oil-xp-")) {
-            if (s.id === "add-transm-oil-xp-mt") {
-              return transmissionType.includes("MT");
-            }
-            if (s.id === "add-transm-oil-xp-at") {
-              // Show AT service only if transmission is AT and NOT CVT
-              return transmissionType.includes("AT") && !transmissionType.includes("CVT");
-            }
-            if (s.id === "add-transm-oil-xp-cvt") {
-              return transmissionType.includes("CVT");
-            }
-            return false; // Don't show other transmission services if they don't match
+            if (s.id === "add-transm-oil-xp-mt") return transmissionType.includes("MT");
+            if (s.id === "add-transm-oil-xp-at") return transmissionType.includes("AT") && !transmissionType.includes("CVT");
+            if (s.id === "add-transm-oil-xp-cvt") return transmissionType.includes("CVT");
+            return false;
         }
       }
 
       if (selectedVehicle.model === 'outlander-sport') {
         const trim = selectedVehicle.transmisi.toUpperCase();
         if (s.id.startsWith("add-transm-oil-os-")) {
-          if (s.id === "add-transm-oil-os-cvt") {
-            return trim.includes("GLS") || trim.includes("PX");
-          }
-          if (s.id === "add-transm-oil-os-mt") {
-            return trim.includes("GLX");
-          }
+          if (s.id === "add-transm-oil-os-cvt") return trim.includes("GLS") || trim.includes("PX");
+          if (s.id === "add-transm-oil-os-mt") return trim.includes("GLX");
           return false;
         }
+      }
+
+      if (selectedVehicle.model === 'pajero-sport-anps') {
+        const isDakar = transmissionType.includes('DAKAR');
+        if (s.id.includes('-ps-dakar')) return isDakar;
+        if (s.id.includes('-ps-exceed')) return !isDakar;
       }
 
       // Show other applicable services

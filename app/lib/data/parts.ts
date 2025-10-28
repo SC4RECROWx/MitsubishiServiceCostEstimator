@@ -18,14 +18,19 @@ export const parts: Part[] = [
   { id: "xp-alternator-belt", name: "Belt Alternator - Xpander", partNumber: "1340a181", price: 137000 },
   { id: "xp-spark-plug", name: "Busi - Xpander", partNumber: "1822a086", price: 335000 },
   
-  // All New Pajero Sport Parts
-  { id: "ps-engine-oil", name: "Engine Oil 5W-30 5.5L", partNumber: "MZ690221", price: 650000 },
-  { id: "ps-oil-filter", name: "Oil Filter - Pajero Sport", partNumber: "1230A154", price: 125000 },
-  { id: "ps-drain-plug-gasket", name: "Gasket, Oil Drain Plug - Pajero", partNumber: "MF660031", price: 15000 },
-  { id: "ps-ac-filter", name: "Filter, A/C - Pajero Sport", partNumber: "7850A002", price: 150000 },
-  { id: "ps-brake-pad-front", name: "Pad Kit, Front Brake - Pajero Sport", partNumber: "4605B925", price: 1200000 },
-  { id: "ps-brake-pad-rear", name: "Pad Kit, Rear Brake - Pajero Sport", partNumber: "4605B929", price: 850000 },
-  { id: "ps-battery", name: "Battery, 80D26L", partNumber: "MZ690020", price: 1500000 },
+  // All New Pajero Sport Parts (Dakar)
+  { id: "ps-dakar-engine-oil", name: "Engine Oil 5W-30 5.5L", partNumber: "MZ690221", price: 650000 },
+  { id: "ps-dakar-oil-filter", name: "Oil Filter - Pajero Sport Dakar", partNumber: "1230A154", price: 125000 },
+  { id: "ps-dakar-drain-plug-gasket", name: "Gasket, Oil Drain Plug - Pajero", partNumber: "MF660031", price: 15000 },
+  { id: "ps-dakar-ac-filter", name: "Filter, A/C - Pajero Sport Dakar", partNumber: "7850A002", price: 150000 },
+  { id: "ps-dakar-brake-pad-front", name: "Pad Kit, Front Brake - Pajero Sport Dakar", partNumber: "4605B925", price: 1200000 },
+  { id: "ps-dakar-brake-pad-rear", name: "Pad Kit, Rear Brake - Pajero Sport Dakar", partNumber: "4605B929", price: 850000 },
+  { id: "ps-dakar-battery", name: "Battery, 80D26L", partNumber: "MZ690020", price: 1500000 },
+
+  // All New Pajero Sport Parts (Exceed / GLX)
+  { id: "ps-exceed-engine-oil-1l", name: "Engine Oil 10W-30 1L", partNumber: "MZ-EXCEED-OIL-1L", price: 105000 },
+  { id: "ps-exceed-oil-filter", name: "Oil Filter - Pajero Sport Exceed/GLX", partNumber: "PS-EXCEED-FILTER", price: 180000 },
+  { id: "ps-exceed-ac-filter", name: "Filter, A/C - Pajero Sport Exceed/GLX", partNumber: "PS-EXCEED-AC", price: 330000 },
   
   // Xforce Parts
   { id: "xf-engine-oil", name: "Engine Oil 0W-20 4L", partNumber: "MZ690220-4L", price: 400000 },
@@ -53,6 +58,5 @@ export const parts: Part[] = [
   { id: "l300-fuel-filter", name: "Filter, Fuel - L300", partNumber: "MB220900", price: 75000 },
 
   // Common Parts
-  { id: "common-balancing-weight", name: "Balancing Weight", partNumber: "BLNC-WHT", price: 5000 },
   { id: "common-brake-cleaner", name: "Brake Cleaner", partNumber: "CHEM-BRKCLN", price: 107380 },
 ];

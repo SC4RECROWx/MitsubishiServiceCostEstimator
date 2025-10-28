@@ -1,4 +1,3 @@
-
 import type { PeriodicService, AdditionalService } from "@/lib/types";
 
 export const periodicServices: PeriodicService[] = [
@@ -50,7 +49,7 @@ export const periodicServices: PeriodicService[] = [
   {
     id: "xp-pahe-4",
     vehicleModelId: "xpander",
-    name: "Pahe 4: Ganti Oli + Filter Oli + AC & Engine Oil Flush",
+    name: "Pahe 4: Ganti Oli + Filter Oli + AC & Engine Flush",
     mileage: 0,
     jobs: [
         { description: "Jasa Ganti Oli", cost: 98500 },
@@ -112,7 +111,7 @@ export const periodicServices: PeriodicService[] = [
   {
     id: "xpc-pahe-4",
     vehicleModelId: "xpander-cross",
-    name: "Pahe 4: Ganti Oli + Filter Oli + AC & Engine Oil Flush",
+    name: "Pahe 4: Ganti Oli + Filter Oli + AC & Engine Flush",
     mileage: 0,
     jobs: [
         { description: "Jasa Ganti Oli", cost: 98500 },
@@ -126,9 +125,9 @@ export const periodicServices: PeriodicService[] = [
       { partId: "xp-engine-flush", quantity: 1 },
     ],
   },
-  // Pahe Services for Pajero Sport
+  // Pahe Services for Pajero Sport (Dakar)
   {
-    id: "ps-pahe-1",
+    id: "ps-dakar-pahe-1",
     vehicleModelId: "pajero-sport-anps",
     name: "Pahe 1: Ganti Oli",
     mileage: 0,
@@ -136,10 +135,10 @@ export const periodicServices: PeriodicService[] = [
         { description: "Jasa Ganti Oli", cost: 108000 },
         { description: "Jasa Pengecekan Umum", cost: 50000 }
     ],
-    parts: [{ partId: "ps-engine-oil", quantity: 1 }],
+    parts: [{ partId: "ps-dakar-engine-oil", quantity: 1 }],
   },
   {
-    id: "ps-pahe-2",
+    id: "ps-dakar-pahe-2",
     vehicleModelId: "pajero-sport-anps",
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
@@ -149,13 +148,13 @@ export const periodicServices: PeriodicService[] = [
         { description: "Jasa Pengecekan Umum", cost: 50000 }
     ],
     parts: [
-      { partId: "ps-engine-oil", quantity: 1 },
-      { partId: "ps-oil-filter", quantity: 1 },
-      { partId: "ps-drain-plug-gasket", quantity: 1 },
+      { partId: "ps-dakar-engine-oil", quantity: 1 },
+      { partId: "ps-dakar-oil-filter", quantity: 1 },
+      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
     ],
   },
   {
-    id: "ps-pahe-3",
+    id: "ps-dakar-pahe-3",
     vehicleModelId: "pajero-sport-anps",
     name: "Pahe 3: Ganti Oli + Filter Oli & AC",
     mileage: 0,
@@ -166,14 +165,14 @@ export const periodicServices: PeriodicService[] = [
         { description: "Jasa Pengecekan Umum", cost: 50000 }
     ],
     parts: [
-      { partId: "ps-engine-oil", quantity: 1 },
-      { partId: "ps-oil-filter", quantity: 1 },
-      { partId: "ps-drain-plug-gasket", quantity: 1 },
-      { partId: "ps-ac-filter", quantity: 1 },
+      { partId: "ps-dakar-engine-oil", quantity: 1 },
+      { partId: "ps-dakar-oil-filter", quantity: 1 },
+      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
+      { partId: "ps-dakar-ac-filter", quantity: 1 },
     ],
   },
   {
-    id: "ps-pahe-4",
+    id: "ps-dakar-pahe-4",
     vehicleModelId: "pajero-sport-anps",
     name: "PAHE 4: Ganti Oli + Filter Oli + AC & Engine Oil Flush",
     mileage: 0,
@@ -185,10 +184,70 @@ export const periodicServices: PeriodicService[] = [
         { description: "Jasa Pengecekan Umum", cost: 50000 }
     ],
     parts: [
-      { partId: "ps-engine-oil", quantity: 1 },
-      { partId: "ps-oil-filter", quantity: 1 },
-      { partId: "ps-drain-plug-gasket", quantity: 1 },
-      { partId: "ps-ac-filter", quantity: 1 },
+      { partId: "ps-dakar-engine-oil", quantity: 1 },
+      { partId: "ps-dakar-oil-filter", quantity: 1 },
+      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
+      { partId: "ps-dakar-ac-filter", quantity: 1 },
+    ],
+  },
+  // Pahe Services for Pajero Sport (Exceed/GLX)
+  {
+    id: "ps-exceed-pahe-1",
+    vehicleModelId: "pajero-sport-anps",
+    name: "Pahe 1: Ganti Oli",
+    mileage: 0,
+    jobs: [{ description: "Jasa Ganti Oli", cost: 145000 }],
+    parts: [
+      { partId: "ps-exceed-engine-oil-1l", quantity: 6 },
+      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
+    ],
+  },
+  {
+    id: "ps-exceed-pahe-2",
+    vehicleModelId: "pajero-sport-anps",
+    name: "Pahe 2: Ganti Oli + Filter Oli",
+    mileage: 0,
+    jobs: [
+      { description: "Jasa Ganti Oli", cost: 145000 },
+      { description: "Jasa Ganti Filter Oli", cost: 145000 },
+    ],
+    parts: [
+      { partId: "ps-exceed-engine-oil-1l", quantity: 7 },
+      { partId: "ps-exceed-oil-filter", quantity: 1 },
+      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
+    ],
+  },
+  {
+    id: "ps-exceed-pahe-3",
+    vehicleModelId: "pajero-sport-anps",
+    name: "Pahe 3: Ganti Oli, Filter Oli & Filter AC",
+    mileage: 0,
+    jobs: [
+      { description: "Jasa Ganti Oli", cost: 145000 },
+      { description: "Jasa Ganti Filter Oli", cost: 145000 },
+    ],
+    parts: [
+      { partId: "ps-exceed-engine-oil-1l", quantity: 7 },
+      { partId: "ps-exceed-oil-filter", quantity: 1 },
+      { partId: "ps-exceed-ac-filter", quantity: 1 },
+      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
+    ],
+  },
+  {
+    id: "ps-exceed-pahe-4",
+    vehicleModelId: "pajero-sport-anps",
+    name: "Pahe 4: Ganti Oli, Filter Oli, Filter AC & Engine Flush",
+    mileage: 0,
+    jobs: [
+      { description: "Jasa Ganti Oli", cost: 145000 },
+      { description: "Jasa Ganti Filter Oli", cost: 145000 },
+    ],
+    parts: [
+      { partId: "ps-exceed-engine-oil-1l", quantity: 7 },
+      { partId: "ps-exceed-oil-filter", quantity: 1 },
+      { partId: "ps-exceed-ac-filter", quantity: 1 },
+      { partId: "xp-engine-flush", quantity: 1 },
+      { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
     ],
   },
   // Pahe Services for Xforce
@@ -348,11 +407,11 @@ export const additionalServices: AdditionalService[] = [
     ],
   },
   {
-    id: "add-brake-pad-front-ps",
-    name: "Ganti Kampas Rem Depan - All New Pajero Sport",
+    id: "add-brake-pad-front-ps-dakar",
+    name: "Ganti Kampas Rem Depan - All New Pajero Sport (Dakar)",
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Kampas Rem Depan", cost: 200000 },
-    parts: [{ partId: "ps-brake-pad-front", quantity: 1 }],
+    parts: [{ partId: "ps-dakar-brake-pad-front", quantity: 1 }],
   },
   {
     id: "add-brake-pad-rear-xp",
@@ -365,11 +424,11 @@ export const additionalServices: AdditionalService[] = [
     ],
   },
   {
-    id: "add-brake-pad-rear-ps",
-    name: "Ganti Kampas Rem Belakang - All New Pajero Sport",
+    id: "add-brake-pad-rear-ps-dakar",
+    name: "Ganti Kampas Rem Belakang - All New Pajero Sport (Dakar)",
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 200000 },
-    parts: [{ partId: "ps-brake-pad-rear", quantity: 1 }],
+    parts: [{ partId: "ps-dakar-brake-pad-rear", quantity: 1 }],
   },
   {
     id: "add-battery-xp",
@@ -386,11 +445,11 @@ export const additionalServices: AdditionalService[] = [
     parts: [{ partId: "xp-battery-asg", quantity: 1 }],
   },
   {
-    id: "add-battery-ps",
-    name: "Ganti Aki - All New Pajero Sport",
+    id: "add-battery-ps-dakar",
+    name: "Ganti Aki - All New Pajero Sport (Dakar)",
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Aki", cost: 100000 },
-    parts: [{ partId: "ps-battery", quantity: 1 }],
+    parts: [{ partId: "ps-dakar-battery", quantity: 1 }],
   },
   // Xpander Transmission Oil Services
   {

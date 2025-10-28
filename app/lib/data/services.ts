@@ -132,9 +132,7 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "pajero-sport-anps",
     name: "Pahe 1: Ganti Oli",
     mileage: 0,
-    jobs: [
-        { description: "Jasa Ganti Oli", cost: 145000 },
-    ],
+    jobs: [{ description: "Jasa Ganti Oli", cost: 145000 }],
     parts: [
       { partId: "ps-exceed-engine-oil-1l", quantity: 7 },
       { partId: "ps-dakar-drain-plug-gasket", quantity: 1 },
@@ -146,8 +144,8 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli", cost: 145000 },
-        { description: "Jasa Ganti Oli Filter", cost: 145000 },
+      { description: "Jasa Ganti Oli", cost: 145000 },
+      { description: "Jasa Ganti Oli Filter", cost: 145000 },
     ],
     parts: [
       { partId: "ps-exceed-engine-oil-1l", quantity: 8 },
@@ -161,8 +159,8 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 3: Ganti Oli, Filter Oli + Filter AC",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli", cost: 145000 },
-        { description: "Jasa Ganti Oli Filter", cost: 145000 },
+      { description: "Jasa Ganti Oli", cost: 145000 },
+      { description: "Jasa Ganti Oli Filter", cost: 145000 },
     ],
     parts: [
       { partId: "ps-exceed-engine-oil-1l", quantity: 8 },
@@ -177,8 +175,8 @@ export const periodicServices: PeriodicService[] = [
     name: "Pahe 4: Ganti Oli, Filter Oli, Filter AC + Engine Flush",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli", cost: 145000 },
-        { description: "Jasa Ganti Oli Filter", cost: 145000 },
+      { description: "Jasa Ganti Oli", cost: 145000 },
+      { description: "Jasa Ganti Oli Filter", cost: 145000 },
     ],
     parts: [
       { partId: "ps-exceed-engine-oil-1l", quantity: 8 },
@@ -197,7 +195,7 @@ export const periodicServices: PeriodicService[] = [
     jobs: [{ description: "Jasa Ganti Oli", cost: 145000 }],
     parts: [
       { partId: "ps-exceed-engine-oil-1l", quantity: 6 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 },
+      { partId: "l300-drain-plug-gasket", quantity: 1 },
     ],
   },
   {
@@ -212,7 +210,7 @@ export const periodicServices: PeriodicService[] = [
     parts: [
       { partId: "ps-exceed-engine-oil-1l", quantity: 7 },
       { partId: "ps-exceed-oil-filter", quantity: 1 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 },
+      { partId: "l300-drain-plug-gasket", quantity: 1 },
     ],
   },
   {
@@ -228,7 +226,7 @@ export const periodicServices: PeriodicService[] = [
       { partId: "ps-exceed-engine-oil-1l", quantity: 7 },
       { partId: "ps-exceed-oil-filter", quantity: 1 },
       { partId: "ps-exceed-ac-filter", quantity: 1 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 },
+      { partId: "l300-drain-plug-gasket", quantity: 1 },
     ],
   },
   {
@@ -245,7 +243,7 @@ export const periodicServices: PeriodicService[] = [
       { partId: "ps-exceed-oil-filter", quantity: 1 },
       { partId: "ps-exceed-ac-filter", quantity: 1 },
       { partId: "xp-engine-flush", quantity: 1 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 },
+      { partId: "l300-drain-plug-gasket", quantity: 1 },
     ],
   },
   // Pahe Services for Xforce
@@ -405,11 +403,14 @@ export const additionalServices: AdditionalService[] = [
     ],
   },
   {
-    id: "add-brake-pad-front-ps-dakar",
-    name: "Ganti Kampas Rem Depan",
-    applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Kampas Rem Depan", cost: 200000 },
-    parts: [{ partId: "ps-dakar-brake-pad-front", quantity: 1 }],
+    id: "add-brake-pad-rear-xp",
+    name: "Ganti Kampas Rem Belakang",
+    applicableModels: ["xpander", "xpander-cross"],
+    job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 394000 },
+    parts: [
+        { partId: "xp-brake-shoe-rear", quantity: 1 },
+        { partId: "common-brake-cleaner", quantity: 1 }
+    ],
   },
   {
     id: "add-brake-pad-front-ps-exceed",
@@ -422,23 +423,6 @@ export const additionalServices: AdditionalService[] = [
     ],
   },
   {
-    id: "add-brake-pad-rear-xp",
-    name: "Ganti Kampas Rem Belakang",
-    applicableModels: ["xpander", "xpander-cross"],
-    job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 394000 },
-    parts: [
-        { partId: "xp-brake-shoe-rear", quantity: 1 },
-        { partId: "common-brake-cleaner", quantity: 1 }
-    ],
-  },
-  {
-    id: "add-brake-pad-rear-ps-dakar",
-    name: "Ganti Kampas Rem Belakang",
-    applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 200000 },
-    parts: [{ partId: "ps-dakar-brake-pad-rear", quantity: 1 }],
-  },
-  {
     id: "add-brake-pad-rear-ps-exceed",
     name: "Ganti Kampas Rem Belakang",
     applicableModels: ["pajero-sport-anps"],
@@ -446,6 +430,26 @@ export const additionalServices: AdditionalService[] = [
     parts: [
         { partId: "ps-exceed-brake-pad-rear", quantity: 1 },
         { partId: "common-brake-cleaner", quantity: 1 },
+    ],
+  },
+  {
+    id: "add-brake-pad-front-ps-dakar",
+    name: "Ganti Kampas Rem Depan",
+    applicableModels: ["pajero-sport-anps"],
+    job: { description: "Jasa Ganti Kampas Rem Depan", cost: 435000 },
+    parts: [
+      { partId: "ps-dakar-brake-pad-front", quantity: 1 },
+      { partId: "common-brake-cleaner", quantity: 1 },
+    ],
+  },
+  {
+    id: "add-brake-pad-rear-ps-dakar",
+    name: "Ganti Kampas Rem Belakang",
+    applicableModels: ["pajero-sport-anps"],
+    job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 435000 },
+    parts: [
+      { partId: "ps-dakar-brake-pad-rear", quantity: 1 },
+      { partId: "common-brake-cleaner", quantity: 1 },
     ],
   },
   {

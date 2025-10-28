@@ -95,6 +95,7 @@ export default function Home() {
         if (s.id === "add-transm-oil-ps-mt") return transmissionType.includes("MT");
         if (s.id === "add-transfer-oil-ps-4x4") return is4x4;
         if (s.id === 'add-battery-ps') return true; // General battery for all PS
+        if (s.id === 'add-fuel-filter-ps') return true;
       }
 
       // Show other applicable services

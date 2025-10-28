@@ -23,8 +23,8 @@ export const parts: Part[] = [
   { id: "ps-dakar-oil-filter", name: "Filter Oli", partNumber: "1230A154", price: 210000 },
   { id: "ps-dakar-drain-plug-gasket", name: "Gasket, Oil Drain Plug", partNumber: "MF660031", price: 9000 },
   { id: "ps-dakar-ac-filter", name: "Filter AC", partNumber: "7850A002", price: 330000 },
-  { id: "ps-dakar-brake-pad-front", name: "Pad Kit, Front Brake - Pajero Sport Dakar", partNumber: "4605B925", price: 1200000 },
-  { id: "ps-dakar-brake-pad-rear", name: "Pad Kit, Rear Brake - Pajero Sport Dakar", partNumber: "4605B929", price: 850000 },
+  { id: "ps-dakar-brake-pad-front", name: "Kampas Rem Depan", partNumber: "4605B925", price: 1860000 },
+  { id: "ps-dakar-brake-pad-rear", name: "Kampas Rem Belakang", partNumber: "4605B929", price: 1540000 },
   { id: "ps-dakar-battery", name: "Battery, 80D26L", partNumber: "MZ690020", price: 1500000 },
   { id: "ps-dakar-air-filter", name: "Filter Udara", partNumber: "PS-DAKAR-AIR-FILTER", price: 341000 },
 
@@ -66,7 +66,7 @@ export const parts: Part[] = [
   // L300 Parts
   { id: "l300-engine-oil", name: "Engine Oil 15W-40 5L", partNumber: "MZ690111", price: 450000 },
   { id: "l300-oil-filter", name: "Oil Filter - L300", partNumber: "MD356900", price: 60000 },
-  { id: "l300-drain-plug-gasket", name: "Gasket, Oil Drain Plug - L300", partNumber: "MF660031", price: 15000 },
+  { id: "l300-drain-plug-gasket", name: "Gasket, Oil Drain Plug - L300", partNumber: "MF660031", price: 20000 },
   { id: "l300-fuel-filter", name: "Filter, Fuel - L300", partNumber: "MB220900", price: 75000 },
 
   // Common Parts

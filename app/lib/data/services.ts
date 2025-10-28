@@ -649,14 +649,14 @@ export const additionalServices: AdditionalService[] = [
   },
   {
     id: "add-spark-plug-mr",
-    name: "Ganti Busi (opsional)",
+    name: "Ganti Busi",
     applicableModels: ["mirage"],
     job: { description: "Jasa Ganti Busi", cost: 0 },
     parts: [{ partId: "mr-spark-plug", quantity: 3 }],
   },
   {
     id: "add-alternator-belt-mr",
-    name: "Ganti Belt Alternator (opsional)",
+    name: "Ganti Belt Alternator",
     applicableModels: ["mirage"],
     job: { description: "Jasa Ganti Belt Alternator", cost: 197000 },
     parts: [{ partId: "mr-alternator-belt", quantity: 1 }],

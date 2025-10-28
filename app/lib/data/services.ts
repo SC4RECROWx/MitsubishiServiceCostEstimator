@@ -248,19 +248,62 @@ export const periodicServices: PeriodicService[] = [
   },
   // Pahe Services for Xforce
   {
+    id: "xf-pahe-1",
+    vehicleModelId: "xforce",
+    name: "Pahe 1: Ganti Oli",
+    mileage: 0,
+    jobs: [{ description: "Jasa Ganti Oli", cost: 98500 }],
+    parts: [
+      { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
+    ],
+  },
+  {
     id: "xf-pahe-2",
     vehicleModelId: "xforce",
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
     jobs: [
-        { description: "Jasa Ganti Oli", cost: 97000 },
-        { description: "Jasa Ganti Filter Oli", cost: 0 },
-        { description: "Jasa Pengecekan Umum", cost: 50000 }
+      { description: "Jasa Ganti Oli", cost: 98500 },
+      { description: "Jasa Ganti Filter Oli", cost: 98500 },
     ],
     parts: [
-      { partId: "xf-engine-oil", quantity: 1 },
-      { partId: "xf-oil-filter", quantity: 1 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 }, // Using Xpander's gasket
+      { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-oil-filter", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
+    ],
+  },
+  {
+    id: "xf-pahe-3",
+    vehicleModelId: "xforce",
+    name: "Pahe 3: Ganti Oli + Filter Oli & AC",
+    mileage: 0,
+    jobs: [
+      { description: "Jasa Ganti Oli", cost: 98500 },
+      { description: "Jasa Ganti Filter Oli", cost: 98500 },
+    ],
+    parts: [
+      { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-oil-filter", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
+      { partId: "xp-ac-filter", quantity: 1 },
+    ],
+  },
+  {
+    id: "xf-pahe-4",
+    vehicleModelId: "xforce",
+    name: "Pahe 4: Ganti Oli + Filter Oli + AC & Engine Flush",
+    mileage: 0,
+    jobs: [
+      { description: "Jasa Ganti Oli", cost: 98500 },
+      { description: "Jasa Ganti Filter Oli", cost: 98500 },
+    ],
+    parts: [
+      { partId: "xp-engine-oil-1l", quantity: 4 },
+      { partId: "xp-oil-filter", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
+      { partId: "xp-ac-filter", quantity: 1 },
+      { partId: "xp-engine-flush", quantity: 1 },
     ],
   },
   // Pahe Services for Outlander Sport

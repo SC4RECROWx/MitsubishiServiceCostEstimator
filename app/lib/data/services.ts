@@ -325,19 +325,53 @@ export const periodicServices: PeriodicService[] = [
   },
   // Pahe Services for Mirage
   {
+    id: "mr-pahe-1",
+    vehicleModelId: "mirage",
+    name: "Pahe 1: Ganti Oli",
+    mileage: 0,
+    jobs: [{ description: "Jasa", cost: 98500 }],
+    parts: [
+      { partId: "xp-engine-oil-1l", quantity: 3 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
+    ],
+  },
+  {
     id: "mr-pahe-2",
     vehicleModelId: "mirage",
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
-    jobs: [
-        { description: "Jasa Ganti Oli", cost: 75000 },
-        { description: "Jasa Ganti Filter Oli", cost: 0 },
-        { description: "Jasa Pengecekan Umum", cost: 50000 }
-    ],
+    jobs: [{ description: "Jasa", cost: 98500 }],
     parts: [
-      { partId: "mr-engine-oil", quantity: 1 },
-      { partId: "mr-oil-filter", quantity: 1 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 }, // Assuming gasket is similar
+      { partId: "xp-engine-oil-1l", quantity: 3 },
+      { partId: "xp-oil-filter", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
+    ],
+  },
+  {
+    id: "mr-pahe-3",
+    vehicleModelId: "mirage",
+    name: "Pahe 3: Ganti Oli, Filter Oli + Filter AC",
+    mileage: 0,
+    jobs: [{ description: "Jasa", cost: 98500 }],
+    parts: [
+      { partId: "xp-engine-oil-1l", quantity: 3 },
+      { partId: "xp-oil-filter", quantity: 1 },
+      { partId: "xp-ac-filter", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
+    ],
+  },
+  {
+    id: "mr-pahe-4",
+    vehicleModelId: "mirage",
+    name: "Pahe 4: Ganti Oli, Filter Oli, Filter AC + Engine Flush",
+    mileage: 0,
+    jobs: [{ description: "Jasa", cost: 98500 }],
+    parts: [
+      { partId: "xp-engine-oil-1l", quantity: 3 },
+      { partId: "xp-oil-filter", quantity: 1 },
+      { partId: "xp-ac-filter", quantity: 1 },
+      { partId: "xp-engine-flush", quantity: 1 },
+      { partId: "xp-drain-plug-gasket", quantity: 1 },
     ],
   },
 ];
@@ -567,9 +601,72 @@ export const additionalServices: AdditionalService[] = [
     job: { description: "Jasa Ganti Belt Alternator", cost: 290000 },
     parts: [{ partId: "os-alternator-belt", quantity: 1 }],
   },
+  // Mirage Services
+  {
+    id: "add-brake-pad-front-mr",
+    name: "Ganti Kampas Rem Depan",
+    applicableModels: ["mirage"],
+    job: { description: "Jasa Ganti Kampas Rem Depan", cost: 295500 },
+    parts: [
+        { partId: "mr-brake-pad-front", quantity: 1 },
+        { partId: "common-brake-cleaner", quantity: 1 }
+    ],
+  },
+  {
+    id: "add-brake-pad-rear-mr",
+    name: "Ganti Kampas Rem Belakang",
+    applicableModels: ["mirage"],
+    job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 394000 },
+    parts: [
+        { partId: "mr-brake-shoe-rear", quantity: 1 },
+        { partId: "common-brake-cleaner", quantity: 1 }
+    ],
+  },
+  {
+    id: "add-battery-mr",
+    name: "Ganti Aki",
+    applicableModels: ["mirage"],
+    job: { description: "Jasa Ganti Aki", cost: 197000 },
+    parts: [{ partId: "xp-battery", quantity: 1 }],
+  },
+  {
+    id: "add-tune-up-mr",
+    name: "Engine Tune Up",
+    applicableModels: ["mirage"],
+    job: { description: "Jasa Tune Up", cost: 689500 },
+    parts: [],
+  },
+  {
+    id: "add-spark-plug-mr",
+    name: "Ganti Busi (opsional)",
+    applicableModels: ["mirage"],
+    job: { description: "Jasa Ganti Busi", cost: 0 },
+    parts: [{ partId: "mr-spark-plug", quantity: 3 }],
+  },
+  {
+    id: "add-alternator-belt-mr",
+    name: "Ganti Belt Alternator (opsional)",
+    applicableModels: ["mirage"],
+    job: { description: "Jasa Ganti Belt Alternator", cost: 197000 },
+    parts: [{ partId: "mr-alternator-belt", quantity: 1 }],
+  },
+  {
+    id: "add-transm-oil-mr-cvt",
+    name: "Ganti Oli Transmisi Matic CVT",
+    applicableModels: ["mirage"],
+    job: { description: "Jasa Ganti Oli Transmisi Matic", cost: 394000 },
+    parts: [{ partId: "os-oil-cvt-j4", quantity: 3 }],
+  },
+  {
+    id: "add-transm-oil-mr-mt",
+    name: "Ganti Oli Transmisi Manual",
+    applicableModels: ["mirage"],
+    job: { description: "Jasa Ganti Oli Transmisi Manual", cost: 295500 },
+    parts: [{ partId: "os-oil-mt-75w80", quantity: 4 }],
+  },
 ];
 
-const allModels = ["xpander", "xpander-cross", "pajero-sport-anps", "xforce", "outlander-sport", "mirage", "delica"];
+const allModels = ["xpander", "xpander-cross", "pajero-sport-anps", "xforce", "outlander-sport", "mirage"];
 
 export const tyreServices: AdditionalService[] = [
   {
@@ -603,7 +700,7 @@ export const tyreServices: AdditionalService[] = [
 ];
 
 const smallCars = ["mirage", "xpander", "xpander-cross", "xforce"];
-const largeCars = ["outlander-sport", "pajero-sport-anps", "delica"];
+const largeCars = ["outlander-sport", "pajero-sport-anps"];
 
 export const acAndEngineServices: AdditionalService[] = [
   {
@@ -687,7 +784,7 @@ export const acAndEngineServices: AdditionalService[] = [
 
 export function getAcServicePrice(serviceId: string, vehicleModelId: string): number {
   const isSmallCar = ["xpander", "mirage", "xpander-cross", "xforce"].includes(vehicleModelId);
-  const isLargeCar = ["outlander-sport", "pajero-sport-anps", "delica"].includes(vehicleModelId);
+  const isLargeCar = ["outlander-sport", "pajero-sport-anps"].includes(vehicleModelId);
 
   if (isSmallCar) {
     switch (serviceId) {

@@ -61,8 +61,10 @@ export const parts: Part[] = [
 
 
   // Mirage Parts
-  { id: "mr-engine-oil", name: "Engine Oil 0W-20 3L", partNumber: "MZ690220-3L", price: 300000 },
-  { id: "mr-oil-filter", name: "Oil Filter - Mirage", partNumber: "1230A182", price: 55000 },
+  { id: "mr-brake-pad-front", name: "Kampas Rem Depan", partNumber: "MR-PAD-F", price: 880000 },
+  { id: "mr-brake-shoe-rear", name: "Kampas Rem Belakang", partNumber: "MR-SHOE-R", price: 1120000 },
+  { id: "mr-spark-plug", name: "Busi", partNumber: "MR-SPARK", price: 335000 },
+  { id: "mr-alternator-belt", name: "Belt Alternator", partNumber: "MR-BELT", price: 231000 },
 
   // Common Parts
   { id: "common-brake-cleaner", name: "Brake Cleaner", partNumber: "CHEM-BRKCLN", price: 107380 },

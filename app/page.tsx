@@ -101,6 +101,11 @@ export default function Home() {
         if (s.id === 'add-fuel-filter-ps') return true;
       }
 
+      if (selectedVehicle.model === 'mirage') {
+        if (s.id === "add-transm-oil-mr-cvt") return transmissionType.includes("CVT");
+        if (s.id === "add-transm-oil-mr-mt") return transmissionType.includes("MT");
+      }
+
       // Show other applicable services
       return true;
     });

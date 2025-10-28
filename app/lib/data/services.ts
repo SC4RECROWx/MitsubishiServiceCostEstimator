@@ -515,6 +515,20 @@ export const additionalServices: AdditionalService[] = [
     parts: [{ partId: "ps-mtf-oil-1l", quantity: 4 }],
   },
   {
+    id: "add-transm-oil-ps-at-exceed",
+    name: "Ganti Oli Transmisi AT",
+    applicableModels: ["pajero-sport-anps"],
+    job: { description: "Jasa Ganti Oli Transmisi Matic", cost: 870000 },
+    parts: [{ partId: "ps-atf-pa-1l", quantity: 10 }],
+  },
+  {
+    id: "add-transm-oil-ps-at-dakar",
+    name: "Ganti Oli Transmisi AT",
+    applicableModels: ["pajero-sport-anps"],
+    job: { description: "Jasa Ganti Oli Transmisi Matic", cost: 870000 },
+    parts: [{ partId: "xp-transm-oil-atf-ma1-1l", quantity: 12 }],
+  },
+  {
     id: "add-transfer-oil-ps-4x4",
     name: "Ganti Oli 4x4 Transfer",
     applicableModels: ["pajero-sport-anps"],

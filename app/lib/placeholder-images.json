@@ -14,16 +14,10 @@
       "imageHint": "orange suv"
     },
     {
-      "id": "pajero-sport",
+      "id": "pajero-sport-anps",
       "description": "Mitsubishi All New Pajero Sport",
       "imageUrl": "https://picsum.photos/seed/pajero-sport/600/400",
       "imageHint": "black suv"
-    },
-    {
-      "id": "pajero",
-      "description": "Mitsubishi Pajero Sport",
-      "imageUrl": "https://picsum.photos/seed/pajero-classic/600/400",
-      "imageHint": "silver suv"
     },
     {
       "id": "xforce",
@@ -44,13 +38,13 @@
       "imageHint": "silver pickup"
     },
     {
-      "id": "mirage",
+      "id: "mirage",
       "description": "Mitsubishi Mirage",
       "imageUrl": "https://picsum.photos/seed/mirage/600/400",
       "imageHint": "red hatchback"
     },
     {
-      "id": "l300",
+      "id: "l300",
       "description": "Mitsubishi L300",
       "imageUrl": "https://picsum.photos/seed/l300/600/400",
       "imageHint": "black van"

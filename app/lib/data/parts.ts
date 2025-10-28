@@ -18,7 +18,7 @@ export const parts: Part[] = [
   { id: "xp-alternator-belt", name: "Belt Alternator - Xpander", partNumber: "1340a181", price: 137000 },
   { id: "xp-spark-plug", name: "Busi - Xpander", partNumber: "1822a086", price: 335000 },
   
-  // Pajero Sport Parts
+  // All New Pajero Sport Parts
   { id: "ps-engine-oil", name: "Engine Oil 5W-30 5.5L", partNumber: "MZ690221", price: 650000 },
   { id: "ps-oil-filter", name: "Oil Filter - Pajero Sport", partNumber: "1230A154", price: 125000 },
   { id: "ps-drain-plug-gasket", name: "Gasket, Oil Drain Plug - Pajero", partNumber: "MF660031", price: 15000 },

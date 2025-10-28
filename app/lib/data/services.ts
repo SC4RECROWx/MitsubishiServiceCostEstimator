@@ -129,7 +129,7 @@ export const periodicServices: PeriodicService[] = [
   // Pahe Services for Pajero Sport
   {
     id: "ps-pahe-1",
-    vehicleModelId: "pajero-sport",
+    vehicleModelId: "pajero-sport-anps",
     name: "Pahe 1: Ganti Oli",
     mileage: 0,
     jobs: [
@@ -140,7 +140,7 @@ export const periodicServices: PeriodicService[] = [
   },
   {
     id: "ps-pahe-2",
-    vehicleModelId: "pajero-sport",
+    vehicleModelId: "pajero-sport-anps",
     name: "Pahe 2: Ganti Oli + Filter Oli",
     mileage: 0,
     jobs: [
@@ -156,7 +156,7 @@ export const periodicServices: PeriodicService[] = [
   },
   {
     id: "ps-pahe-3",
-    vehicleModelId: "pajero-sport",
+    vehicleModelId: "pajero-sport-anps",
     name: "Pahe 3: Ganti Oli + Filter Oli & AC",
     mileage: 0,
     jobs: [
@@ -174,7 +174,7 @@ export const periodicServices: PeriodicService[] = [
   },
   {
     id: "ps-pahe-4",
-    vehicleModelId: "pajero-sport",
+    vehicleModelId: "pajero-sport-anps",
     name: "PAHE 4: Ganti Oli + Filter Oli + AC & Engine Oil Flush",
     mileage: 0,
     jobs: [
@@ -350,7 +350,7 @@ export const additionalServices: AdditionalService[] = [
   {
     id: "add-brake-pad-front-ps",
     name: "Ganti Kampas Rem Depan - All New Pajero Sport",
-    applicableModels: ["pajero-sport"],
+    applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Kampas Rem Depan", cost: 200000 },
     parts: [{ partId: "ps-brake-pad-front", quantity: 1 }],
   },
@@ -367,7 +367,7 @@ export const additionalServices: AdditionalService[] = [
   {
     id: "add-brake-pad-rear-ps",
     name: "Ganti Kampas Rem Belakang - All New Pajero Sport",
-    applicableModels: ["pajero-sport"],
+    applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 200000 },
     parts: [{ partId: "ps-brake-pad-rear", quantity: 1 }],
   },
@@ -388,7 +388,7 @@ export const additionalServices: AdditionalService[] = [
   {
     id: "add-battery-ps",
     name: "Ganti Aki - All New Pajero Sport",
-    applicableModels: ["pajero-sport"],
+    applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Aki", cost: 100000 },
     parts: [{ partId: "ps-battery", quantity: 1 }],
   },
@@ -481,7 +481,7 @@ export const additionalServices: AdditionalService[] = [
   },
 ];
 
-const allModels = ["xpander", "xpander-cross", "pajero-sport", "pajero", "xforce", "outlander-sport", "triton", "mirage", "l300", "delica"];
+const allModels = ["xpander", "xpander-cross", "pajero-sport-anps", "xforce", "outlander-sport", "triton", "mirage", "l300", "delica"];
 
 export const tyreServices: AdditionalService[] = [
   {
@@ -515,7 +515,7 @@ export const tyreServices: AdditionalService[] = [
 ];
 
 const smallCars = ["mirage", "xpander", "xpander-cross", "xforce"];
-const largeCars = ["triton", "outlander-sport", "pajero-sport", "pajero", "delica"];
+const largeCars = ["triton", "outlander-sport", "pajero-sport-anps", "delica"];
 
 export const acAndEngineServices: AdditionalService[] = [
   {
@@ -599,7 +599,7 @@ export const acAndEngineServices: AdditionalService[] = [
 
 export function getAcServicePrice(serviceId: string, vehicleModelId: string): number {
   const isSmallCar = ["xpander", "mirage", "xpander-cross", "xforce"].includes(vehicleModelId);
-  const isLargeCar = ["triton", "outlander-sport", "pajero-sport", "pajero", "delica"].includes(vehicleModelId);
+  const isLargeCar = ["triton", "outlander-sport", "pajero-sport-anps", "delica"].includes(vehicleModelId);
 
   if (isSmallCar) {
     switch (serviceId) {

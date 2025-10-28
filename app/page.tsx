@@ -91,6 +91,7 @@ export default function Home() {
 
         if (s.id.includes('-ps-dakar')) return isDakar;
         if (s.id.includes('-ps-exceed')) return isExceedOrGlx;
+        if (s.id === "add-transm-oil-ps-mt") return transmissionType.includes("MT");
       }
 
       // Show other applicable services

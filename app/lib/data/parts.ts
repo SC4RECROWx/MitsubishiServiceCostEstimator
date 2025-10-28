@@ -21,7 +21,7 @@ export const parts: Part[] = [
   // All New Pajero Sport Parts (Dakar)
   { id: "ps-dakar-engine-oil", name: "Engine Oil 5W-30 5.5L", partNumber: "MZ690221", price: 650000 },
   { id: "ps-dakar-oil-filter", name: "Oil Filter - Pajero Sport Dakar", partNumber: "1230A154", price: 125000 },
-  { id: "ps-dakar-drain-plug-gasket", name: "Gasket, Oil Drain Plug - Pajero", partNumber: "MF660031", price: 20000 },
+  { id: "ps-dakar-drain-plug-gasket", name: "Gasket, Oil Drain Plug", partNumber: "MF660031", price: 20000 },
   { id: "ps-dakar-ac-filter", name: "Filter, A/C - Pajero Sport Dakar", partNumber: "7850A002", price: 150000 },
   { id: "ps-dakar-brake-pad-front", name: "Pad Kit, Front Brake - Pajero Sport Dakar", partNumber: "4605B925", price: 1200000 },
   { id: "ps-dakar-brake-pad-rear", name: "Pad Kit, Rear Brake - Pajero Sport Dakar", partNumber: "4605B929", price: 850000 },
@@ -33,8 +33,9 @@ export const parts: Part[] = [
   { id: "ps-exceed-ac-filter", name: "Filter, A/C - Pajero Sport Exceed/GLX", partNumber: "PS-EXCEED-AC", price: 330000 },
   { id: "ps-exceed-brake-pad-front", name: "Kampas Rem Depan", partNumber: "PS-EXCEED-PAD-F", price: 867000 },
   { id: "ps-exceed-brake-pad-rear", name: "Kampas Rem Belakang", partNumber: "PS-EXCEED-PAD-R", price: 1000000 },
+  { id: "ps-mtf-oil", name: "Oli Transmisi MTF", partNumber: "PS-MTF-OIL", price: 524000 },
   { id: "ps-mut", name: "MUT", partNumber: "CHEM-MUT", price: 348000 },
-  { id: "ps-fuel-filter", name: "Fuel Filter - Pajero Sport", partNumber: "PS-FUEL-FILTER-GEN", price: 424000 },
+  { id: "ps-fuel-filter", name: "Fuel Filter", partNumber: "PS-FUEL-FILTER-GEN", price: 424000 },
   { id: "ps-purging", name: "Purging", partNumber: "CHEM-PURGE", price: 143960 },
 
   // Xforce Parts

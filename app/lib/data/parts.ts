@@ -26,6 +26,7 @@ export const parts: Part[] = [
   { id: "ps-dakar-brake-pad-front", name: "Pad Kit, Front Brake - Pajero Sport Dakar", partNumber: "4605B925", price: 1200000 },
   { id: "ps-dakar-brake-pad-rear", name: "Pad Kit, Rear Brake - Pajero Sport Dakar", partNumber: "4605B929", price: 850000 },
   { id: "ps-dakar-battery", name: "Battery, 80D26L", partNumber: "MZ690020", price: 1500000 },
+  { id: "ps-dakar-air-filter", name: "Filter Udara", partNumber: "PS-DAKAR-AIR-FILTER", price: 341000 },
 
   // All New Pajero Sport Parts (Exceed / GLX)
   { id: "ps-exceed-engine-oil-1l", name: "Engine Oil 10W-30 1L", partNumber: "MZ-EXCEED-OIL-1L", price: 105000 },
@@ -38,6 +39,10 @@ export const parts: Part[] = [
   { id: "ps-mut", name: "MUT", partNumber: "CHEM-MUT", price: 348000 },
   { id: "ps-fuel-filter", name: "Fuel Filter", partNumber: "PS-FUEL-FILTER-GEN", price: 424000 },
   { id: "ps-purging", name: "Purging", partNumber: "CHEM-PURGE", price: 143960 },
+  { id: "ps-exceed-air-filter", name: "Filter Udara", partNumber: "PS-EXCEED-AIR-FILTER", price: 385000 },
+
+  // All New Pajero Sport (All Types)
+  { id: "ps-battery", name: "Aki", partNumber: "PS-BATTERY-GEN", price: 1980000 },
 
   // Xforce Parts
   { id: "xf-engine-oil", name: "Engine Oil 0W-20 4L", partNumber: "MZ690220-4L", price: 400000 },

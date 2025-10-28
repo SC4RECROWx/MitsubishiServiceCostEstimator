@@ -466,11 +466,11 @@ export const additionalServices: AdditionalService[] = [
     parts: [{ partId: "xp-battery-asg", quantity: 1 }],
   },
   {
-    id: "add-battery-ps-dakar",
+    id: "add-battery-ps",
     name: "Ganti Aki",
     applicableModels: ["pajero-sport-anps"],
     job: { description: "Jasa Ganti Aki", cost: 100000 },
-    parts: [{ partId: "ps-dakar-battery", quantity: 1 }],
+    parts: [{ partId: "ps-battery", quantity: 1 }],
   },
   {
     id: "add-fuel-filter-ps",
@@ -527,6 +527,21 @@ export const additionalServices: AdditionalService[] = [
     applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Penggantian Saringan Udara", cost: 0 },
     parts: [{ partId: "xp-air-filter", quantity: 1 }],
+  },
+  // Pajero Sport Other Services
+  {
+    id: "add-air-filter-ps-dakar",
+    name: "Ganti Saringan Udara",
+    applicableModels: ["pajero-sport-anps"],
+    job: { description: "Jasa Ganti Saringan Udara", cost: 25000 },
+    parts: [{ partId: "ps-dakar-air-filter", quantity: 1 }],
+  },
+  {
+    id: "add-air-filter-ps-exceed",
+    name: "Ganti Saringan Udara",
+    applicableModels: ["pajero-sport-anps"],
+    job: { description: "Jasa Ganti Saringan Udara", cost: 25000 },
+    parts: [{ partId: "ps-exceed-air-filter", quantity: 1 }],
   },
   {
     id: "add-alternator-belt-xp",

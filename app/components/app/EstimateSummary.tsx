@@ -246,6 +246,9 @@ ${selectedItems.map(item => `- ${item.name}`).join('\n')}
             <span>Total Estimasi Biaya</span>
             <span>{formatCurrency(totalCosts.total)}</span>
             </div>
+            <p className="text-xs text-muted-foreground mt-2 italic">
+                *Estimasi ini dapat berubah sewaktu-waktu sesuai dengan keluhan dan tambahan pengerjaan.
+            </p>
         </CardContent>
         <CardFooter className="flex-col gap-3 items-stretch">
             <Button onClick={handleDownloadPdf} className="w-full" variant="outline">

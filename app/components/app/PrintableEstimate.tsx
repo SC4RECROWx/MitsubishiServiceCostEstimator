@@ -124,7 +124,7 @@ export default function PrintableEstimate({
                     <span>{formatCurrency(totalCosts.total)}</span>
                 </div>
             </div>
-            <p className="text-xs text-muted-foreground mt-6">*Harga bersifat estimasi dan dapat berubah sewaktu-waktu.</p>
+            <p className="text-xs text-muted-foreground mt-6">*Estimasi ini dapat berubah sewaktu-waktu sesuai dengan keluhan dan tambahan pengerjaan nya.</p>
         </div>
     </div>
   )

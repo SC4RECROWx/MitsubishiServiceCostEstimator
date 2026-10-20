@@ -149,7 +149,7 @@ export default function EstimateSummary({
       // Footer Note
       pdf.setFontSize(9);
       pdf.setFont("helvetica", "italic");
-      pdf.text("*Harga bersifat estimasi dan dapat berubah sewaktu-waktu.", margin, cursorY);
+      pdf.text("*Estimasi ini dapat berubah sewaktu-waktu sesuai dengan keluhan dan tambahan pengerjaan nya.", margin, cursorY);
       
       const blob = pdf.output('blob');
       const blobUrl = URL.createObjectURL(blob);
@@ -247,7 +247,7 @@ ${selectedItems.map(item => `- ${item.name}`).join('\n')}
             <span>{formatCurrency(totalCosts.total)}</span>
             </div>
             <p className="text-xs text-muted-foreground mt-2 italic">
-                *Estimasi ini dapat berubah sewaktu-waktu sesuai dengan keluhan dan tambahan pengerjaan.
+                *Estimasi ini dapat berubah sewaktu-waktu sesuai dengan keluhan dan tambahan pengerjaan nya.
             </p>
         </CardContent>
         <CardFooter className="flex-col gap-3 items-stretch">

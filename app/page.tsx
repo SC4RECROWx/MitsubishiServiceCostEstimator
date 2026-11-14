@@ -76,15 +76,6 @@ export default function Home() {
         }
       }
 
-      if (selectedVehicle.model === 'outlander-sport') {
-        const trim = selectedVehicle.transmisi.toUpperCase();
-        if (s.id.startsWith("add-transm-oil-os-")) {
-          if (s.id === "add-transm-oil-os-cvt") return trim.includes("GLS") || trim.includes("PX");
-          if (s.id === "add-transm-oil-os-mt") return trim.includes("GLX");
-          return false;
-        }
-      }
-
       if (selectedVehicle.model === 'pajero-sport-anps') {
         const isDakar = transmissionType.includes('DAKAR');
         const isExceedOrGlx = transmissionType.includes('EXCEED') || transmissionType.includes('GLX');
@@ -99,11 +90,6 @@ export default function Home() {
         if (s.id === "add-transfer-oil-ps-4x4") return is4x4;
         if (s.id === 'add-battery-ps') return true; // General battery for all PS
         if (s.id === 'add-fuel-filter-ps') return true;
-      }
-
-      if (selectedVehicle.model === 'mirage') {
-        if (s.id === "add-transm-oil-mr-cvt") return transmissionType.includes("CVT");
-        if (s.id === "add-transm-oil-mr-mt") return transmissionType.includes("MT");
       }
 
       // Show other applicable services

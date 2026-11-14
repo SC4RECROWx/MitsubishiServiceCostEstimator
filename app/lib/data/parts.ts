@@ -49,22 +49,6 @@ export const parts: Part[] = [
   { id: "xf-engine-oil", name: "Engine Oil 0W-20 4L", partNumber: "MZ690220-4L", price: 400000 },
   { id: "xf-oil-filter", name: "Oil Filter - Xforce", partNumber: "1230A182", price: 55000 },
 
-  // Outlander Sport Parts
-  { id: "os-engine-oil", name: "Engine Oil 5W-30 4L", partNumber: "MZ690221-4L", price: 480000 },
-  { id: "os-oil-filter", name: "Oil Filter - Outlander Sport", partNumber: "1230A105", price: 75000 },
-  { id: "os-ac-filter", name: "Filter, A/C - Outlander Sport", partNumber: "7803A109", price: 300000 },
-  { id: "os-brake-pad-front", name: "Kampas Rem Depan - Outlander Sport", partNumber: "4605A875", price: 1610000 },
-  { id: "os-brake-pad-rear", name: "Kampas Rem Belakang - Outlander Sport", partNumber: "4605A568", price: 1600000 },
-  { id: "os-oil-cvt-j4", name: "Oli CVTF J-4 1L", partNumber: "MZ-CVTF-J4-1L", price: 169000 },
-  { id: "os-oil-mt-75w80", name: "Oli MTF 75W 80 1L", partNumber: "MZ-MTF-75W80-1L", price: 131000 },
-  { id: "os-alternator-belt", name: "Belt Alternator - Outlander Sport", partNumber: "OS-BELT-ALT", price: 1155000 },
-
-  // Mirage Parts
-  { id: "mr-oil-filter", name: "Oil Filter", partNumber: "MR-OIL-FILTER", price: 68500 },
-  { id: "mr-ac-filter", name: "Filter, AC", partNumber: "MR-AC-FILTER", price: 168000 },
-  { id: "mr-brake-pad-front", name: "Kampas Rem Depan", partNumber: "MR-PAD-F", price: 880000 },
-  { id: "mr-brake-shoe-rear", name: "Kampas Rem Belakang", partNumber: "MR-SHOE-R", price: 1120000 },
-
   // Common Parts
   { id: "common-brake-cleaner", name: "Brake Cleaner", partNumber: "CHEM-BRKCLN", price: 107380 },
 ];

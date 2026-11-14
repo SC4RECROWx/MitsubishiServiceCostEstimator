@@ -1,4 +1,3 @@
-
 import type { PeriodicService, AdditionalService } from "@/lib/types";
 
 export const periodicServices: PeriodicService[] = [
@@ -308,128 +307,6 @@ export const periodicServices: PeriodicService[] = [
       { partId: "xp-drain-plug-gasket", quantity: 1 },
     ],
   },
-  // Pahe Services for Outlander Sport
-  {
-    id: "os-pahe-1",
-    vehicleModelId: "outlander-sport",
-    name: "Pahe 1: Ganti Oli",
-    mileage: 0,
-    jobs: [{ description: "Jasa Ganti Oli", cost: 104000 }],
-    parts: [
-      { partId: "xp-engine-oil-1l", quantity: 4 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 },
-    ],
-  },
-  {
-    id: "os-pahe-2",
-    vehicleModelId: "outlander-sport",
-    name: "Pahe 2: Ganti Oli + Filter Oli",
-    mileage: 0,
-    jobs: [
-      { description: "Jasa Ganti Oli", cost: 104000 },
-      { description: "Jasa Ganti Filter Oli", cost: 104000 },
-    ],
-    parts: [
-      { partId: "xp-engine-oil-1l", quantity: 5 },
-      { partId: "xp-oil-filter", quantity: 1 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 },
-    ],
-  },
-  {
-    id: "os-pahe-3",
-    vehicleModelId: "outlander-sport",
-    name: "Pahe 3: Ganti Oli + Filter Oli & Filter AC",
-    mileage: 0,
-    jobs: [
-      { description: "Jasa Ganti Oli", cost: 104000 },
-      { description: "Jasa Ganti Filter Oli", cost: 104000 },
-    ],
-    parts: [
-      { partId: "xp-engine-oil-1l", quantity: 5 },
-      { partId: "xp-oil-filter", quantity: 1 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 },
-      { partId: "os-ac-filter", quantity: 1 },
-    ],
-  },
-  {
-    id: "os-pahe-4",
-    vehicleModelId: "outlander-sport",
-    name: "Pahe 4: Ganti Oli + Filter Oli + Filter Oli & Engine FLush",
-    mileage: 0,
-    jobs: [
-      { description: "Jasa Ganti Oli", cost: 104000 },
-      { description: "Jasa Ganti Filter Oli", cost: 104000 },
-    ],
-    parts: [
-      { partId: "xp-engine-oil-1l", quantity: 5 },
-      { partId: "xp-oil-filter", quantity: 1 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 },
-      { partId: "os-ac-filter", quantity: 1 },
-      { partId: "xp-engine-flush", quantity: 1 },
-    ],
-  },
-  // Pahe Services for Mirage
-  {
-    id: "mr-pahe-1",
-    vehicleModelId: "mirage",
-    name: "Pahe 1: Ganti Oli",
-    mileage: 0,
-    jobs: [
-        { description: "Jasa Ganti Oli Mesin", cost: 98500 }
-    ],
-    parts: [
-      { partId: "xp-engine-oil-1l", quantity: 3 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 },
-    ],
-  },
-  {
-    id: "mr-pahe-2",
-    vehicleModelId: "mirage",
-    name: "Pahe 2: Ganti Oli + Filter Oli",
-    mileage: 0,
-    jobs: [
-        { description: "Jasa Ganti Oli Mesin", cost: 98500 },
-        { description: "Jasa Ganti Filter Oli Mesin", cost: 98500 }
-    ],
-    parts: [
-      { partId: "xp-engine-oil-1l", quantity: 3 },
-      { partId: "mr-oil-filter", quantity: 1 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 },
-    ],
-  },
-  {
-    id: "mr-pahe-3",
-    vehicleModelId: "mirage",
-    name: "Pahe 3: Ganti Oli, Filter Oli + Filter AC",
-    mileage: 0,
-    jobs: [
-        { description: "Jasa Ganti Oli Mesin", cost: 98500 },
-        { description: "Jasa Ganti Filter Oli Mesin", cost: 98500 }
-    ],
-    parts: [
-      { partId: "xp-engine-oil-1l", quantity: 3 },
-      { partId: "mr-oil-filter", quantity: 1 },
-      { partId: "mr-ac-filter", quantity: 1 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 },
-    ],
-  },
-  {
-    id: "mr-pahe-4",
-    vehicleModelId: "mirage",
-    name: "Pahe 4: Ganti Oli, Filter Oli, Filter AC + Engine Flush",
-    mileage: 0,
-    jobs: [
-        { description: "Jasa Ganti Oli Mesin", cost: 98500 },
-        { description: "Jasa Ganti Filter Oli Mesin", cost: 98500 }
-    ],
-    parts: [
-      { partId: "xp-engine-oil-1l", quantity: 3 },
-      { partId: "mr-oil-filter", quantity: 1 },
-      { partId: "mr-ac-filter", quantity: 1 },
-      { partId: "xp-engine-flush", quantity: 1 },
-      { partId: "xp-drain-plug-gasket", quantity: 1 },
-    ],
-  },
 ];
 
 
@@ -614,94 +491,9 @@ export const additionalServices: AdditionalService[] = [
     job: { description: "Jasa Penggantian Busi", cost: 394000 },
     parts: [{ partId: "xp-spark-plug", quantity: 4 }], // Assuming 4 spark plugs
   },
-  // Outlander Sport Brake Services
-  {
-    id: "add-brake-pad-front-os",
-    name: "Ganti Kampas Rem Depan",
-    applicableModels: ["outlander-sport"],
-    job: { description: "Jasa Pengerjaan Kampas Rem Depan", cost: 312000 },
-    parts: [
-      { partId: "os-brake-pad-front", quantity: 1 },
-      { partId: "common-brake-cleaner", quantity: 1 },
-    ],
-  },
-  {
-    id: "add-brake-pad-rear-os",
-    name: "Ganti Kampas Rem Belakang",
-    applicableModels: ["outlander-sport"],
-    job: { description: "Jasa Pengerjaan Kampas Rem Belakang", cost: 416000 },
-    parts: [
-      { partId: "os-brake-pad-rear", quantity: 1 },
-      { partId: "common-brake-cleaner", quantity: 1 },
-    ],
-  },
-  // Outlander Sport Transmission Services
-  {
-    id: "add-transm-oil-os-cvt",
-    name: "Ganti Oli Transmisi Matic CVT",
-    applicableModels: ["outlander-sport"],
-    job: { description: "Jasa Ganti Oli Matic CVT", cost: 416000 },
-    parts: [{ partId: "os-oil-cvt-j4", quantity: 5 }],
-  },
-  {
-    id: "add-transm-oil-os-mt",
-    name: "Ganti Oli Transmisi Manual",
-    applicableModels: ["outlander-sport"],
-    job: { description: "Jasa Ganti Oli Manual", cost: 312000 },
-    parts: [{ partId: "os-oil-mt-75w80", quantity: 4 }],
-  },
-  {
-    id: "add-alternator-belt-os",
-    name: "Ganti Belt Alternator",
-    applicableModels: ["outlander-sport"],
-    job: { description: "Jasa Ganti Belt Alternator", cost: 290000 },
-    parts: [{ partId: "os-alternator-belt", quantity: 1 }],
-  },
-  // Mirage Services
-  {
-    id: "add-brake-pad-front-mr",
-    name: "Ganti Kampas Rem Depan",
-    applicableModels: ["mirage"],
-    job: { description: "Jasa Ganti Kampas Rem Depan", cost: 295500 },
-    parts: [
-        { partId: "mr-brake-pad-front", quantity: 1 },
-        { partId: "common-brake-cleaner", quantity: 1 }
-    ],
-  },
-  {
-    id: "add-brake-pad-rear-mr",
-    name: "Ganti Kampas Rem Belakang",
-    applicableModels: ["mirage"],
-    job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 394000 },
-    parts: [
-        { partId: "mr-brake-shoe-rear", quantity: 1 },
-        { partId: "common-brake-cleaner", quantity: 1 }
-    ],
-  },
-  {
-    id: "add-battery-mr",
-    name: "Ganti Aki",
-    applicableModels: ["mirage"],
-    job: { description: "Jasa Ganti Aki", cost: 197000 },
-    parts: [{ partId: "xp-battery", quantity: 1 }],
-  },
-  {
-    id: "add-transm-oil-mr-cvt",
-    name: "Ganti Oli Transmisi Matic CVT",
-    applicableModels: ["mirage"],
-    job: { description: "Jasa Ganti Oli Transmisi Matic", cost: 394000 },
-    parts: [{ partId: "os-oil-cvt-j4", quantity: 3 }],
-  },
-  {
-    id: "add-transm-oil-mr-mt",
-    name: "Ganti Oli Transmisi Manual",
-    applicableModels: ["mirage"],
-    job: { description: "Jasa Ganti Oli Transmisi Manual", cost: 295500 },
-    parts: [{ partId: "os-oil-mt-75w80", quantity: 4 }],
-  },
 ];
 
-const allModels = ["xpander", "xpander-cross", "pajero-sport-anps", "xforce", "outlander-sport", "mirage"];
+const allModels = ["xpander", "xpander-cross", "pajero-sport-anps", "xforce"];
 
 export const tyreServices: AdditionalService[] = [
   {
@@ -734,8 +526,8 @@ export const tyreServices: AdditionalService[] = [
   },
 ];
 
-const smallCars = ["mirage", "xpander", "xpander-cross", "xforce"];
-const largeCars = ["outlander-sport", "pajero-sport-anps"];
+const smallCars = ["xpander", "xpander-cross", "xforce"];
+const largeCars = ["pajero-sport-anps"];
 
 export const acAndEngineServices: AdditionalService[] = [
   {
@@ -818,8 +610,8 @@ export const acAndEngineServices: AdditionalService[] = [
 ];
 
 export function getAcServicePrice(serviceId: string, vehicleModelId: string): number {
-  const isSmallCar = ["xpander", "mirage", "xpander-cross", "xforce"].includes(vehicleModelId);
-  const isLargeCar = ["outlander-sport", "pajero-sport-anps"].includes(vehicleModelId);
+  const isSmallCar = ["xpander", "xpander-cross", "xforce"].includes(vehicleModelId);
+  const isLargeCar = ["pajero-sport-anps"].includes(vehicleModelId);
 
   if (isSmallCar) {
     switch (serviceId) {

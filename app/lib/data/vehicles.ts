@@ -1,4 +1,3 @@
-
 import type { Vehicle } from "@/lib/types";
 
 export const vehicles: Vehicle[] = [
@@ -53,33 +52,6 @@ export const vehicles: Vehicle[] = [
         { year: 2025, trims: ["Ultimate CVT", "Exceed CVT"] },
         { year: 2024, trims: ["Ultimate CVT", "Exceed CVT"] },
         { year: 2023, trims: ["Ultimate CVT", "Exceed CVT"] },
-    ],
-  },
-  {
-    id: "outlander-sport",
-    name: "Outlander Sport",
-    years: [
-        { year: 2021, trims: ["PX", "GLS", "GLX"] },
-        { year: 2020, trims: ["PX", "GLS", "GLX"] },
-        { year: 2019, trims: ["PX", "GLS", "GLX"] },
-        { year: 2018, trims: ["PX", "GLS", "GLX"] },
-        { year: 2017, trims: ["PX", "GLS", "GLX"] },
-        { year: 2016, trims: ["PX", "GLS", "GLX"] },
-        { year: 2015, trims: ["PX", "GLS", "GLX"] },
-        { year: 2014, trims: ["PX", "GLS", "GLX"] },
-    ],
-  },
-  {
-    id: "mirage",
-    name: "Mirage",
-    years: [
-        { year: 2018, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
-        { year: 2017, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
-        { year: 2016, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
-        { year: 2015, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
-        { year: 2014, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
-        { year: 2013, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
-        { year: 2012, trims: ["Exceed CVT", "GLS CVT", "GLX MT"] },
     ],
   },
 ];

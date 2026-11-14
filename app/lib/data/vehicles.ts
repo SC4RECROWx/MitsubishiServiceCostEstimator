@@ -5,6 +5,7 @@ export const vehicles: Vehicle[] = [
     id: "xpander",
     name: "Xpander",
     years: [
+      { year: 2026, trims: ["Ultimate CVT", "Ultimate MT", "Exceed CVT", "Exceed MT", "GLS CVT", "GLS MT"] },
       { year: 2025, trims: ["Ultimate CVT", "Ultimate MT", "Exceed CVT", "Exceed MT", "GLS CVT", "GLS MT"] },
       { year: 2024, trims: ["Ultimate CVT", "Ultimate MT", "Exceed CVT", "Exceed MT", "GLS CVT", "GLS MT"] },
       { year: 2023, trims: ["Ultimate CVT", "Ultimate MT", "Exceed CVT", "Exceed MT", "GLS CVT", "GLS MT"] },
@@ -20,6 +21,7 @@ export const vehicles: Vehicle[] = [
     id: "xpander-cross",
     name: "Xpander Cross",
     years: [
+      { year: 2026, trims: ["Premium CVT", "MT"] },
       { year: 2025, trims: ["Premium CVT", "MT"] },
       { year: 2024, trims: ["Premium CVT", "MT"] },
       { year: 2023, trims: ["Premium CVT", "MT"] },
@@ -33,6 +35,7 @@ export const vehicles: Vehicle[] = [
     id: "pajero-sport-anps",
     name: "All New Pajero Sport",
     years: [
+        { year: 2026, trims: ["Dakar Ultimate 4x4 AT", "Dakar Ultimate 4x2 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "Exceed 4x2 MT", "GLX 4x4 MT"] },
         { year: 2025, trims: ["Dakar Ultimate 4x4 AT", "Dakar Ultimate 4x2 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "Exceed 4x2 MT", "GLX 4x4 MT"] },
         { year: 2024, trims: ["Dakar Ultimate 4x4 AT", "Dakar Ultimate 4x2 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "Exceed 4x2 MT", "GLX 4x4 MT"] },
         { year: 2023, trims: ["Dakar Ultimate 4x4 AT", "Dakar Ultimate 4x2 AT", "Dakar 4x2 AT", "Exceed 4x2 AT", "Exceed 4x2 MT", "GLX 4x4 MT"] },
@@ -49,6 +52,7 @@ export const vehicles: Vehicle[] = [
     id: "xforce",
     name: "Xforce",
     years: [
+        { year: 2026, trims: ["Ultimate CVT", "Exceed CVT"] },
         { year: 2025, trims: ["Ultimate CVT", "Exceed CVT"] },
         { year: 2024, trims: ["Ultimate CVT", "Exceed CVT"] },
         { year: 2023, trims: ["Ultimate CVT", "Exceed CVT"] },

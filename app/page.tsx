@@ -43,11 +43,14 @@ export default function Home() {
         if (s.vehicleModelId !== selectedVehicle.model) return false;
 
         if (selectedVehicle.model === 'pajero-sport-anps') {
-            const isDakar = transmissionType.includes('DAKAR');
-            const isExceedOrGlx = transmissionType.includes('EXCEED') || transmissionType.includes('GLX');
-
-            if (s.id.startsWith('ps-dakar-') && isDakar) return true;
-            if (s.id.startsWith('ps-exceed-') && isExceedOrGlx) return true;
+            const is4x4 = transmissionType.includes('4X4');
+            
+            // Filter for PM 60k-100k
+            if (s.id.startsWith('ps-pm-')) {
+                if (s.id.includes('-4x4') && !is4x4) return false;
+                if (s.id.includes('-4x2') && is4x4) return false;
+                return true;
+            }
 
             return false;
         }
@@ -63,11 +66,9 @@ export default function Home() {
       if (selectedVehicle.model === 'xpander' || selectedVehicle.model === 'xpander-cross') {
         const isASGTrim = transmissionType.includes("ULTIMATE CVT") || transmissionType.includes("PREMIUM CVT");
 
-        // Filter battery services based on trim
         if (s.id === "add-battery-xp-asg") return isASGTrim;
         if (s.id === "add-battery-xp") return !isASGTrim;
         
-        // Handle oil change services based on transmission type
         if (s.id.startsWith("add-transm-oil-xp-")) {
             if (s.id === "add-transm-oil-xp-mt") return transmissionType.includes("MT");
             if (s.id === "add-transm-oil-xp-at") return transmissionType.includes("AT") && !transmissionType.includes("CVT");
@@ -76,23 +77,6 @@ export default function Home() {
         }
       }
 
-      if (selectedVehicle.model === 'pajero-sport-anps') {
-        const isDakar = transmissionType.includes('DAKAR');
-        const isExceedOrGlx = transmissionType.includes('EXCEED') || transmissionType.includes('GLX');
-        const is4x4 = transmissionType.includes('4X4');
-        const isAT = transmissionType.includes('AT');
-
-        if (s.id.includes('-ps-dakar')) return isDakar;
-        if (s.id.includes('-ps-exceed')) return isExceedOrGlx;
-        if (s.id === "add-transm-oil-ps-mt") return transmissionType.includes("MT");
-        if (s.id === "add-transm-oil-ps-at-exceed") return isAT && isExceedOrGlx;
-        if (s.id === "add-transm-oil-ps-at-dakar") return isAT && isDakar;
-        if (s.id === "add-transfer-oil-ps-4x4") return is4x4;
-        if (s.id === 'add-battery-ps') return true; // General battery for all PS
-        if (s.id === 'add-fuel-filter-ps') return true;
-      }
-
-      // Show other applicable services
       return true;
     });
     

@@ -1,6 +1,107 @@
 import type { PeriodicService, AdditionalService } from "@/lib/types";
 
-export const periodicServices: PeriodicService[] = [];
+export const periodicServices: PeriodicService[] = [
+  // Pajero Sport PM 60K
+  {
+    id: "ps-pm-60k",
+    vehicleModelId: "pajero-sport-anps",
+    name: "Servis Berkala 60.000 KM",
+    mileage: 60000,
+    jobs: [{ description: "Jasa Servis Berkala 60K", cost: 0 }],
+    parts: [
+      { partId: "ps-engine-oil-1l", quantity: 8 },
+      { partId: "ps-oil-filter", quantity: 1 },
+      { partId: "ps-gasket", quantity: 1 },
+      { partId: "ps-engine-flush", quantity: 1 },
+      { partId: "ps-fuel-filter-pm", quantity: 1 },
+      { partId: "ps-brake-cleaner", quantity: 1 },
+      { partId: "ps-ac-filter-pm", quantity: 1 },
+    ],
+  },
+  // Pajero Sport PM 70K
+  {
+    id: "ps-pm-70k",
+    vehicleModelId: "pajero-sport-anps",
+    name: "Servis Berkala 70.000 KM",
+    mileage: 70000,
+    jobs: [{ description: "Jasa Servis Berkala 70K", cost: 0 }],
+    parts: [
+      { partId: "ps-engine-oil-1l", quantity: 8 },
+      { partId: "ps-oil-filter", quantity: 1 },
+      { partId: "ps-gasket", quantity: 1 },
+      { partId: "ps-ac-filter-pm", quantity: 1 },
+    ],
+  },
+  // Pajero Sport PM 80K (4x2)
+  {
+    id: "ps-pm-80k-4x2",
+    vehicleModelId: "pajero-sport-anps",
+    name: "Servis Berkala 80.000 KM (4x2)",
+    mileage: 80000,
+    jobs: [{ description: "Jasa Servis Berkala 80K", cost: 0 }],
+    parts: [
+      { partId: "ps-engine-oil-1l", quantity: 8 },
+      { partId: "ps-oil-filter", quantity: 1 },
+      { partId: "ps-gasket", quantity: 1 },
+      { partId: "ps-engine-flush", quantity: 1 },
+      { partId: "ps-fuel-filter-pm", quantity: 1 },
+      { partId: "ps-air-filter-pm", quantity: 1 },
+      { partId: "ps-brake-cleaner", quantity: 1 },
+      { partId: "ps-ac-filter-pm", quantity: 1 },
+      { partId: "ps-gear-oil-1l", quantity: 3 },
+    ],
+  },
+  // Pajero Sport PM 80K (4x4)
+  {
+    id: "ps-pm-80k-4x4",
+    vehicleModelId: "pajero-sport-anps",
+    name: "Servis Berkala 80.000 KM (4x4)",
+    mileage: 80000,
+    jobs: [{ description: "Jasa Servis Berkala 80K", cost: 0 }],
+    parts: [
+      { partId: "ps-engine-oil-1l", quantity: 8 },
+      { partId: "ps-oil-filter", quantity: 1 },
+      { partId: "ps-gasket", quantity: 1 },
+      { partId: "ps-engine-flush", quantity: 1 },
+      { partId: "ps-fuel-filter-pm", quantity: 1 },
+      { partId: "ps-air-filter-pm", quantity: 1 },
+      { partId: "ps-brake-cleaner", quantity: 1 },
+      { partId: "ps-ac-filter-pm", quantity: 1 },
+      { partId: "ps-gear-oil-1l", quantity: 5 },
+    ],
+  },
+  // Pajero Sport PM 90K
+  {
+    id: "ps-pm-90k",
+    vehicleModelId: "pajero-sport-anps",
+    name: "Servis Berkala 90.000 KM",
+    mileage: 90000,
+    jobs: [{ description: "Jasa Servis Berkala 90K", cost: 0 }],
+    parts: [
+      { partId: "ps-engine-oil-1l", quantity: 8 },
+      { partId: "ps-oil-filter", quantity: 1 },
+      { partId: "ps-gasket", quantity: 1 },
+      { partId: "ps-ac-filter-pm", quantity: 1 },
+    ],
+  },
+  // Pajero Sport PM 100K
+  {
+    id: "ps-pm-100k",
+    vehicleModelId: "pajero-sport-anps",
+    name: "Servis Berkala 100.000 KM",
+    mileage: 100000,
+    jobs: [{ description: "Jasa Servis Berkala 100K", cost: 0 }],
+    parts: [
+      { partId: "ps-engine-oil-1l", quantity: 8 },
+      { partId: "ps-oil-filter", quantity: 1 },
+      { partId: "ps-gasket", quantity: 1 },
+      { partId: "ps-fuel-filter-pm", quantity: 1 },
+      { partId: "ps-brake-cleaner", quantity: 1 },
+      { partId: "ps-ac-filter-pm", quantity: 1 },
+      { partId: "ps-ps-fluid-1l", quantity: 2 },
+    ],
+  },
+];
 
 
 export const additionalServices: AdditionalService[] = [
@@ -25,46 +126,6 @@ export const additionalServices: AdditionalService[] = [
     ],
   },
   {
-    id: "add-brake-pad-front-ps-exceed",
-    name: "Ganti Kampas Rem Depan",
-    applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Kampas Rem Depan", cost: 435000 },
-    parts: [
-        { partId: "ps-exceed-brake-pad-front", quantity: 1 },
-        { partId: "common-brake-cleaner", quantity: 1 },
-    ],
-  },
-  {
-    id: "add-brake-pad-rear-ps-exceed",
-    name: "Ganti Kampas Rem Belakang",
-    applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 435000 },
-    parts: [
-        { partId: "ps-exceed-brake-pad-rear", quantity: 1 },
-        { partId: "common-brake-cleaner", quantity: 1 },
-    ],
-  },
-  {
-    id: "add-brake-pad-front-ps-dakar",
-    name: "Ganti Kampas Rem Depan",
-    applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Kampas Rem Depan", cost: 435000 },
-    parts: [
-      { partId: "ps-dakar-brake-pad-front", quantity: 1 },
-      { partId: "common-brake-cleaner", quantity: 1 },
-    ],
-  },
-  {
-    id: "add-brake-pad-rear-ps-dakar",
-    name: "Ganti Kampas Rem Belakang",
-    applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Kampas Rem Belakang", cost: 435000 },
-    parts: [
-      { partId: "ps-dakar-brake-pad-rear", quantity: 1 },
-      { partId: "common-brake-cleaner", quantity: 1 },
-    ],
-  },
-  {
     id: "add-battery-xp",
     name: "Ganti Aki",
     applicableModels: ["xpander", "xpander-cross"],
@@ -77,24 +138,6 @@ export const additionalServices: AdditionalService[] = [
     applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Ganti Aki", cost: 328333 },
     parts: [{ partId: "xp-battery-asg", quantity: 1 }],
-  },
-  {
-    id: "add-battery-ps",
-    name: "Ganti Aki",
-    applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Aki", cost: 290000 },
-    parts: [{ partId: "ps-battery", quantity: 1 }],
-  },
-  {
-    id: "add-fuel-filter-ps",
-    name: "Ganti Fuel Filter",
-    applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Fuel Filter", cost: 145000 },
-    parts: [
-      { partId: "ps-mut", quantity: 1 },
-      { partId: "ps-fuel-filter", quantity: 1 },
-      { partId: "ps-purging", quantity: 1 },
-    ],
   },
   // Xpander Transmission Oil Services
   {
@@ -118,35 +161,6 @@ export const additionalServices: AdditionalService[] = [
     job: { description: "Jasa Ganti Oli Transmisi Matic", cost: 591000 },
     parts: [{ partId: "xp-transm-oil-cvt-ma1-4l", quantity: 1 }],
   },
-  // Pajero Sport Transmission Oil Services
-  {
-    id: "add-transm-oil-ps-mt",
-    name: "Ganti Oli Transmisi MT",
-    applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Oli Transmisi MT", cost: 435000 },
-    parts: [{ partId: "ps-mtf-oil-1l", quantity: 4 }],
-  },
-  {
-    id: "add-transm-oil-ps-at-exceed",
-    name: "Ganti Oli Transmisi AT",
-    applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Oli Transmisi Matic", cost: 870000 },
-    parts: [{ partId: "ps-atf-pa-1l", quantity: 10 }],
-  },
-  {
-    id: "add-transm-oil-ps-at-dakar",
-    name: "Ganti Oli Transmisi AT",
-    applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Oli Transmisi Matic", cost: 870000 },
-    parts: [{ partId: "xp-transm-oil-atf-ma1-1l", quantity: 12 }],
-  },
-  {
-    id: "add-transfer-oil-ps-4x4",
-    name: "Ganti Oli 4x4 Transfer",
-    applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Oli 4x4 Transfer", cost: 290000 },
-    parts: [{ partId: "ps-transfer-oil-1l", quantity: 3 }],
-  },
   // Xpander Other Services
   {
     id: "add-air-filter-xp",
@@ -154,21 +168,6 @@ export const additionalServices: AdditionalService[] = [
     applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Penggantian Saringan Udara", cost: 0 },
     parts: [{ partId: "xp-air-filter", quantity: 1 }],
-  },
-  // Pajero Sport Other Services
-  {
-    id: "add-air-filter-ps-dakar",
-    name: "Ganti Saringan Udara",
-    applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Saringan Udara", cost: 0 },
-    parts: [{ partId: "ps-dakar-air-filter", quantity: 1 }],
-  },
-  {
-    id: "add-air-filter-ps-exceed",
-    name: "Ganti Saringan Udara",
-    applicableModels: ["pajero-sport-anps"],
-    job: { description: "Jasa Ganti Saringan Udara", cost: 0 },
-    parts: [{ partId: "ps-exceed-air-filter", quantity: 1 }],
   },
   {
     id: "add-alternator-belt-xp",
@@ -182,7 +181,7 @@ export const additionalServices: AdditionalService[] = [
     name: "Ganti Busi",
     applicableModels: ["xpander", "xpander-cross"],
     job: { description: "Jasa Penggantian Busi", cost: 394000 },
-    parts: [{ partId: "xp-spark-plug", quantity: 4 }], // Assuming 4 spark plugs
+    parts: [{ partId: "xp-spark-plug", quantity: 4 }],
   },
 ];
 
@@ -334,7 +333,6 @@ export function getAcServicePrice(serviceId: string, vehicleModelId: string): nu
     }
   }
 
-  // Default cases for fixed prices regardless of car size
   switch (serviceId) {
     case "ac-fogging": return 102000;
     case "ac-flat-rate": return 303860;

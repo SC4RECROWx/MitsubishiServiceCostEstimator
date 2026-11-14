@@ -7,7 +7,7 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "pajero-sport-anps",
     name: "Servis Berkala 60.000 KM",
     mileage: 60000,
-    jobs: [{ description: "Jasa Servis Berkala 60K", cost: 0 }],
+    jobs: [{ description: "Jasa Servis Berkala 60K", cost: 2001000 }],
     parts: [
       { partId: "ps-engine-oil-1l", quantity: 8 },
       { partId: "ps-oil-filter", quantity: 1 },
@@ -24,7 +24,7 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "pajero-sport-anps",
     name: "Servis Berkala 70.000 KM",
     mileage: 70000,
-    jobs: [{ description: "Jasa Servis Berkala 70K", cost: 0 }],
+    jobs: [{ description: "Jasa Servis Berkala 70K", cost: 812000 }],
     parts: [
       { partId: "ps-engine-oil-1l", quantity: 8 },
       { partId: "ps-oil-filter", quantity: 1 },
@@ -38,7 +38,7 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "pajero-sport-anps",
     name: "Servis Berkala 80.000 KM (4x2)",
     mileage: 80000,
-    jobs: [{ description: "Jasa Servis Berkala 80K", cost: 0 }],
+    jobs: [{ description: "Jasa Servis Berkala 80K", cost: 2030000 }],
     parts: [
       { partId: "ps-engine-oil-1l", quantity: 8 },
       { partId: "ps-oil-filter", quantity: 1 },
@@ -57,7 +57,7 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "pajero-sport-anps",
     name: "Servis Berkala 80.000 KM (4x4)",
     mileage: 80000,
-    jobs: [{ description: "Jasa Servis Berkala 80K", cost: 0 }],
+    jobs: [{ description: "Jasa Servis Berkala 80K", cost: 2030000 }],
     parts: [
       { partId: "ps-engine-oil-1l", quantity: 8 },
       { partId: "ps-oil-filter", quantity: 1 },
@@ -76,7 +76,7 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "pajero-sport-anps",
     name: "Servis Berkala 90.000 KM",
     mileage: 90000,
-    jobs: [{ description: "Jasa Servis Berkala 90K", cost: 0 }],
+    jobs: [{ description: "Jasa Servis Berkala 90K", cost: 812000 }],
     parts: [
       { partId: "ps-engine-oil-1l", quantity: 8 },
       { partId: "ps-oil-filter", quantity: 1 },
@@ -90,7 +90,7 @@ export const periodicServices: PeriodicService[] = [
     vehicleModelId: "pajero-sport-anps",
     name: "Servis Berkala 100.000 KM",
     mileage: 100000,
-    jobs: [{ description: "Jasa Servis Berkala 100K", cost: 0 }],
+    jobs: [{ description: "Jasa Servis Berkala 100K", cost: 2581000 }],
     parts: [
       { partId: "ps-engine-oil-1l", quantity: 8 },
       { partId: "ps-oil-filter", quantity: 1 },

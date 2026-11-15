@@ -188,31 +188,52 @@ const allModels = ["xpander", "xpander-cross", "pajero-sport-anps", "xforce", "d
 
 export const tyreServices: AdditionalService[] = [
   {
-    id: "add-spooring",
+    id: "tyre-spooring",
     name: "Spooring",
     applicableModels: allModels,
-    job: { description: "Jasa Spooring", cost: 133200 },
+    job: { description: "Jasa Spooring", cost: 0 },
     parts: [],
   },
   {
-    id: "add-balancing-r13-16",
-    name: "Balancing 4 Roda (R13-R16)",
+    id: "tyre-balancing",
+    name: "Balancing",
     applicableModels: allModels,
-    job: { description: "Jasa Balancing 4 Roda", cost: 88800 },
+    job: { description: "Jasa Balancing", cost: 0 },
     parts: [],
   },
   {
-    id: "add-balancing-r17-offroad",
-    name: "Balancing 4 Roda (R17 & Offroad)",
+    id: "tyre-pkg-spooring-balancing",
+    name: "Paket Spooring & Balancing",
     applicableModels: allModels,
-    job: { description: "Jasa Balancing 4 Roda", cost: 111000 },
+    job: { description: "Jasa Paket Spooring & Balancing", cost: 0 },
     parts: [],
   },
   {
-    id: "add-nitrogen",
+    id: "tyre-baut-chamber",
+    name: "Baut Chamber",
+    applicableModels: allModels,
+    job: { description: "Jasa Baut Chamber", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "tyre-tambal-tubles",
+    name: "Tambal Tubles",
+    applicableModels: allModels,
+    job: { description: "Jasa Tambal Tubles", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "tyre-tambah-nitrogen",
+    name: "Tambah Nitrogen",
+    applicableModels: allModels,
+    job: { description: "Jasa Tambah Nitrogen", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "tyre-kuras-nitrogen",
     name: "Kuras Nitrogen",
     applicableModels: allModels,
-    job: { description: "Jasa Kuras Nitrogen per roda", cost: 10545 },
+    job: { description: "Jasa Kuras Nitrogen", cost: 0 },
     parts: [],
   },
 ];
@@ -337,4 +358,35 @@ export function getAcServicePrice(serviceId: string, vehicleModelId: string): nu
     case "ac-flat-rate": return 303860;
     default: return 0;
   }
+}
+
+export function getTyreServicePrice(serviceId: string, vehicleModelId: string): number {
+  const isSmallCar = ["xpander", "xpander-cross", "xforce"].includes(vehicleModelId);
+  const isLargeCar = ["pajero-sport-anps", "destinator"].includes(vehicleModelId);
+
+  if (isSmallCar) {
+    switch (serviceId) {
+      case "tyre-spooring": return 180000;
+      case "tyre-balancing": return 160000;
+      case "tyre-pkg-spooring-balancing": return 315315;
+      case "tyre-baut-chamber": return 135135;
+      case "tyre-tambal-tubles": return 27027;
+      case "tyre-tambah-nitrogen": return 12444;
+      case "tyre-kuras-nitrogen": return 20270;
+    }
+  }
+
+  if (isLargeCar) {
+    switch (serviceId) {
+      case "tyre-spooring": return 198198;
+      case "tyre-balancing": return 198198;
+      case "tyre-pkg-spooring-balancing": return 360360;
+      case "tyre-baut-chamber": return 180180;
+      case "tyre-tambal-tubles": return 31532;
+      case "tyre-tambah-nitrogen": return 12444;
+      case "tyre-kuras-nitrogen": return 20270;
+    }
+  }
+
+  return 0;
 }

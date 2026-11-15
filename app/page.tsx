@@ -22,7 +22,8 @@ import {
   additionalServices, 
   tyreServices, 
   acAndEngineServices,
-  getAcServicePrice
+  getAcServicePrice,
+  getTyreServicePrice
 } from "@/lib/data/services";
 
 export default function Home() {
@@ -82,7 +83,11 @@ export default function Home() {
     
     const tyre = tyreServices.filter((s) =>
       s.applicableModels.includes(selectedVehicle.model)
-    );
+    ).map(service => ({
+      ...service,
+      job: { ...service.job, cost: getTyreServicePrice(service.id, selectedVehicle.model) }
+    }));
+
     const ac = acAndEngineServices.filter((s) =>
       s.applicableModels.includes(selectedVehicle.model)
     ).map(service => ({

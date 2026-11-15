@@ -26,18 +26,15 @@ import type {
 
 interface Props {
   periodicServices: PeriodicService[];
-  additionalServices: AdditionalService[];
   tyreServices: AdditionalService[];
   acServices: AdditionalService[];
   engineServices: AdditionalService[];
   partsData: Part[];
   onPeriodicChange: (service: PeriodicService | null) => void;
-  onAdditionalChange: (services: AdditionalService[]) => void;
   onTyreChange: (services: AdditionalService[]) => void;
   onAcChange: (services: AdditionalService[]) => void;
   onEngineChange: (services: AdditionalService[]) => void;
   selectedPeriodicService: PeriodicService | null;
-  selectedAdditionalServices: AdditionalService[];
   selectedTyreServices: AdditionalService[];
   selectedAcServices: AdditionalService[];
   selectedEngineServices: AdditionalService[];
@@ -45,18 +42,15 @@ interface Props {
 
 export default function ServiceSelection({
   periodicServices,
-  additionalServices,
   tyreServices,
   acServices,
   engineServices,
   partsData,
   onPeriodicChange,
-  onAdditionalChange,
   onTyreChange,
   onAcChange,
   onEngineChange,
   selectedPeriodicService,
-  selectedAdditionalServices,
   selectedTyreServices,
   selectedAcServices,
   selectedEngineServices,
@@ -82,7 +76,6 @@ export default function ServiceSelection({
     }
   };
 
-  const handleAdditionalChange = createHandleChange(selectedAdditionalServices, onAdditionalChange);
   const handleTyreChange = createHandleChange(selectedTyreServices, onTyreChange);
   const handleAcChange = createHandleChange(selectedAcServices, onAcChange);
   const handleEngineChange = createHandleChange(selectedEngineServices, onEngineChange);
@@ -142,7 +135,7 @@ export default function ServiceSelection({
   };
 
   return (
-    <Accordion type="multiple" defaultValue={["item-1", "item-2", "item-3", "item-4", "item-5", "item-6"]} className="w-full">
+    <Accordion type="multiple" defaultValue={["item-1", "item-4", "item-5", "item-6"]} className="w-full">
       <AccordionItem value="item-1">
         <AccordionTrigger className="text-lg font-medium">Paket Servis Berkala</AccordionTrigger>
         <AccordionContent>
@@ -168,31 +161,6 @@ export default function ServiceSelection({
               </Accordion>
             ))}
           </RadioGroup>
-        </AccordionContent>
-      </AccordionItem>
-      <AccordionItem value="item-2">
-        <AccordionTrigger className="text-lg font-medium">Pekerjaan Tambahan & Suku Cadang</AccordionTrigger>
-        <AccordionContent className="grid gap-4">
-          {additionalServices.map((service) => (
-             <Accordion type="single" collapsible key={service.id} className="rounded-md border">
-                <AccordionItem value={service.id}>
-                    <div className="flex items-center space-x-3 p-4">
-                        <Checkbox
-                            id={service.id}
-                            checked={selectedAdditionalServices.some((s) => s.id === service.id)}
-                            onCheckedChange={() => handleAdditionalChange(service)}
-                        />
-                        <Label htmlFor={service.id} className="flex-1 font-normal cursor-pointer text-base">
-                            {service.name}
-                        </Label>
-                        <AccordionTrigger className="py-0 px-2 [&[data-state=open]>svg]:text-primary" />
-                    </div>
-                    <AccordionContent className="px-4 pb-4">
-                        {renderServiceDetails(service)}
-                    </AccordionContent>
-                </AccordionItem>
-              </Accordion>
-          ))}
         </AccordionContent>
       </AccordionItem>
       <AccordionItem value="item-5">

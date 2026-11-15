@@ -19,7 +19,6 @@ import { vehicles } from "@/lib/data/vehicles";
 import { parts } from "@/lib/data/parts";
 import { 
   periodicServices, 
-  additionalServices, 
   tyreServices, 
   acServices,
   engineMaintenanceServices,
@@ -31,14 +30,13 @@ import {
 export default function Home() {
   const [selectedVehicle, setSelectedVehicle] = useState<SelectedVehicle | null>(null);
   const [selectedPeriodicService, setSelectedPeriodicService] = useState<PeriodicService | null>(null);
-  const [selectedAdditionalServices, setSelectedAdditionalServices] = useState<AdditionalService[]>([]);
   const [selectedTyreServices, setSelectedTyreServices] = useState<AdditionalService[]>([]);
   const [selectedAcServices, setSelectedAcServices] = useState<AdditionalService[]>([]);
   const [selectedEngineServices, setSelectedEngineServices] = useState<AdditionalService[]>([]);
 
   const filteredServices = useMemo(() => {
     if (!selectedVehicle) {
-      return { periodic: [], additional: [], tyre: [], ac: [], engine: [] };
+      return { periodic: [], tyre: [], ac: [], engine: [] };
     }
     
     const transmissionType = selectedVehicle.transmisi.toUpperCase();
@@ -59,28 +57,6 @@ export default function Home() {
         }
 
         return true;
-    });
-
-    const additional = additionalServices.filter((s) => {
-      if (!s.applicableModels.includes(selectedVehicle.model)) {
-        return false;
-      }
-      
-      if (selectedVehicle.model === 'xpander' || selectedVehicle.model === 'xpander-cross') {
-        const isASGTrim = transmissionType.includes("ULTIMATE CVT") || transmissionType.includes("PREMIUM CVT");
-
-        if (s.id === "add-battery-xp-asg") return isASGTrim;
-        if (s.id === "add-battery-xp") return !isASGTrim;
-        
-        if (s.id.startsWith("add-transm-oil-xp-")) {
-            if (s.id === "add-transm-oil-xp-mt") return transmissionType.includes("MT");
-            if (s.id === "add-transm-oil-xp-at") return transmissionType.includes("AT") && !transmissionType.includes("CVT");
-            if (s.id === "add-transm-oil-xp-cvt") return transmissionType.includes("CVT");
-            return false;
-        }
-      }
-
-      return true;
     });
     
     const tyre = tyreServices.filter((s) =>
@@ -104,19 +80,17 @@ export default function Home() {
       job: { ...service.job, cost: getEngineServicePrice(service.id, selectedVehicle.model) }
     }));
 
-    return { periodic, additional, tyre, ac, engine };
+    return { periodic, tyre, ac, engine };
   }, [selectedVehicle]);
   
   useEffect(() => {
     setSelectedPeriodicService(null);
-    setSelectedAdditionalServices([]);
     setSelectedTyreServices([]);
     setSelectedAcServices([]);
     setSelectedEngineServices([]);
   }, [selectedVehicle]);
 
   const allSelectedServices = [
-    ...selectedAdditionalServices,
     ...selectedTyreServices,
     ...selectedAcServices,
     ...selectedEngineServices,
@@ -161,18 +135,15 @@ export default function Home() {
                   <CardContent>
                     <ServiceSelection
                       periodicServices={filteredServices.periodic}
-                      additionalServices={filteredServices.additional}
                       tyreServices={filteredServices.tyre}
                       acServices={filteredServices.ac}
                       engineServices={filteredServices.engine}
                       partsData={parts}
                       onPeriodicChange={setSelectedPeriodicService}
-                      onAdditionalChange={setSelectedAdditionalServices}
                       onTyreChange={setSelectedTyreServices}
                       onAcChange={setSelectedAcServices}
                       onEngineChange={setSelectedEngineServices}
                       selectedPeriodicService={selectedPeriodicService}
-                      selectedAdditionalServices={selectedAdditionalServices}
                       selectedTyreServices={selectedTyreServices}
                       selectedAcServices={selectedAcServices}
                       selectedEngineServices={selectedEngineServices}

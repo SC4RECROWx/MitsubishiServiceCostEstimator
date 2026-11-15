@@ -1,6 +1,100 @@
 import type { PeriodicService, AdditionalService } from "@/lib/types";
 
+const smallCarModels = ["xpander", "xpander-cross", "xforce"];
+
+const generateSmallCarPM = (): PeriodicService[] => {
+  const services: PeriodicService[] = [];
+  
+  smallCarModels.forEach(modelId => {
+    // PM 60K
+    services.push({
+      id: `sm-pm-60k-${modelId}`,
+      vehicleModelId: modelId,
+      name: "Servis Berkala 60.000 KM",
+      mileage: 60000,
+      jobs: [{ description: "Jasa Servis Berkala 60K", cost: 0 }],
+      parts: [
+        { partId: "sm-engine-oil-1l", quantity: 4 },
+        { partId: "sm-oil-filter", quantity: 1 },
+        { partId: "sm-gasket", quantity: 1 },
+        { partId: "sm-engine-flush", quantity: 1 },
+        { partId: "sm-brake-cleaner", quantity: 1 },
+        { partId: "sm-ac-filter", quantity: 1 },
+      ],
+    });
+
+    // PM 70K
+    services.push({
+      id: `sm-pm-70k-${modelId}`,
+      vehicleModelId: modelId,
+      name: "Servis Berkala 70.000 KM",
+      mileage: 70000,
+      jobs: [{ description: "Jasa Servis Berkala 70K", cost: 0 }],
+      parts: [
+        { partId: "sm-engine-oil-1l", quantity: 4 },
+        { partId: "sm-oil-filter", quantity: 1 },
+        { partId: "sm-gasket", quantity: 1 },
+        { partId: "sm-ac-filter", quantity: 1 },
+      ],
+    });
+
+    // PM 80K
+    services.push({
+      id: `sm-pm-80k-${modelId}`,
+      vehicleModelId: modelId,
+      name: "Servis Berkala 80.000 KM",
+      mileage: 80000,
+      jobs: [{ description: "Jasa Servis Berkala 80K", cost: 0 }],
+      parts: [
+        { partId: "sm-engine-oil-1l", quantity: 4 },
+        { partId: "sm-oil-filter", quantity: 1 },
+        { partId: "sm-gasket", quantity: 1 },
+        { partId: "sm-engine-flush", quantity: 1 },
+        { partId: "sm-brake-cleaner", quantity: 1 },
+        { partId: "sm-ac-filter", quantity: 1 },
+        { partId: "sm-air-filter", quantity: 1 },
+      ],
+    });
+
+    // PM 90K
+    services.push({
+      id: `sm-pm-90k-${modelId}`,
+      vehicleModelId: modelId,
+      name: "Servis Berkala 90.000 KM",
+      mileage: 90000,
+      jobs: [{ description: "Jasa Servis Berkala 90K", cost: 0 }],
+      parts: [
+        { partId: "sm-engine-oil-1l", quantity: 4 },
+        { partId: "sm-oil-filter", quantity: 1 },
+        { partId: "sm-gasket", quantity: 1 },
+        { partId: "sm-ac-filter", quantity: 1 },
+      ],
+    });
+
+    // PM 100K
+    services.push({
+      id: `sm-pm-100k-${modelId}`,
+      vehicleModelId: modelId,
+      name: "Servis Berkala 100.000 KM",
+      mileage: 100000,
+      jobs: [{ description: "Jasa Servis Berkala 100K", cost: 0 }],
+      parts: [
+        { partId: "sm-engine-oil-1l", quantity: 4 },
+        { partId: "sm-oil-filter", quantity: 1 },
+        { partId: "sm-gasket", quantity: 1 },
+        { partId: "sm-engine-flush", quantity: 1 },
+        { partId: "sm-brake-cleaner", quantity: 1 },
+        { partId: "sm-ac-filter", quantity: 1 },
+        { partId: "sm-spark-plug", quantity: 1 },
+      ],
+    });
+  });
+
+  return services;
+};
+
 export const periodicServices: PeriodicService[] = [
+  ...generateSmallCarPM(),
   // Pajero Sport PM 60K
   {
     id: "ps-pm-60k",

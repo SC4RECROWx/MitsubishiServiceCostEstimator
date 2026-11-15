@@ -18,7 +18,17 @@ export const parts: Part[] = [
   { id: "xp-alternator-belt", name: "Belt Alternator - Xpander", partNumber: "1340a181", price: 137000 },
   { id: "xp-spark-plug", name: "Busi - Xpander", partNumber: "1822a086", price: 335000 },
   
-  // Pajero Sport Parts (PM 60K-100K Updated)
+  // Small Car PM Parts (Xpander, Xpander Cross, Xforce)
+  { id: "sm-engine-oil-1l", name: "Oli Mesin 0W-20 1L", partNumber: "MZ690220-PM", price: 186000 },
+  { id: "sm-oil-filter", name: "Filter Oli Mesin", partNumber: "1230A182-PM", price: 59000 },
+  { id: "sm-gasket", name: "Gasket Oli Mesin", partNumber: "MD050317-PM", price: 21000 },
+  { id: "sm-engine-flush", name: "Engine Flush", partNumber: "CHEM-FLUSH-SM", price: 143000 },
+  { id: "sm-brake-cleaner", name: "Brake Cleaner", partNumber: "CHEM-BRKCLN-SM", price: 78000 },
+  { id: "sm-ac-filter", name: "Filter AC", partNumber: "7850A002-SM", price: 177000 },
+  { id: "sm-air-filter", name: "Filter Udara", partNumber: "1500A687-SM", price: 157500 },
+  { id: "sm-spark-plug", name: "Busi", partNumber: "1822A086-PM", price: 352000 },
+
+  // Pajero Sport Parts
   { id: "ps-engine-oil-1l", name: "Oli Mesin 1L", partNumber: "MZ690221-1L", price: 150000 },
   { id: "ps-oil-filter", name: "Filter Oli Mesin", partNumber: "1230A154", price: 220500 },
   { id: "ps-gasket", name: "Gasket Oli Mesin", partNumber: "MF660031", price: 9000 },

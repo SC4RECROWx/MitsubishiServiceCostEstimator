@@ -183,6 +183,8 @@ export const additionalServices: AdditionalService[] = [
 ];
 
 const allModels = ["xpander", "xpander-cross", "pajero-sport-anps", "xforce", "destinator"];
+const smallCars = ["xpander", "xpander-cross", "xforce"];
+const largeCars = ["pajero-sport-anps", "destinator"];
 
 export const tyreServices: AdditionalService[] = [
   {
@@ -236,71 +238,115 @@ export const tyreServices: AdditionalService[] = [
   },
 ];
 
-const smallCars = ["xpander", "xpander-cross", "xforce"];
-const largeCars = ["pajero-sport-anps", "destinator"];
-
-export const acAndEngineServices: AdditionalService[] = [
+export const acServices: AdditionalService[] = [
   {
     id: "ac-care",
     name: "AC Care",
-    applicableModels: [...smallCars, ...largeCars],
+    applicableModels: allModels,
     job: { description: "Jasa AC Care", cost: 0 },
     parts: [],
   },
   {
     id: "ac-clean",
     name: "AC Clean",
-    applicableModels: [...smallCars, ...largeCars],
+    applicableModels: allModels,
     job: { description: "Jasa AC Clean", cost: 0 },
     parts: [],
   },
   {
     id: "ac-fresh-sb",
     name: "AC Fresh Single Blower",
-    applicableModels: [...smallCars, ...largeCars],
+    applicableModels: allModels,
     job: { description: "Jasa AC Fresh Single Blower", cost: 0 },
     parts: [],
   },
   {
     id: "ac-fresh-db",
     name: "AC Fresh Double Blower",
-    applicableModels: [...smallCars, ...largeCars],
+    applicableModels: allModels,
     job: { description: "Jasa AC Fresh Double Blower", cost: 0 },
     parts: [],
   },
   {
     id: "ac-condensor-cleaner",
     name: "Condensor Cleaner",
-    applicableModels: [...smallCars, ...largeCars],
+    applicableModels: allModels,
     job: { description: "Jasa Condensor Cleaner", cost: 0 },
     parts: [],
   },
   {
     id: "ac-air-sanitizer",
     name: "Air Sanitizer",
-    applicableModels: [...smallCars, ...largeCars],
+    applicableModels: allModels,
     job: { description: "Jasa Air Sanitizer", cost: 0 },
     parts: [],
   },
   {
     id: "ac-freon-s-oli",
     name: "Freon-S & oli kompresor",
-    applicableModels: [...smallCars, ...largeCars],
+    applicableModels: allModels,
     job: { description: "Jasa Freon-S & Oli Kompresor", cost: 0 },
     parts: [],
   },
   {
     id: "ac-freon-d-oli",
     name: "Freon-D & oli kompresor",
-    applicableModels: [...smallCars, ...largeCars],
+    applicableModels: allModels,
     job: { description: "Jasa Freon-D & Oli Kompresor", cost: 0 },
     parts: [],
   },
 ];
 
+export const engineMaintenanceServices: AdditionalService[] = [
+  {
+    id: "eng-flush",
+    name: "Engine Flush",
+    applicableModels: allModels,
+    job: { description: "Jasa Engine Flush", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "eng-carbon-cleaner",
+    name: "Carbon Cleaner",
+    applicableModels: allModels,
+    job: { description: "Jasa Carbon Cleaner", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "eng-fuel-system-cleaner",
+    name: "Fuel System Cleaner",
+    applicableModels: allModels,
+    job: { description: "Jasa Fuel System Cleaner", cost: 0 },
+    parts: [],
+  },
+];
+
+export function getEngineServicePrice(serviceId: string, vehicleModelId: string): number {
+  const isSmallCar = smallCars.includes(vehicleModelId);
+  const isLargeCar = largeCars.includes(vehicleModelId);
+
+  if (isSmallCar) {
+    switch (serviceId) {
+      case "eng-flush": return 140000;
+      case "eng-carbon-cleaner": return 250000;
+      case "eng-fuel-system-cleaner": return 175000;
+    }
+  }
+
+  if (isLargeCar) {
+    switch (serviceId) {
+      case "eng-flush": return 143000;
+      case "eng-carbon-cleaner": return 350000;
+      case "eng-fuel-system-cleaner": return 225000;
+    }
+  }
+
+  return 0;
+}
+
 export function getAcServicePrice(serviceId: string, vehicleModelId: string): number {
-  const isSmallCar = ["xpander", "xpander-cross", "xforce"].includes(vehicleModelId);
-  const isLargeCar = ["pajero-sport-anps", "destinator"].includes(vehicleModelId);
+  const isSmallCar = smallCars.includes(vehicleModelId);
+  const isLargeCar = largeCars.includes(vehicleModelId);
 
   if (isSmallCar) {
     switch (serviceId) {
@@ -332,8 +378,8 @@ export function getAcServicePrice(serviceId: string, vehicleModelId: string): nu
 }
 
 export function getTyreServicePrice(serviceId: string, vehicleModelId: string): number {
-  const isSmallCar = ["xpander", "xpander-cross", "xforce"].includes(vehicleModelId);
-  const isLargeCar = ["pajero-sport-anps", "destinator"].includes(vehicleModelId);
+  const isSmallCar = smallCars.includes(vehicleModelId);
+  const isLargeCar = largeCars.includes(vehicleModelId);
 
   if (isSmallCar) {
     switch (serviceId) {

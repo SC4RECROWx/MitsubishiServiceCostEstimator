@@ -21,9 +21,11 @@ import {
   periodicServices, 
   additionalServices, 
   tyreServices, 
-  acAndEngineServices,
+  acServices,
+  engineMaintenanceServices,
   getAcServicePrice,
-  getTyreServicePrice
+  getTyreServicePrice,
+  getEngineServicePrice
 } from "@/lib/data/services";
 
 export default function Home() {
@@ -32,10 +34,11 @@ export default function Home() {
   const [selectedAdditionalServices, setSelectedAdditionalServices] = useState<AdditionalService[]>([]);
   const [selectedTyreServices, setSelectedTyreServices] = useState<AdditionalService[]>([]);
   const [selectedAcServices, setSelectedAcServices] = useState<AdditionalService[]>([]);
+  const [selectedEngineServices, setSelectedEngineServices] = useState<AdditionalService[]>([]);
 
   const filteredServices = useMemo(() => {
     if (!selectedVehicle) {
-      return { periodic: [], additional: [], tyre: [], ac: [] };
+      return { periodic: [], additional: [], tyre: [], ac: [], engine: [] };
     }
     
     const transmissionType = selectedVehicle.transmisi.toUpperCase();
@@ -46,7 +49,6 @@ export default function Home() {
         if (selectedVehicle.model === 'pajero-sport-anps') {
             const is4x4 = transmissionType.includes('4X4');
             
-            // Filter for PM 60k-100k
             if (s.id.startsWith('ps-pm-')) {
                 if (s.id.includes('-4x4') && !is4x4) return false;
                 if (s.id.includes('-4x2') && is4x4) return false;
@@ -88,14 +90,21 @@ export default function Home() {
       job: { ...service.job, cost: getTyreServicePrice(service.id, selectedVehicle.model) }
     }));
 
-    const ac = acAndEngineServices.filter((s) =>
+    const ac = acServices.filter((s) =>
       s.applicableModels.includes(selectedVehicle.model)
     ).map(service => ({
       ...service,
       job: { ...service.job, cost: getAcServicePrice(service.id, selectedVehicle.model) }
     }));
 
-    return { periodic, additional, tyre, ac };
+    const engine = engineMaintenanceServices.filter((s) =>
+      s.applicableModels.includes(selectedVehicle.model)
+    ).map(service => ({
+      ...service,
+      job: { ...service.job, cost: getEngineServicePrice(service.id, selectedVehicle.model) }
+    }));
+
+    return { periodic, additional, tyre, ac, engine };
   }, [selectedVehicle]);
   
   useEffect(() => {
@@ -103,12 +112,14 @@ export default function Home() {
     setSelectedAdditionalServices([]);
     setSelectedTyreServices([]);
     setSelectedAcServices([]);
+    setSelectedEngineServices([]);
   }, [selectedVehicle]);
 
   const allSelectedServices = [
     ...selectedAdditionalServices,
     ...selectedTyreServices,
     ...selectedAcServices,
+    ...selectedEngineServices,
   ];
 
   return (
@@ -152,16 +163,19 @@ export default function Home() {
                       periodicServices={filteredServices.periodic}
                       additionalServices={filteredServices.additional}
                       tyreServices={filteredServices.tyre}
-                      acAndEngineServices={filteredServices.ac}
+                      acServices={filteredServices.ac}
+                      engineServices={filteredServices.engine}
                       partsData={parts}
                       onPeriodicChange={setSelectedPeriodicService}
                       onAdditionalChange={setSelectedAdditionalServices}
                       onTyreChange={setSelectedTyreServices}
                       onAcChange={setSelectedAcServices}
+                      onEngineChange={setSelectedEngineServices}
                       selectedPeriodicService={selectedPeriodicService}
                       selectedAdditionalServices={selectedAdditionalServices}
                       selectedTyreServices={selectedTyreServices}
                       selectedAcServices={selectedAcServices}
+                      selectedEngineServices={selectedEngineServices}
                     />
                   </CardContent>
                 </Card>

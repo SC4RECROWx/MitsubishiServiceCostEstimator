@@ -23,6 +23,12 @@
       "description": "Mitsubishi Xforce",
       "imageUrl": "https://picsum.photos/seed/xforce/600/400",
       "imageHint": "orange suv"
+    },
+    {
+      "id": "destinator",
+      "description": "Mitsubishi Destinator",
+      "imageUrl": "https://picsum.photos/seed/destinator/600/400",
+      "imageHint": "modern suv"
     }
   ]
 }

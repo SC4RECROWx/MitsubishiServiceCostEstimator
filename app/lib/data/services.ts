@@ -103,7 +103,6 @@ export const periodicServices: PeriodicService[] = [
   },
 ];
 
-
 export const additionalServices: AdditionalService[] = [
   {
     id: "add-brake-pad-front-xp",
@@ -185,7 +184,7 @@ export const additionalServices: AdditionalService[] = [
   },
 ];
 
-const allModels = ["xpander", "xpander-cross", "pajero-sport-anps", "xforce"];
+const allModels = ["xpander", "xpander-cross", "pajero-sport-anps", "xforce", "destinator"];
 
 export const tyreServices: AdditionalService[] = [
   {
@@ -219,7 +218,7 @@ export const tyreServices: AdditionalService[] = [
 ];
 
 const smallCars = ["xpander", "xpander-cross", "xforce"];
-const largeCars = ["pajero-sport-anps"];
+const largeCars = ["pajero-sport-anps", "destinator"];
 
 export const acAndEngineServices: AdditionalService[] = [
   {
@@ -303,7 +302,7 @@ export const acAndEngineServices: AdditionalService[] = [
 
 export function getAcServicePrice(serviceId: string, vehicleModelId: string): number {
   const isSmallCar = ["xpander", "xpander-cross", "xforce"].includes(vehicleModelId);
-  const isLargeCar = ["pajero-sport-anps"].includes(vehicleModelId);
+  const isLargeCar = ["pajero-sport-anps", "destinator"].includes(vehicleModelId);
 
   if (isSmallCar) {
     switch (serviceId) {

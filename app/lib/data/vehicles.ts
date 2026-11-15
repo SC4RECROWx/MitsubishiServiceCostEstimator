@@ -58,4 +58,13 @@ export const vehicles: Vehicle[] = [
         { year: 2023, trims: ["Ultimate CVT", "Exceed CVT"] },
     ],
   },
+  {
+    id: "destinator",
+    name: "Destinator",
+    years: [
+      { year: 2026, trims: ["Ultimate AT", "Premium MT", "GLX MT"] },
+      { year: 2025, trims: ["Ultimate AT", "Premium MT", "GLX MT"] },
+      { year: 2024, trims: ["Ultimate AT", "Premium MT", "GLX MT"] },
+    ],
+  },
 ];

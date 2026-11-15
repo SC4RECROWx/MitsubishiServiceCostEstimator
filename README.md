@@ -59,3 +59,10 @@ Berikut adalah informasi yang Anda butuhkan untuk mendeploy aplikasi ini sebagai
     - Redeploy (deploy ulang) situs Anda.
 
 Platform akan secara otomatis menyajikan file dari folder `out`, dan masalah 404 Anda akan teratasi.
+
+## Screen Shots
+<p align="center">
+    <img width="1515" height="914" alt="image" src="https://github.com/user-attachments/assets/a6d023af-629c-4344-a44e-29c74f30fd40" />
+    <img width="797" height="505" alt="image" src="https://github.com/user-attachments/assets/a687d6ed-a669-4a28-bc00-e2aac128ed2b" />
+</p>
+

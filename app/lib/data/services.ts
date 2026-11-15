@@ -299,45 +299,61 @@ export const acServices: AdditionalService[] = [
 
 export const engineMaintenanceServices: AdditionalService[] = [
   {
-    id: "eng-flush",
-    name: "Engine Flush",
+    id: "eng-flushing-line",
+    name: "Flushing Line Injector",
     applicableModels: allModels,
-    job: { description: "Jasa Engine Flush", cost: 0 },
+    job: { description: "Jasa Flushing Line Injector", cost: 0 },
     parts: [],
   },
   {
-    id: "eng-carbon-cleaner",
-    name: "Carbon Cleaner",
-    applicableModels: allModels,
-    job: { description: "Jasa Carbon Cleaner", cost: 0 },
+    id: "eng-combustion",
+    name: "Combustion Cleaner",
+    applicableModels: ["xpander", "xpander-cross", "xforce", "destinator"],
+    job: { description: "Jasa Combustion Cleaner", cost: 0 },
     parts: [],
   },
   {
-    id: "eng-fuel-system-cleaner",
-    name: "Fuel System Cleaner",
+    id: "eng-catalytic",
+    name: "Catalytic Converter Cleaner",
     applicableModels: allModels,
-    job: { description: "Jasa Fuel System Cleaner", cost: 0 },
+    job: { description: "Jasa Catalytic Converter Cleaner", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "eng-hydrocarbon",
+    name: "HydroCarbon Cleaner",
+    applicableModels: allModels,
+    job: { description: "Jasa HydroCarbon Cleaner", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "eng-turbo",
+    name: "Turbo Cleaner",
+    applicableModels: ["pajero-sport-anps"],
+    job: { description: "Jasa Turbo Cleaner", cost: 0 },
     parts: [],
   },
 ];
 
 export function getEngineServicePrice(serviceId: string, vehicleModelId: string): number {
-  const isSmallCar = smallCars.includes(vehicleModelId);
-  const isLargeCar = largeCars.includes(vehicleModelId);
+  const isSmallGroup = ["xpander", "xpander-cross", "xforce", "destinator"].includes(vehicleModelId);
+  const isPajero = vehicleModelId === "pajero-sport-anps";
 
-  if (isSmallCar) {
+  if (isSmallGroup) {
     switch (serviceId) {
-      case "eng-flush": return 140000;
-      case "eng-carbon-cleaner": return 250000;
-      case "eng-fuel-system-cleaner": return 175000;
+      case "eng-flushing-line": return 293040;
+      case "eng-combustion": return 186480;
+      case "eng-catalytic": return 179820;
+      case "eng-hydrocarbon": return 299700;
     }
   }
 
-  if (isLargeCar) {
+  if (isPajero) {
     switch (serviceId) {
-      case "eng-flush": return 143000;
-      case "eng-carbon-cleaner": return 350000;
-      case "eng-fuel-system-cleaner": return 225000;
+      case "eng-flushing-line": return 266400;
+      case "eng-turbo": return 237096;
+      case "eng-hydrocarbon": return 299700;
+      case "eng-catalytic": return 179820;
     }
   }
 

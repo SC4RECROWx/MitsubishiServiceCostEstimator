@@ -1,11 +1,13 @@
 import type { PeriodicService, AdditionalService } from "@/lib/types";
 
-const smallCarModels = ["xpander", "xpander-cross", "xforce"];
+const smallCarModels = ["xpander", "xpander-cross", "xforce", "destinator"];
 
 const generateSmallCarPM = (): PeriodicService[] => {
   const services: PeriodicService[] = [];
   
   smallCarModels.forEach(modelId => {
+    const oilQty = modelId === 'destinator' ? 5 : 4;
+
     // PM 60K
     services.push({
       id: `sm-pm-60k-${modelId}`,
@@ -14,7 +16,7 @@ const generateSmallCarPM = (): PeriodicService[] => {
       mileage: 60000,
       jobs: [{ description: "Jasa Servis Berkala 60K", cost: 0 }],
       parts: [
-        { partId: "sm-engine-oil-1l", quantity: 4 },
+        { partId: "sm-engine-oil-1l", quantity: oilQty },
         { partId: "sm-oil-filter", quantity: 1 },
         { partId: "sm-gasket", quantity: 1 },
         { partId: "sm-engine-flush", quantity: 1 },
@@ -31,7 +33,7 @@ const generateSmallCarPM = (): PeriodicService[] => {
       mileage: 70000,
       jobs: [{ description: "Jasa Servis Berkala 70K", cost: 0 }],
       parts: [
-        { partId: "sm-engine-oil-1l", quantity: 4 },
+        { partId: "sm-engine-oil-1l", quantity: oilQty },
         { partId: "sm-oil-filter", quantity: 1 },
         { partId: "sm-gasket", quantity: 1 },
         { partId: "sm-ac-filter", quantity: 1 },
@@ -46,7 +48,7 @@ const generateSmallCarPM = (): PeriodicService[] => {
       mileage: 80000,
       jobs: [{ description: "Jasa Servis Berkala 80K", cost: 0 }],
       parts: [
-        { partId: "sm-engine-oil-1l", quantity: 4 },
+        { partId: "sm-engine-oil-1l", quantity: oilQty },
         { partId: "sm-oil-filter", quantity: 1 },
         { partId: "sm-gasket", quantity: 1 },
         { partId: "sm-engine-flush", quantity: 1 },
@@ -64,7 +66,7 @@ const generateSmallCarPM = (): PeriodicService[] => {
       mileage: 90000,
       jobs: [{ description: "Jasa Servis Berkala 90K", cost: 0 }],
       parts: [
-        { partId: "sm-engine-oil-1l", quantity: 4 },
+        { partId: "sm-engine-oil-1l", quantity: oilQty },
         { partId: "sm-oil-filter", quantity: 1 },
         { partId: "sm-gasket", quantity: 1 },
         { partId: "sm-ac-filter", quantity: 1 },
@@ -79,7 +81,7 @@ const generateSmallCarPM = (): PeriodicService[] => {
       mileage: 100000,
       jobs: [{ description: "Jasa Servis Berkala 100K", cost: 0 }],
       parts: [
-        { partId: "sm-engine-oil-1l", quantity: 4 },
+        { partId: "sm-engine-oil-1l", quantity: oilQty },
         { partId: "sm-oil-filter", quantity: 1 },
         { partId: "sm-gasket", quantity: 1 },
         { partId: "sm-engine-flush", quantity: 1 },

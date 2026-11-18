@@ -14,7 +14,7 @@ const generateSmallCarPM = (): PeriodicService[] => {
       vehicleModelId: modelId,
       name: "Servis Berkala 60.000 KM",
       mileage: 60000,
-      jobs: [{ description: "Jasa Servis Berkala 60K", cost: 0 }],
+      jobs: [{ description: "Jasa Servis Berkala 60K", cost: 1359300 }],
       parts: [
         { partId: "sm-engine-oil-1l", quantity: oilQty },
         { partId: "sm-oil-filter", quantity: 1 },
@@ -31,7 +31,7 @@ const generateSmallCarPM = (): PeriodicService[] => {
       vehicleModelId: modelId,
       name: "Servis Berkala 70.000 KM",
       mileage: 70000,
-      jobs: [{ description: "Jasa Servis Berkala 70K", cost: 0 }],
+      jobs: [{ description: "Jasa Servis Berkala 70K", cost: 531900 }],
       parts: [
         { partId: "sm-engine-oil-1l", quantity: oilQty },
         { partId: "sm-oil-filter", quantity: 1 },
@@ -46,7 +46,7 @@ const generateSmallCarPM = (): PeriodicService[] => {
       vehicleModelId: modelId,
       name: "Servis Berkala 80.000 KM",
       mileage: 80000,
-      jobs: [{ description: "Jasa Servis Berkala 80K", cost: 0 }],
+      jobs: [{ description: "Jasa Servis Berkala 80K", cost: 1379000 }],
       parts: [
         { partId: "sm-engine-oil-1l", quantity: oilQty },
         { partId: "sm-oil-filter", quantity: 1 },
@@ -64,7 +64,7 @@ const generateSmallCarPM = (): PeriodicService[] => {
       vehicleModelId: modelId,
       name: "Servis Berkala 90.000 KM",
       mileage: 90000,
-      jobs: [{ description: "Jasa Servis Berkala 90K", cost: 0 }],
+      jobs: [{ description: "Jasa Servis Berkala 90K", cost: 531900 }],
       parts: [
         { partId: "sm-engine-oil-1l", quantity: oilQty },
         { partId: "sm-oil-filter", quantity: 1 },
@@ -79,7 +79,7 @@ const generateSmallCarPM = (): PeriodicService[] => {
       vehicleModelId: modelId,
       name: "Servis Berkala 100.000 KM",
       mileage: 100000,
-      jobs: [{ description: "Jasa Servis Berkala 100K", cost: 0 }],
+      jobs: [{ description: "Jasa Servis Berkala 100K", cost: 1379000 }],
       parts: [
         { partId: "sm-engine-oil-1l", quantity: oilQty },
         { partId: "sm-oil-filter", quantity: 1 },

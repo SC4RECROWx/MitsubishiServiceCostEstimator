@@ -354,6 +354,66 @@ export const engineMaintenanceServices: AdditionalService[] = [
   },
 ];
 
+export const mspServices: AdditionalService[] = [
+  {
+    id: "msp-2xpm",
+    name: "MSP 2XPM (Extended Smart Package)",
+    applicableModels: ["xpander", "xpander-cross", "xforce", "pajero-sport-anps"],
+    job: { description: "Paket MSP 2X", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "msp-4xpm",
+    name: "MSP 4XPM (Extended Smart Package)",
+    applicableModels: ["xpander", "xpander-cross", "xforce", "pajero-sport-anps"],
+    job: { description: "Paket MSP 4X", cost: 0 },
+    parts: [],
+  },
+  {
+    id: "msp-6xpm",
+    name: "MSP 6XPM (Extended Smart Package)",
+    applicableModels: ["xpander", "xpander-cross", "xforce", "pajero-sport-anps"],
+    job: { description: "Paket MSP 6X", cost: 0 },
+    parts: [],
+  },
+];
+
+export function getMspServicePrice(serviceId: string, vehicleModelId: string): number {
+  const isSmallGroup = ["xpander", "xpander-cross", "xforce"].includes(vehicleModelId);
+  const isPajero = vehicleModelId === "pajero-sport-anps";
+
+  if (isSmallGroup) {
+    switch (serviceId) {
+      case "msp-2xpm": return 2386500;
+      case "msp-4xpm": return 4551000;
+      case "msp-6xpm": return 6660000;
+    }
+  }
+
+  if (isPajero) {
+    switch (serviceId) {
+      case "msp-2xpm": return 4662000;
+      case "msp-4xpm": return 9102000;
+      case "msp-6xpm": return 13320000;
+    }
+  }
+
+  return 0;
+}
+
+export function getMspDescription(serviceId: string, vehicleModelId: string): string[] {
+  const isSmallGroup = ["xpander", "xpander-cross", "xforce"].includes(vehicleModelId);
+  const isPajero = vehicleModelId === "pajero-sport-anps";
+
+  if (isSmallGroup) {
+    return ["Oli Mesin 4L", "Oil Filter", "Gasket Oli", "Filter AC"];
+  }
+  if (isPajero) {
+    return ["Oli Mesin 8L", "Oil Filter", "Gasket Oli", "Filter AC", "Engine Flush", "Diesel Fuel System Cleaner", "Inleather Fog Liquid"];
+  }
+  return [];
+}
+
 export function getEngineServicePrice(serviceId: string, vehicleModelId: string): number {
   const isSmallGroup = ["xpander", "xpander-cross", "xforce", "destinator"].includes(vehicleModelId);
   const isPajero = vehicleModelId === "pajero-sport-anps";

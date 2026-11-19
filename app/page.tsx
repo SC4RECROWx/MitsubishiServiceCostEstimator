@@ -22,21 +22,25 @@ import {
   tyreServices, 
   acServices,
   engineMaintenanceServices,
+  mspServices,
   getAcServicePrice,
   getTyreServicePrice,
-  getEngineServicePrice
+  getEngineServicePrice,
+  getMspServicePrice,
+  getMspDescription
 } from "@/lib/data/services";
 
 export default function Home() {
   const [selectedVehicle, setSelectedVehicle] = useState<SelectedVehicle | null>(null);
   const [selectedPeriodicService, setSelectedPeriodicService] = useState<PeriodicService | null>(null);
+  const [selectedMspService, setSelectedMspService] = useState<AdditionalService | null>(null);
   const [selectedTyreServices, setSelectedTyreServices] = useState<AdditionalService[]>([]);
   const [selectedAcServices, setSelectedAcServices] = useState<AdditionalService[]>([]);
   const [selectedEngineServices, setSelectedEngineServices] = useState<AdditionalService[]>([]);
 
   const filteredServices = useMemo(() => {
     if (!selectedVehicle) {
-      return { periodic: [], tyre: [], ac: [], engine: [] };
+      return { periodic: [], msp: [], tyre: [], ac: [], engine: [] };
     }
     
     const transmissionType = selectedVehicle.transmisi.toUpperCase();
@@ -58,6 +62,16 @@ export default function Home() {
 
         return true;
     });
+
+    const msp = mspServices.filter((s) =>
+      s.applicableModels.includes(selectedVehicle.model)
+    ).map(service => ({
+      ...service,
+      job: { 
+        description: getMspDescription(service.id, selectedVehicle.model).join(', '), 
+        cost: getMspServicePrice(service.id, selectedVehicle.model) 
+      }
+    }));
     
     const tyre = tyreServices.filter((s) =>
       s.applicableModels.includes(selectedVehicle.model)
@@ -80,21 +94,28 @@ export default function Home() {
       job: { ...service.job, cost: getEngineServicePrice(service.id, selectedVehicle.model) }
     }));
 
-    return { periodic, tyre, ac, engine };
+    return { periodic, msp, tyre, ac, engine };
   }, [selectedVehicle]);
   
   useEffect(() => {
     setSelectedPeriodicService(null);
+    setSelectedMspService(null);
     setSelectedTyreServices([]);
     setSelectedAcServices([]);
     setSelectedEngineServices([]);
   }, [selectedVehicle]);
 
-  const allSelectedServices = [
-    ...selectedTyreServices,
-    ...selectedAcServices,
-    ...selectedEngineServices,
-  ];
+  const allSelectedServices = useMemo(() => {
+    const list = [
+      ...selectedTyreServices,
+      ...selectedAcServices,
+      ...selectedEngineServices,
+    ];
+    if (selectedMspService) {
+      list.push(selectedMspService);
+    }
+    return list;
+  }, [selectedTyreServices, selectedAcServices, selectedEngineServices, selectedMspService]);
 
   return (
     <div className="flex min-h-screen w-full flex-col">
@@ -135,18 +156,22 @@ export default function Home() {
                   <CardContent>
                     <ServiceSelection
                       periodicServices={filteredServices.periodic}
+                      mspServices={filteredServices.msp}
                       tyreServices={filteredServices.tyre}
                       acServices={filteredServices.ac}
                       engineServices={filteredServices.engine}
                       partsData={parts}
                       onPeriodicChange={setSelectedPeriodicService}
+                      onMspChange={setSelectedMspService}
                       onTyreChange={setSelectedTyreServices}
                       onAcChange={setSelectedAcServices}
                       onEngineChange={setSelectedEngineServices}
                       selectedPeriodicService={selectedPeriodicService}
+                      selectedMspService={selectedMspService}
                       selectedTyreServices={selectedTyreServices}
                       selectedAcServices={selectedAcServices}
                       selectedEngineServices={selectedEngineServices}
+                      vehicleModelId={selectedVehicle.model}
                     />
                   </CardContent>
                 </Card>

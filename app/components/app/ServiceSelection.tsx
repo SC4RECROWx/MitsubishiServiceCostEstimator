@@ -23,37 +23,47 @@ import type {
   AdditionalService,
   Part,
 } from "@/lib/types";
+import { Info } from "lucide-react";
+import { getMspDescription } from "@/lib/data/services";
 
 interface Props {
   periodicServices: PeriodicService[];
+  mspServices: AdditionalService[];
   tyreServices: AdditionalService[];
   acServices: AdditionalService[];
   engineServices: AdditionalService[];
   partsData: Part[];
   onPeriodicChange: (service: PeriodicService | null) => void;
+  onMspChange: (service: AdditionalService | null) => void;
   onTyreChange: (services: AdditionalService[]) => void;
   onAcChange: (services: AdditionalService[]) => void;
   onEngineChange: (services: AdditionalService[]) => void;
   selectedPeriodicService: PeriodicService | null;
+  selectedMspService: AdditionalService | null;
   selectedTyreServices: AdditionalService[];
   selectedAcServices: AdditionalService[];
   selectedEngineServices: AdditionalService[];
+  vehicleModelId: string;
 }
 
 export default function ServiceSelection({
   periodicServices,
+  mspServices,
   tyreServices,
   acServices,
   engineServices,
   partsData,
   onPeriodicChange,
+  onMspChange,
   onTyreChange,
   onAcChange,
   onEngineChange,
   selectedPeriodicService,
+  selectedMspService,
   selectedTyreServices,
   selectedAcServices,
   selectedEngineServices,
+  vehicleModelId,
 }: Props) {
   const handlePeriodicChange = (serviceId: string) => {
     if (selectedPeriodicService?.id === serviceId) {
@@ -61,6 +71,15 @@ export default function ServiceSelection({
     } else {
       const selected = periodicServices.find((s) => s.id === serviceId);
       onPeriodicChange(selected || null);
+    }
+  };
+
+  const handleMspChange = (serviceId: string) => {
+    if (selectedMspService?.id === serviceId) {
+      onMspChange(null);
+    } else {
+      const selected = mspServices.find((s) => s.id === serviceId);
+      onMspChange(selected || null);
     }
   };
   
@@ -134,8 +153,26 @@ export default function ServiceSelection({
     );
   };
 
+  const renderMspDetails = (service: AdditionalService) => {
+    const includedItems = getMspDescription(service.id, vehicleModelId);
+    return (
+      <div className="space-y-3 p-2">
+        <p className="text-sm font-semibold">Suku Cadang & Jasa Termasuk:</p>
+        <ul className="list-disc list-inside text-sm text-muted-foreground space-y-1">
+          {includedItems.map((item, i) => (
+            <li key={i}>{item}</li>
+          ))}
+        </ul>
+        <div className="pt-2 flex justify-between font-bold border-t">
+          <span>Total Paket</span>
+          <span>{formatCurrency(service.job.cost)}</span>
+        </div>
+      </div>
+    );
+  };
+
   return (
-    <Accordion type="multiple" defaultValue={["item-1", "item-4", "item-5", "item-6"]} className="w-full">
+    <Accordion type="multiple" defaultValue={["item-1", "item-msp", "item-4", "item-5", "item-6"]} className="w-full">
       <AccordionItem value="item-1">
         <AccordionTrigger className="text-lg font-medium">Paket Servis Berkala</AccordionTrigger>
         <AccordionContent>
@@ -163,6 +200,50 @@ export default function ServiceSelection({
           </RadioGroup>
         </AccordionContent>
       </AccordionItem>
+
+      {mspServices.length > 0 && (
+        <AccordionItem value="item-msp">
+          <AccordionTrigger className="text-lg font-medium">Paket Smart Extended (MSP)</AccordionTrigger>
+          <AccordionContent className="space-y-4">
+            <div className="bg-muted/50 p-4 rounded-lg flex gap-3 items-start border">
+              <Info className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+              <div className="text-sm space-y-1">
+                <p className="font-semibold">Tentang Paket MSP:</p>
+                <p>Paket service hemat untuk pemeliharaan kendaraan Anda kedepannya.</p>
+                <ul className="list-disc list-inside text-xs text-muted-foreground mt-1">
+                  <li><strong>MSP 2XPM:</strong> 2x service (Service saat ini & 1x service gratis akan datang).</li>
+                  <li><strong>MSP 4XPM:</strong> 4x service (Service saat ini & 3x service gratis akan datang).</li>
+                  <li><strong>MSP 6XPM:</strong> 6x service (Service saat ini & 5x service gratis akan datang).</li>
+                </ul>
+              </div>
+            </div>
+
+            <RadioGroup
+              value={selectedMspService?.id || ""}
+              onValueChange={handleMspChange}
+              className="grid gap-4"
+            >
+              {mspServices.map((service) => (
+                <Accordion type="single" collapsible key={service.id} className="rounded-md border">
+                  <AccordionItem value={service.id}>
+                      <div className="flex items-center space-x-3 p-4">
+                          <RadioGroupItem value={service.id} id={service.id} />
+                          <Label htmlFor={service.id} className="flex-1 font-normal cursor-pointer text-base">
+                              {service.name}
+                          </Label>
+                          <AccordionTrigger className="py-0 px-2 [&[data-state=open]>svg]:text-primary" />
+                      </div>
+                      <AccordionContent className="px-4 pb-4">
+                          {renderMspDetails(service)}
+                      </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              ))}
+            </RadioGroup>
+          </AccordionContent>
+        </AccordionItem>
+      )}
+
       <AccordionItem value="item-5">
         <AccordionTrigger className="text-lg font-medium">Perawatan AC</AccordionTrigger>
         <AccordionContent className="grid gap-4">
